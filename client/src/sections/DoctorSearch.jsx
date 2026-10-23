@@ -119,13 +119,13 @@ export const DoctorSearch = forwardRef(({
     }
   }, [filteredDoctors.length, mobileDoctorIndex]);
 
-  // Automatic slide on mobile every 3.8 seconds
+  // Automatic slide on mobile every 5 seconds (5000ms)
   useEffect(() => {
     if (isMobilePaused || filteredDoctors.length <= 1) return;
 
     const timer = setInterval(() => {
       setMobileDoctorIndex((prev) => (prev + 1) % filteredDoctors.length);
-    }, 3800);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isMobilePaused, filteredDoctors.length, mobileDoctorIndex]);
@@ -395,9 +395,21 @@ export const DoctorSearch = forwardRef(({
                 onMouseEnter={() => setIsMobilePaused(true)}
                 onMouseLeave={() => setIsMobilePaused(false)}
               >
-                {/* Current Doctor Card with Smooth Transition */}
-                <div className="transition-all duration-300 ease-out">
-                  {renderDoctorCard(filteredDoctors[mobileDoctorIndex], true)}
+                {/* Smooth Sliding Track */}
+                <div
+                  className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
+                  style={{
+                    transform: `translateX(-${mobileDoctorIndex * 100}%)`
+                  }}
+                >
+                  {filteredDoctors.map((doc, idx) => (
+                    <div
+                      key={doc.id || idx}
+                      className="w-full shrink-0 px-1"
+                    >
+                      {renderDoctorCard(doc, true)}
+                    </div>
+                  ))}
                 </div>
 
                 {/* Floating Chevron Left / Right Buttons */}

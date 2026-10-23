@@ -1,11 +1,18 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 import departmentRoutes from './routes/departmentRoutes.js';
 import doctorRoutes from './routes/doctorRoutes.js';
 import enquiryRoutes from './routes/enquiryRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 import { isMongoConnected } from './config/db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
 
 const app = express();
 
@@ -34,6 +41,18 @@ app.use('/api/departments', departmentRoutes);
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/enquiries', enquiryRoutes);
 app.use('/api/news', newsRoutes);
+
+// Serve static client production build if available (Production deployment on Render/Cloud)
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
 
 // Fallback & Error handling
 app.use(notFoundHandler);

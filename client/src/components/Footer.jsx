@@ -24,8 +24,8 @@ export const Footer = ({
     <footer className="bg-[#0B2236] text-white border-t border-white/10">
       
       {/* 1. Main Footer Grid */}
-      <div className="max-w-page mx-auto px-4 lg:px-6 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
           
           {/* Column 1: Institutional Wordmark & Heritage Summary (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
@@ -54,14 +54,14 @@ export const Footer = ({
             <div className="pt-2 text-xs space-y-2 text-white/80">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" />
-                <span className="text-xs">
+                <span className="text-xs leading-relaxed">
                   Sir Ganga Ram Hospital Marg, Old Rajinder Nagar, New Delhi – 110060, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span className="text-xs">
-                  Central Board: <strong>011-25750000</strong> &middot; Casualty: <strong>011-42254000</strong>
+                  Central: <strong>011-25750000</strong> &middot; Casualty: <strong>011-42254000</strong>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -261,22 +261,22 @@ export const Footer = ({
       </div>
 
       {/* 2. Sub-footer & Legal */}
-      <div className="border-t border-white/10 py-6 bg-[#081827] text-white/60 text-xs">
-        <div className="max-w-page mx-auto px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
+      <div className="border-t border-white/10 py-5 sm:py-6 bg-[#081827] text-white/60 text-xs">
+        <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-[11px] sm:text-xs">
             &copy; {new Date().getFullYear()} Sir Ganga Ram Hospital, New Delhi. All rights reserved.
             <span className="block sm:inline sm:ml-2 text-white/40">
               Proposal Concept Redesign by Creative Healthcare Experience Team.
             </span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-6 text-[11px] sm:text-xs">
             <span className="hover:text-white cursor-pointer">Privacy Safeguards</span>
             <span className="hover:text-white cursor-pointer">Terms of Service</span>
-            <span className="hover:text-white cursor-pointer">Accessibility Statement</span>
+            <span className="hover:text-white cursor-pointer">Accessibility</span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="p-1.5 sm:p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
               title="Return to top"
               aria-label="Back to Top"
             >

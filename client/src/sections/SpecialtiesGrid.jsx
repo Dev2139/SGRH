@@ -34,31 +34,31 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
   return (
     <section
       id="specialties"
-      className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16 relative"
+      className="py-10 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16 relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="max-w-page mx-auto px-4 lg:px-6">
+      <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80 text-xs font-bold uppercase tracking-wider mb-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>TERTIARY CENTERS OF EXCELLENCE</span>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+            <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
               Pioneering Clinical Disciplines
             </h2>
-            <p className="text-sm text-slate-500 mt-1.5">
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
               Sir Ganga Ram Hospital houses 71 clinical departments, led by nationally renowned clinicians and equipped with cutting-edge surgical robotics.
             </p>
           </div>
 
           {/* Interactive Mode Toggle & Carousel Controls */}
-          <div className="flex flex-wrap items-center gap-3 self-start md:self-auto">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3 w-full md:w-auto">
             {activeTab === 'specialties' && (
-              <div className="flex items-center gap-1.5 bg-[#F1F5F9] p-1 rounded-xl border border-slate-200">
+              <div className="flex items-center gap-1 bg-[#F1F5F9] p-1 rounded-xl border border-slate-200 shrink-0">
                 <button
                   onClick={() => setCurrentPage((prev) => (prev === 0 ? 1 : 0))}
                   className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0B2545] shadow-xs transition-colors"
@@ -67,7 +67,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-[11px] font-bold text-slate-600 px-2">
+                <span className="text-[11px] font-bold text-slate-600 px-1.5 sm:px-2">
                   {currentPage + 1} / 2
                 </span>
                 <button
@@ -82,21 +82,21 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
             )}
 
             {/* Tab switch */}
-            <div className="flex items-center bg-[#F1F5F9] p-1 rounded-xl border border-slate-200">
+            <div className="flex items-center bg-[#F1F5F9] p-1 rounded-xl border border-slate-200 flex-1 sm:flex-initial">
               <button
                 onClick={() => setActiveTab('specialties')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                className={`flex-1 sm:flex-initial justify-center px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   activeTab === 'specialties'
                     ? 'bg-[#0B2545] text-white shadow-xs'
                     : 'text-slate-600 hover:text-[#0B2545]'
                 }`}
               >
                 <Stethoscope className="w-3.5 h-3.5" />
-                <span>Flagship Centers (6)</span>
+                <span>Flagship (6)</span>
               </button>
               <button
                 onClick={() => setActiveTab('technology')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                className={`flex-1 sm:flex-initial justify-center px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   activeTab === 'technology'
                     ? 'bg-[#0B2545] text-white shadow-xs'
                     : 'text-slate-600 hover:text-[#0B2545]'
@@ -112,7 +112,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
         {/* Dynamic Carousel / Grid Content */}
         {activeTab === 'specialties' ? (
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 transition-all duration-500">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-7 transition-all duration-500">
               {displayedSpecialties.map((specialty) => (
                 <div
                   key={specialty.id}
@@ -228,10 +228,10 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
         )}
 
         {/* Explore All 71 Specialties Button */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center px-2">
           <button
             onClick={onExploreAllSpecialties}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm active:scale-[0.99]"
           >
             <span>View Full Directory of 71 Medical Departments</span>
             <ArrowRight className="w-4 h-4" />

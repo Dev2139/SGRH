@@ -110,36 +110,36 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
   const Icon = activeContent.icon;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-gray-200 animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+      <div className="relative bg-white rounded-2xl max-w-xl w-full max-h-[92vh] flex flex-col p-4 sm:p-8 shadow-2xl border border-gray-200 animate-fadeIn my-auto overflow-hidden">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors z-10"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="mb-6">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1769AA] uppercase tracking-wider mb-1.5">
+        <div className="mb-4 sm:mb-6 pr-6">
+          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-[#0284C7] uppercase tracking-wider mb-1">
             <Icon className="w-4 h-4" />
             <span>{activeContent.badge}</span>
           </div>
-          <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#123653]">
+          <h3 className="font-serif font-bold text-lg sm:text-2xl text-[#0B2545]">
             {activeContent.title}
           </h3>
-          <p className="text-xs text-[#637386] mt-1.5 leading-relaxed">
+          <p className="text-xs text-[#637386] mt-1 leading-relaxed">
             {activeContent.subtitle}
           </p>
         </div>
 
         {/* Sections Content */}
-        <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1 text-xs">
+        <div className="space-y-3 sm:space-y-4 max-h-[55vh] overflow-y-auto pr-1 text-xs">
           {activeContent.sections.map((section, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-[#F8FAFC] border border-gray-200/80 space-y-2">
-              <h4 className="font-semibold text-sm text-[#123653] flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1769AA]"></span>
+            <div key={idx} className="p-3.5 sm:p-4 rounded-xl bg-[#F8FAFC] border border-gray-200/80 space-y-2">
+              <h4 className="font-semibold text-xs sm:text-sm text-[#0B2545] flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
                 <span>{section.title}</span>
               </h4>
               <ul className="space-y-1.5 text-gray-600 pl-3">
@@ -155,13 +155,13 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-5 mt-4 border-t border-gray-100 flex items-center justify-between">
-          <div className="text-[11px] text-gray-500">
+        <div className="pt-4 sm:pt-5 mt-3 sm:mt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-[11px] text-gray-500 w-full sm:w-auto text-center sm:text-left">
             Helpline: <strong>011-25750000</strong>
           </div>
           <button
             onClick={onClose}
-            className="px-5 py-2.5 rounded-lg bg-[#123653] hover:bg-[#1769AA] text-white text-xs font-semibold transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-semibold transition-colors text-center active:scale-[0.99]"
           >
             I Understand & Close
           </button>

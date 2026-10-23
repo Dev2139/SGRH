@@ -52,47 +52,47 @@ export const QuickAccessPanel = ({
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 border-b border-slate-200/80">
-      <div className="max-w-page mx-auto px-4 lg:px-6">
+    <section className="bg-white py-10 sm:py-20 border-b border-slate-200/80">
+      <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto mb-12 space-y-2.5">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-3.5 py-1 rounded-full inline-block">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-3 sm:px-3.5 py-1 rounded-full inline-block">
             Immediate Patient Services
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight">
+          <h2 className="font-display text-xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight">
             How can we assist you today?
           </h2>
-          <p className="text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500">
             Select a service below for instant assistance, appointment booking, or emergency care.
           </p>
         </div>
 
         {/* 4 Spacious, Beautiful Action Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {cards.map((c) => {
             const Icon = c.icon;
             return (
               <button
                 key={c.id}
                 onClick={c.action}
-                className={`p-7 text-left rounded-2xl border transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ${
+                className={`p-5 sm:p-7 text-left rounded-2xl border transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 active:scale-[0.99] ${
                   c.isEmergency
                     ? 'bg-rose-50/30 border-rose-200 hover:border-rose-400 hover:bg-rose-50/60 shadow-xs hover:shadow-md'
                     : 'bg-[#F8FAFC] border-slate-200/90 hover:border-[#0284C7]/60 hover:bg-white shadow-xs hover:shadow-md'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 ${c.iconBg}`}>
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shrink-0 ${c.iconBg}`}>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${c.badgeColor}`}>
+                    <span className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 sm:px-2.5 py-0.5 rounded-full border ${c.badgeColor}`}>
                       {c.badge}
                     </span>
                   </div>
 
-                  <h3 className={`font-display font-bold text-lg mb-2 transition-colors ${
+                  <h3 className={`font-display font-bold text-base sm:text-lg mb-1.5 sm:mb-2 transition-colors ${
                     c.isEmergency ? 'text-rose-700 group-hover:text-rose-800' : 'text-[#0B2545] group-hover:text-[#0284C7]'
                   }`}>
                     {c.title}
@@ -103,7 +103,7 @@ export const QuickAccessPanel = ({
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold">
+                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold">
                   <span className={c.isEmergency ? 'text-rose-700' : 'text-[#0284C7]'}>
                     {c.isEmergency ? 'Call 011-42254000' : 'Access Service'}
                   </span>

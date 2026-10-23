@@ -50,32 +50,32 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80 scroll-mt-16">
-      <div className="max-w-page mx-auto px-4 lg:px-6">
+    <section id="contact" className="py-10 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80 scroll-mt-16">
+      <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
           
           {/* Left Column: Hospital Coordinates & Telephone Directory */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
               <MapPin className="w-3.5 h-3.5" />
               <span>CAMPUS LOCATION & REACH</span>
             </div>
 
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
               Hospital Location & Directory
             </h2>
 
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
               Situated in the heart of Central-West Delhi in Old Rajinder Nagar, convenient to Karol Bagh and Rajendra Place Metro Stations.
             </p>
 
             {/* Address Card */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 space-y-3 shadow-xs">
-              <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-2xl bg-white border border-slate-200/90 space-y-3 shadow-xs">
+              <div className="flex items-start gap-3 sm:gap-3.5">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm text-[#0B2545]">
@@ -89,7 +89,7 @@ export const ContactSection = () => {
                     href="https://maps.google.com/?q=Sir+Ganga+Ram+Hospital+New+Delhi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0284C7] hover:underline mt-2.5"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0284C7] hover:underline mt-2"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -98,44 +98,44 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Direct Telephone Directory */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-3.5 rounded-xl border border-rose-200 bg-rose-50/50">
+            {/* Direct Telephone Directory - Responsive row stacking on mobile */}
+            <div className="space-y-2.5 sm:space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-3 sm:p-3.5 rounded-xl border border-rose-200 bg-rose-50/50">
                 <div className="flex items-center gap-2.5">
-                  <PhoneCall className="w-4 h-4 text-rose-600" />
+                  <PhoneCall className="w-4 h-4 text-rose-600 shrink-0" />
                   <span className="text-xs font-bold text-rose-800">24x7 Emergency Casualty</span>
                 </div>
-                <a href={`tel:${hospitalInfo.contacts.emergency}`} className="text-xs font-bold text-rose-800 hover:underline">
+                <a href={`tel:${hospitalInfo.contacts.emergency}`} className="text-xs font-bold text-rose-800 hover:underline pl-6.5 sm:pl-0">
                   {hospitalInfo.contacts.emergency}
                 </a>
               </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-3 sm:p-3.5 rounded-xl border border-slate-200 bg-white">
                 <div className="flex items-center gap-2.5">
-                  <PhoneCall className="w-4 h-4 text-[#0284C7]" />
+                  <PhoneCall className="w-4 h-4 text-[#0284C7] shrink-0" />
                   <span className="text-xs font-semibold text-slate-700">OPD Appointments</span>
                 </div>
-                <a href={`tel:${hospitalInfo.contacts.opdAppointment}`} className="text-xs font-bold text-[#0B2545] hover:text-[#0284C7]">
+                <a href={`tel:${hospitalInfo.contacts.opdAppointment}`} className="text-xs font-bold text-[#0B2545] hover:text-[#0284C7] pl-6.5 sm:pl-0">
                   {hospitalInfo.contacts.opdAppointment}
                 </a>
               </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-3 sm:p-3.5 rounded-xl border border-slate-200 bg-white">
                 <div className="flex items-center gap-2.5">
-                  <PhoneCall className="w-4 h-4 text-[#0284C7]" />
+                  <PhoneCall className="w-4 h-4 text-[#0284C7] shrink-0" />
                   <span className="text-xs font-semibold text-slate-700">Central Hospital Board</span>
                 </div>
-                <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="text-xs font-bold text-[#0B2545] hover:text-[#0284C7]">
+                <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="text-xs font-bold text-[#0B2545] hover:text-[#0284C7] pl-6.5 sm:pl-0">
                   {hospitalInfo.contacts.casualtyAlternate}
                 </a>
               </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-3 sm:p-3.5 rounded-xl border border-slate-200 bg-white">
                 <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-[#0284C7]" />
+                  <Mail className="w-4 h-4 text-[#0284C7] shrink-0" />
                   <span className="text-xs font-semibold text-slate-700">Official Hospital Email</span>
                 </div>
-                <a href={`mailto:${hospitalInfo.contacts.email}`} className="text-xs font-semibold text-[#0B2545] hover:text-[#0284C7]">
+                <a href={`mailto:${hospitalInfo.contacts.email}`} className="text-xs font-semibold text-[#0B2545] hover:text-[#0284C7] pl-6.5 sm:pl-0 break-all">
                   {hospitalInfo.contacts.email}
                 </a>
               </div>
@@ -145,7 +145,7 @@ export const ContactSection = () => {
 
           {/* Right Column: Callback & General Enquiry Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-9 shadow-xs">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-7 md:p-9 shadow-xs">
               
               <div className="mb-6">
                 <h3 className="font-display font-bold text-2xl text-[#0B2545]">

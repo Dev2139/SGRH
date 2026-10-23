@@ -88,19 +88,18 @@ export const HeroSection = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const slideDuration = 5500; // 5.5 seconds per slide
-  const timerRef = useRef(null);
+  const touchStartXRef = useRef(null);
 
-  // Auto-play timer
+  // Auto-play timer - smoothly advances every 5 seconds (5000ms)
   useEffect(() => {
     if (isPaused) return;
 
-    timerRef.current = setInterval(() => {
+    const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, slideDuration);
+    }, 5000);
 
-    return () => clearInterval(timerRef.current);
-  }, [isPaused, currentSlide]);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
@@ -108,6 +107,21 @@ export const HeroSection = ({
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    if (diff > 40) {
+      handleNext();
+    } else if (diff < -40) {
+      handlePrev();
+    }
+    touchStartXRef.current = null;
   };
 
   const active = HERO_SLIDES[currentSlide];
@@ -140,8 +154,6 @@ export const HeroSection = ({
   return (
     <section
       className="relative bg-gradient-to-b from-sky-50/40 via-white to-[#F8FAFC] pt-6 sm:pt-16 pb-12 sm:pb-24 border-b border-slate-200/80 overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Subtle Royal Background Watermark Crest */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-gradient-to-br from-amber-100/20 via-sky-100/20 to-transparent blur-3xl pointer-events-none -z-0"></div>
@@ -236,7 +248,11 @@ export const HeroSection = ({
             {/* Outer Showcase Frame */}
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-slate-200/80 bg-white p-1 sm:p-1.5 shadow-xl">
               
-              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden h-[260px] xs:h-[300px] sm:h-[400px] lg:h-[450px] bg-slate-900">
+              <div
+                className="relative rounded-xl sm:rounded-2xl overflow-hidden h-[260px] xs:h-[300px] sm:h-[400px] lg:h-[450px] bg-slate-900 select-none"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
                 {/* Images Layer with Crossfade */}
                 {HERO_SLIDES.map((slide, idx) => (
                   <img

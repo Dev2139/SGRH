@@ -171,35 +171,22 @@ export const Navbar = ({
       <nav className={`max-w-page mx-auto px-3 sm:px-4 lg:px-6 transition-all duration-200 ${isScrolled ? 'py-2.5 sm:py-3' : 'py-3 sm:py-4'}`}>
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Logo & Identity */}
+          {/* Official Rectangular SGRH Logo (Whole lockup in one clean element) */}
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-2 sm:gap-3.5 group focus:outline-none min-w-0"
+            className="flex items-center group focus:outline-none shrink-0"
             aria-label="Sir Ganga Ram Hospital Home"
           >
-            {/* Official SGRH Logo */}
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center p-0.5 sm:p-1 shadow-xs border border-slate-200/90 group-hover:border-amber-400 group-hover:shadow-md transition-all shrink-0 overflow-hidden">
-              <img
-                src="https://res.cloudinary.com/urzka7oz/image/upload/v1792742734/sgrh.webp"
-                alt="Sir Ganga Ram Hospital Official Logo"
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform"
-              />
-            </div>
-
-            <div className="min-w-0">
-              <span className="font-display font-extrabold text-sm xs:text-base sm:text-lg md:text-xl tracking-tight text-[#0B2545] group-hover:text-[#0284C7] transition-colors leading-tight block truncate">
-                SIR GANGA RAM HOSPITAL
-              </span>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-500 font-medium">
-                <span className="shrink-0">NEW DELHI</span>
-                <span className="inline-block w-1 h-1 rounded-full bg-slate-300 shrink-0"></span>
-                <span className="text-[#0284C7] font-semibold truncate">NABH & NABL &middot; 900+ BEDS</span>
-              </div>
-            </div>
+            <img
+              src="/sgrh-logo.png"
+              alt="Sir Ganga Ram Hospital - Trust of Generations"
+              className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              loading="eager"
+            />
           </a>
 
           {/* Clean Desktop Navigation Links */}
@@ -335,14 +322,13 @@ export const Navbar = ({
               <span>Casualty 24x7</span>
             </button>
 
-            {/* Primary Appointment Button */}
+            {/* Primary Appointment Button (Warm Brand Orange matching SGRH reference) */}
             <button
               onClick={onOpenAppointment}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-2xl bg-[#DE5824] hover:bg-[#C64716] text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
             >
-              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-300" />
-              <span className="hidden xs:inline">Book</span>
-              <span className="hidden sm:inline"> Appointment</span>
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              <span className="hidden xs:inline">Book Appointment</span>
               <span className="xs:hidden">Book</span>
             </button>
 
@@ -392,9 +378,9 @@ export const Navbar = ({
                 setMobileMenuOpen(false);
                 onOpenAppointment();
               }}
-              className="w-full py-3 px-4 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-colors"
+              className="w-full py-3 px-4 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-colors"
             >
-              <Calendar className="w-4 h-4 text-sky-300" />
+              <Calendar className="w-4 h-4 text-white" />
               <span>Book OPD Doctor Consultation</span>
             </button>
 

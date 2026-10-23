@@ -29,22 +29,12 @@ export const Footer = ({
           
           {/* Column 1: Institutional Wordmark & Heritage Summary (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1 border border-white/20 shrink-0 overflow-hidden shadow-xs">
-                <img
-                  src="https://res.cloudinary.com/urzka7oz/image/upload/v1792742734/sgrh.webp"
-                  alt="Sir Ganga Ram Hospital Official Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <span className="font-serif font-bold text-base tracking-tight text-white block">
-                  SIR GANGA RAM HOSPITAL
-                </span>
-                <span className="text-[10px] text-teal-300 font-semibold tracking-wider uppercase block">
-                  New Delhi &middot; Estd. 1954
-                </span>
-              </div>
+            <div className="inline-block p-2 bg-white rounded-xl shadow-xs">
+              <img
+                src="/sgrh-logo.png"
+                alt="Sir Ganga Ram Hospital - Trust of Generations"
+                className="h-10 sm:h-11 w-auto object-contain"
+              />
             </div>
 
             <p className="text-xs text-white/70 leading-relaxed max-w-sm">

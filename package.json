@@ -1,0 +1,23 @@
+{
+  "name": "sir-ganga-ram-hospital-redesign",
+  "version": "1.0.0",
+  "description": "Premium Website Redesign Concept for Sir Ganga Ram Hospital (SGRH), New Delhi",
+  "private": true,
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "seed": "cd server && node src/scripts/seed.js",
+    "build:client": "cd client && npm run build",
+    "install:all": "cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": [
+    "sgrh",
+    "healthcare",
+    "hospital-redesign",
+    "react",
+    "tailwind",
+    "mern"
+  ],
+  "author": "Creative Healthcare Experience Team",
+  "license": "ISC"
+}

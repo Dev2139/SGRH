@@ -1,0 +1,120 @@
+import React from 'react';
+import { Search, Calendar, FileText, Ambulance, ArrowRight } from 'lucide-react';
+
+export const QuickAccessPanel = ({
+  onFindDoctorClick,
+  onOpenAppointment,
+  onLabResultsClick,
+  onEmergencyClick
+}) => {
+  const cards = [
+    {
+      id: 'doctor',
+      title: 'Find a Doctor',
+      subtitle: 'Search 71+ departments, senior consultants & daily OPD clinic hours.',
+      icon: Search,
+      action: onFindDoctorClick,
+      badge: 'Directory',
+      badgeColor: 'bg-sky-50 text-sky-700 border-sky-200',
+      iconBg: 'bg-[#E0F2FE] text-[#0284C7]'
+    },
+    {
+      id: 'appointment',
+      title: 'Book Consultation',
+      subtitle: 'Request a prioritized doctor consultation or follow-up OPD slot online.',
+      icon: Calendar,
+      action: onOpenAppointment,
+      badge: 'Online Booking',
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      iconBg: 'bg-emerald-50 text-emerald-600'
+    },
+    {
+      id: 'lab',
+      title: 'Download Lab Reports',
+      subtitle: 'View and download authorized NABL diagnostic pathology and radiology tests.',
+      icon: FileText,
+      action: onLabResultsClick,
+      badge: 'Instant Access',
+      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+      iconBg: 'bg-amber-50 text-amber-600'
+    },
+    {
+      id: 'emergency',
+      title: '24x7 Emergency Care',
+      subtitle: 'Immediate trauma resuscitation, ICU beds, and ambulance dispatch.',
+      icon: Ambulance,
+      action: onEmergencyClick,
+      badge: '24x7 Active',
+      badgeColor: 'bg-rose-50 text-rose-700 border-rose-200',
+      iconBg: 'bg-rose-100 text-rose-600',
+      isEmergency: true
+    }
+  ];
+
+  return (
+    <section className="bg-white py-16 sm:py-20 border-b border-slate-200/80">
+      <div className="max-w-page mx-auto px-4 lg:px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-xl mx-auto mb-12 space-y-2.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-3.5 py-1 rounded-full inline-block">
+            Immediate Patient Services
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight">
+            How can we assist you today?
+          </h2>
+          <p className="text-sm text-slate-500">
+            Select a service below for instant assistance, appointment booking, or emergency care.
+          </p>
+        </div>
+
+        {/* 4 Spacious, Beautiful Action Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cards.map((c) => {
+            const Icon = c.icon;
+            return (
+              <button
+                key={c.id}
+                onClick={c.action}
+                className={`p-7 text-left rounded-2xl border transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ${
+                  c.isEmergency
+                    ? 'bg-rose-50/30 border-rose-200 hover:border-rose-400 hover:bg-rose-50/60 shadow-xs hover:shadow-md'
+                    : 'bg-[#F8FAFC] border-slate-200/90 hover:border-[#0284C7]/60 hover:bg-white shadow-xs hover:shadow-md'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 ${c.iconBg}`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${c.badgeColor}`}>
+                      {c.badge}
+                    </span>
+                  </div>
+
+                  <h3 className={`font-display font-bold text-lg mb-2 transition-colors ${
+                    c.isEmergency ? 'text-rose-700 group-hover:text-rose-800' : 'text-[#0B2545] group-hover:text-[#0284C7]'
+                  }`}>
+                    {c.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    {c.subtitle}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold">
+                  <span className={c.isEmergency ? 'text-rose-700' : 'text-[#0284C7]'}>
+                    {c.isEmergency ? 'Call 011-42254000' : 'Access Service'}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+};

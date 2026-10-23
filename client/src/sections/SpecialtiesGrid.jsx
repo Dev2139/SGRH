@@ -1,0 +1,244 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { centersOfExcellence, advancedTechnologies } from '../data/hospitalData';
+import {
+  ArrowRight,
+  CheckCircle2,
+  Stethoscope,
+  ChevronRight,
+  ChevronLeft,
+  Cpu,
+  Activity,
+  Sparkles,
+  Pause,
+  Play
+} from 'lucide-react';
+
+export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) => {
+  const [activeTab, setActiveTab] = useState('specialties'); // 'specialties' or 'technology'
+  const [currentPage, setCurrentPage] = useState(0); // 0 or 1 for 3-card sets
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-slide every 6 seconds if not paused
+  useEffect(() => {
+    if (isPaused || activeTab !== 'specialties') return;
+
+    const interval = setInterval(() => {
+      setCurrentPage((prev) => (prev === 0 ? 1 : 0));
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, activeTab]);
+
+  const displayedSpecialties = centersOfExcellence.slice(currentPage * 3, currentPage * 3 + 3);
+
+  return (
+    <section
+      id="specialties"
+      className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16 relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-page mx-auto px-4 lg:px-6">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80 text-xs font-bold uppercase tracking-wider mb-2.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>TERTIARY CENTERS OF EXCELLENCE</span>
+            </div>
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+              Pioneering Clinical Disciplines
+            </h2>
+            <p className="text-sm text-slate-500 mt-1.5">
+              Sir Ganga Ram Hospital houses 71 clinical departments, led by nationally renowned clinicians and equipped with cutting-edge surgical robotics.
+            </p>
+          </div>
+
+          {/* Interactive Mode Toggle & Carousel Controls */}
+          <div className="flex flex-wrap items-center gap-3 self-start md:self-auto">
+            {activeTab === 'specialties' && (
+              <div className="flex items-center gap-1.5 bg-[#F1F5F9] p-1 rounded-xl border border-slate-200">
+                <button
+                  onClick={() => setCurrentPage((prev) => (prev === 0 ? 1 : 0))}
+                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0B2545] shadow-xs transition-colors"
+                  title="Previous Specialties"
+                  aria-label="Previous Page"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <span className="text-[11px] font-bold text-slate-600 px-2">
+                  {currentPage + 1} / 2
+                </span>
+                <button
+                  onClick={() => setCurrentPage((prev) => (prev === 0 ? 1 : 0))}
+                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0B2545] shadow-xs transition-colors"
+                  title="Next Specialties"
+                  aria-label="Next Page"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+
+            {/* Tab switch */}
+            <div className="flex items-center bg-[#F1F5F9] p-1 rounded-xl border border-slate-200">
+              <button
+                onClick={() => setActiveTab('specialties')}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  activeTab === 'specialties'
+                    ? 'bg-[#0B2545] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0B2545]'
+                }`}
+              >
+                <Stethoscope className="w-3.5 h-3.5" />
+                <span>Flagship Centers (6)</span>
+              </button>
+              <button
+                onClick={() => setActiveTab('technology')}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  activeTab === 'technology'
+                    ? 'bg-[#0B2545] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0B2545]'
+                }`}
+              >
+                <Cpu className="w-3.5 h-3.5" />
+                <span>Robotics & Tech</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Dynamic Carousel / Grid Content */}
+        {activeTab === 'specialties' ? (
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 transition-all duration-500">
+              {displayedSpecialties.map((specialty) => (
+                <div
+                  key={specialty.id}
+                  className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/90 hover:border-[#C5A059] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                >
+                  <div>
+                    {/* Card Image */}
+                    <div className="relative overflow-hidden h-48 bg-slate-100">
+                      <img
+                        src={specialty.image}
+                        alt={specialty.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-transparent to-transparent"></div>
+                      
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0B2545] border border-amber-200 shadow-xs flex items-center gap-1">
+                        <Sparkles className="w-2.5 h-2.5 text-amber-600" />
+                        <span>{specialty.tagline}</span>
+                      </div>
+
+                      <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-semibold tracking-wide">
+                        {specialty.stats}
+                      </div>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-6 space-y-3">
+                      <h3 className="font-display font-bold text-lg text-[#0B2545] group-hover:text-[#0284C7] transition-colors">
+                        {specialty.title}
+                      </h3>
+
+                      <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                        {specialty.description}
+                      </p>
+
+                      {/* Clean Key Highlights */}
+                      <div className="pt-2 border-t border-slate-200/60 space-y-1.5">
+                        {specialty.highlights.slice(0, 2).map((h, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            <span className="truncate">{h}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Action */}
+                  <div className="p-6 pt-0">
+                    <button
+                      onClick={() => onSelectSpecialty(specialty.id)}
+                      className="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-[#0B2545] border border-slate-200 group-hover:border-[#0B2545] text-[#0B2545] group-hover:text-white text-xs font-bold transition-all flex items-center justify-between shadow-xs"
+                    >
+                      <span>View Consultants & OPD</span>
+                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-transform group-hover:translate-x-0.5" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Paging Dots Indicator */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <button
+                onClick={() => setCurrentPage(0)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentPage === 0 ? 'w-8 bg-[#C5A059]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+                aria-label="Specialties Page 1"
+              />
+              <button
+                onClick={() => setCurrentPage(1)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentPage === 1 ? 'w-8 bg-[#C5A059]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+                aria-label="Specialties Page 2"
+              />
+            </div>
+          </div>
+        ) : (
+          /* Advanced Technology Grid */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn">
+            {advancedTechnologies.map((tech, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#C5A059] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between group hover:-translate-y-1"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-2.5 py-0.5 rounded-full">
+                      {tech.category}
+                    </span>
+                    <Activity className="w-4 h-4 text-teal-600" />
+                  </div>
+
+                  <h3 className="font-display font-bold text-base text-[#0B2545] group-hover:text-[#0284C7] transition-colors mb-2">
+                    {tech.name}
+                  </h3>
+
+                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                    {tech.description}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-200/80 text-[11px] text-slate-600">
+                  <span className="font-bold text-[#0B2545] block mb-0.5">Clinical Use:</span>
+                  <span className="text-slate-500">{tech.application}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Explore All 71 Specialties Button */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={onExploreAllSpecialties}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+          >
+            <span>View Full Directory of 71 Medical Departments</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
+};

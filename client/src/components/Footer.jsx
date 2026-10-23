@@ -30,8 +30,12 @@ export const Footer = ({
           {/* Column 1: Institutional Wordmark & Heritage Summary (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1769AA] to-[#123653] border border-white/20 flex items-center justify-center text-white font-serif font-bold text-base">
-                GR
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1 border border-white/20 shrink-0 overflow-hidden shadow-xs">
+                <img
+                  src="https://res.cloudinary.com/urzka7oz/image/upload/v1792742734/sgrh.webp"
+                  alt="Sir Ganga Ram Hospital Official Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-serif font-bold text-base tracking-tight text-white block">

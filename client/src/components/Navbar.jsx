@@ -180,12 +180,13 @@ export const Navbar = ({
             className="flex items-center gap-3.5 group focus:outline-none"
             aria-label="Sir Ganga Ram Hospital Home"
           >
-            {/* Royal Crest */}
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0B2545] via-[#143B66] to-[#0B2545] text-white flex items-center justify-center shadow-md border border-amber-300/40 relative overflow-hidden group-hover:border-amber-400 group-hover:shadow-amber-500/10 transition-all shrink-0">
-              <div className="text-center">
-                <span className="font-display font-black text-base leading-none tracking-tight block text-white">GR</span>
-                <span className="text-[8px] font-sans tracking-widest text-amber-300 block font-bold">1954</span>
-              </div>
+            {/* Official SGRH Logo */}
+            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1 shadow-xs border border-slate-200/90 group-hover:border-amber-400 group-hover:shadow-md transition-all shrink-0 overflow-hidden">
+              <img
+                src="https://res.cloudinary.com/urzka7oz/image/upload/v1792742734/sgrh.webp"
+                alt="Sir Ganga Ram Hospital Official Logo"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+              />
             </div>
 
             <div>

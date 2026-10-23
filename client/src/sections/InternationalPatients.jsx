@@ -77,7 +77,7 @@ export const InternationalPatients = ({ onOpenInternationalModal }) => {
 
               {/* Informational overlay */}
               <div className="absolute bottom-5 inset-x-5 text-white space-y-2">
-                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-[#C5A059]">
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-teal-300">
                   <ShieldCheck className="w-4 h-4 text-teal-300" />
                   <span>DEDICATED INTERNATIONAL LOUNGE</span>
                 </div>

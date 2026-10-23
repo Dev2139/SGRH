@@ -43,19 +43,19 @@ export const Footer = ({
 
             <div className="pt-2 text-xs space-y-2 text-white/80">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-[#DE5824] mt-0.5 shrink-0" />
                 <span className="text-xs leading-relaxed">
                   Sir Ganga Ram Hospital Marg, Old Rajinder Nagar, New Delhi – 110060, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
+                <Phone className="w-4 h-4 text-[#DE5824] shrink-0" />
                 <span className="text-xs">
                   Central: <strong>011-25750000</strong> &middot; Casualty: <strong>011-42254000</strong>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
+                <Mail className="w-4 h-4 text-[#DE5824] shrink-0" />
                 <span className="text-xs">gangaram@sgrh.com</span>
               </div>
             </div>

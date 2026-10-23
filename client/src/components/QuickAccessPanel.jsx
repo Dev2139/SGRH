@@ -15,8 +15,8 @@ export const QuickAccessPanel = ({
       icon: Search,
       action: onFindDoctorClick,
       badge: 'Directory',
-      badgeColor: 'bg-sky-50 text-sky-700 border-sky-200',
-      iconBg: 'bg-[#E0F2FE] text-[#0284C7]'
+      badgeColor: 'bg-teal-50 text-[#0D7B7B] border-teal-200',
+      iconBg: 'bg-teal-50 text-[#0D7B7B]'
     },
     {
       id: 'appointment',
@@ -25,8 +25,8 @@ export const QuickAccessPanel = ({
       icon: Calendar,
       action: onOpenAppointment,
       badge: 'Online Booking',
-      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      iconBg: 'bg-emerald-50 text-emerald-600'
+      badgeColor: 'bg-orange-50 text-[#DE5824] border-orange-200',
+      iconBg: 'bg-orange-50 text-[#DE5824]'
     },
     {
       id: 'lab',
@@ -35,8 +35,8 @@ export const QuickAccessPanel = ({
       icon: FileText,
       action: onLabResultsClick,
       badge: 'Instant Access',
-      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
-      iconBg: 'bg-amber-50 text-amber-600'
+      badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
+      iconBg: 'bg-teal-50 text-teal-600'
     },
     {
       id: 'emergency',
@@ -57,7 +57,7 @@ export const QuickAccessPanel = ({
         
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-3 sm:px-3.5 py-1 rounded-full inline-block">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0D7B7B] bg-teal-50 border border-teal-200/80 px-3 sm:px-3.5 py-1 rounded-full inline-block">
             Immediate Patient Services
           </span>
           <h2 className="font-display text-xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight">

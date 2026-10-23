@@ -8,7 +8,6 @@ import {
   ChevronLeft,
   Cpu,
   Activity,
-  Sparkles,
   Pause,
   Play
 } from 'lucide-react';
@@ -43,8 +42,8 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-[#0D7B7B] border border-teal-200/80 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+              <Activity className="w-3.5 h-3.5 text-[#0D7B7B]" />
               <span>TERTIARY CENTERS OF EXCELLENCE</span>
             </div>
             <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
@@ -116,7 +115,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
               {displayedSpecialties.map((specialty) => (
                 <div
                   key={specialty.id}
-                  className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/90 hover:border-[#C5A059] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                  className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/90 hover:border-[#0D7B7B] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
                 >
                   <div>
                     {/* Card Image */}
@@ -129,8 +128,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-transparent to-transparent"></div>
                       
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0B2545] border border-amber-200 shadow-xs flex items-center gap-1">
-                        <Sparkles className="w-2.5 h-2.5 text-amber-600" />
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0B2545] border border-slate-200 shadow-xs flex items-center gap-1">
                         <span>{specialty.tagline}</span>
                       </div>
 
@@ -141,7 +139,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
 
                     {/* Card Content */}
                     <div className="p-6 space-y-3">
-                      <h3 className="font-display font-bold text-lg text-[#0B2545] group-hover:text-[#0284C7] transition-colors">
+                      <h3 className="font-display font-bold text-lg text-[#0B2545] group-hover:text-[#0D7B7B] transition-colors">
                         {specialty.title}
                       </h3>
 
@@ -180,14 +178,14 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
               <button
                 onClick={() => setCurrentPage(0)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentPage === 0 ? 'w-8 bg-[#C5A059]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                  currentPage === 0 ? 'w-8 bg-[#0D7B7B]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label="Specialties Page 1"
               />
               <button
                 onClick={() => setCurrentPage(1)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentPage === 1 ? 'w-8 bg-[#C5A059]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                  currentPage === 1 ? 'w-8 bg-[#0D7B7B]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label="Specialties Page 2"
               />
@@ -199,7 +197,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
             {advancedTechnologies.map((tech, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#C5A059] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between group hover:-translate-y-1"
+                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#0D7B7B] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

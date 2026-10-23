@@ -102,7 +102,7 @@ export const TechnologySection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B2236]/90 via-[#0B2236]/20 to-transparent"></div>
 
               <div className="absolute bottom-5 inset-x-5 text-white">
-                <div className="text-[10px] uppercase font-bold tracking-wider text-[#C5A059] mb-1">
+                <div className="text-[10px] uppercase font-bold tracking-wider text-teal-400 mb-1">
                   VERIFIED MEDICAL CAPABILITY
                 </div>
                 <h4 className="font-serif font-bold text-lg text-white">

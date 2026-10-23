@@ -7,7 +7,6 @@ import {
   HeartHandshake,
   GraduationCap,
   Globe,
-  Sparkles,
   Zap,
   PhoneCall
 } from 'lucide-react';
@@ -17,7 +16,7 @@ const MARQUEE_ITEMS = [
     icon: Award,
     title: 'NABH & NABL Dual Accreditations',
     subtitle: 'Highest National Clinical Quality',
-    color: 'text-amber-400'
+    color: 'text-teal-400'
   },
   {
     icon: Landmark,
@@ -35,7 +34,7 @@ const MARQUEE_ITEMS = [
     icon: Zap,
     title: '4th-Gen da Vinci Xi Robotic Surgery',
     subtitle: 'Sub-Millimeter Surgical Precision',
-    color: 'text-amber-400'
+    color: 'text-orange-400'
   },
   {
     icon: HeartHandshake,
@@ -47,7 +46,7 @@ const MARQUEE_ITEMS = [
     icon: GraduationCap,
     title: 'Premier National DNB Teaching Institute',
     subtitle: 'Super-Specialty Medical Postgraduates',
-    color: 'text-sky-400'
+    color: 'text-teal-300'
   },
   {
     icon: Globe,
@@ -65,9 +64,9 @@ const MARQUEE_ITEMS = [
 
 export const RoyalMarquee = () => {
   return (
-    <div className="bg-[#06172B] border-y border-amber-400/20 py-3.5 relative overflow-hidden select-none">
+    <div className="bg-[#06172B] border-y border-teal-500/20 py-3.5 relative overflow-hidden select-none">
       
-      {/* Subtle Ambient Gold Edge Fade */}
+      {/* Subtle Ambient Edge Fade */}
       <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#06172B] to-transparent z-10 pointer-events-none"></div>
       <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#06172B] to-transparent z-10 pointer-events-none"></div>
 
@@ -86,9 +85,8 @@ export const RoyalMarquee = () => {
                 <Icon className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold tracking-wide text-white group-hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <div className="text-xs font-bold tracking-wide text-white group-hover:text-teal-300 transition-colors">
                   <span>{item.title}</span>
-                  <Sparkles className="w-2.5 h-2.5 text-amber-400 opacity-60" />
                 </div>
                 <div className="text-[10px] text-white/60 font-medium">
                   {item.subtitle}
@@ -110,9 +108,8 @@ export const RoyalMarquee = () => {
                 <Icon className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold tracking-wide text-white group-hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <div className="text-xs font-bold tracking-wide text-white group-hover:text-teal-300 transition-colors">
                   <span>{item.title}</span>
-                  <Sparkles className="w-2.5 h-2.5 text-amber-400 opacity-60" />
                 </div>
                 <div className="text-[10px] text-white/60 font-medium">
                   {item.subtitle}

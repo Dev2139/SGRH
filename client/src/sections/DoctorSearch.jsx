@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, forwardRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, forwardRef } from 'react';
 import {
   Search,
   Calendar,
@@ -7,6 +7,9 @@ import {
   RotateCcw,
   User,
   ChevronRight,
+  ChevronLeft,
+  Pause,
+  Play,
   Stethoscope,
   PhoneCall
 } from 'lucide-react';
@@ -99,10 +102,146 @@ export const DoctorSearch = forwardRef(({
     });
   }, [doctors, selectedDept, searchTerm, selectedAilment]);
 
+  // Mobile automatic carousel state
+  const [mobileDoctorIndex, setMobileDoctorIndex] = useState(0);
+  const [isMobilePaused, setIsMobilePaused] = useState(false);
+  const touchStartXRef = useRef(null);
+
+  // Reset index when filtered doctors change
+  useEffect(() => {
+    setMobileDoctorIndex(0);
+  }, [searchTerm, selectedDept, selectedAilment]);
+
+  // Keep index within bounds
+  useEffect(() => {
+    if (mobileDoctorIndex >= filteredDoctors.length && filteredDoctors.length > 0) {
+      setMobileDoctorIndex(0);
+    }
+  }, [filteredDoctors.length, mobileDoctorIndex]);
+
+  // Automatic slide on mobile every 3.8 seconds
+  useEffect(() => {
+    if (isMobilePaused || filteredDoctors.length <= 1) return;
+
+    const timer = setInterval(() => {
+      setMobileDoctorIndex((prev) => (prev + 1) % filteredDoctors.length);
+    }, 3800);
+
+    return () => clearInterval(timer);
+  }, [isMobilePaused, filteredDoctors.length, mobileDoctorIndex]);
+
+  const handleMobilePrev = () => {
+    setMobileDoctorIndex((prev) => (prev - 1 + filteredDoctors.length) % filteredDoctors.length);
+  };
+
+  const handleMobileNext = () => {
+    setMobileDoctorIndex((prev) => (prev + 1) % filteredDoctors.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    setIsMobilePaused(true);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    if (diff > 40) {
+      handleMobileNext();
+    } else if (diff < -40) {
+      handleMobilePrev();
+    }
+    touchStartXRef.current = null;
+    setTimeout(() => setIsMobilePaused(false), 2500);
+  };
+
   const handleReset = () => {
     setSearchTerm('');
     setSelectedDept('all');
     setSelectedAilment('');
+  };
+
+  const renderDoctorCard = (doc, isMobile = false) => {
+    if (!doc) return null;
+    return (
+      <div
+        key={doc.id}
+        className={`bg-white rounded-2xl shadow-xs hover:shadow-elevated border border-slate-200/90 hover:border-[#0D7B7B]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group ${
+          isMobile ? 'w-full max-w-sm mx-auto shadow-md border-teal-100' : ''
+        }`}
+      >
+        <div>
+          {/* Doctor Card Top */}
+          <div className="p-4 sm:p-5 border-b border-slate-100 flex gap-3.5 sm:gap-4 items-start">
+            <img
+              src={doc.image}
+              alt={doc.name}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600';
+              }}
+              className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl object-cover object-top border border-slate-200 shrink-0 bg-slate-50"
+              loading="lazy"
+            />
+            <div className="min-w-0">
+              <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#0D7B7B] bg-teal-50 border border-teal-200/60 px-2 py-0.5 rounded-md mb-1 truncate max-w-full">
+                {doc.departmentName.split('&')[0]}
+              </span>
+              <h3 className="font-display font-bold text-sm sm:text-base text-[#0B2545] leading-snug group-hover:text-[#0D7B7B] transition-colors">
+                {doc.name}
+              </h3>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
+                {doc.qualification}
+              </p>
+            </div>
+          </div>
+
+          {/* Doctor Details */}
+          <div className="p-4 sm:p-5 space-y-3 sm:space-y-3.5 text-xs">
+            <div>
+              <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                Experience & Role
+              </span>
+              <p className="text-slate-800 font-semibold text-xs mt-0.5">
+                {doc.designation} &middot; <strong className="text-[#0D7B7B] font-bold">{doc.experienceYears}+ Yrs</strong>
+              </p>
+            </div>
+
+            {/* OPD Schedule Box */}
+            <div className="bg-[#F8FAFC] rounded-xl p-2.5 sm:p-3 border border-slate-100 space-y-1">
+              <div className="flex items-center gap-1.5 text-slate-800 text-[11px]">
+                <Clock className="w-3.5 h-3.5 text-[#0D7B7B] shrink-0" />
+                <span className="font-bold text-[#0B2545]">Clinic Days:</span>
+                <span className="truncate text-slate-600 font-medium">{doc.opdSchedule}</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="truncate">{doc.room}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Card Action */}
+        <div className="p-4 sm:p-5 pt-0 space-y-2">
+          <button
+            onClick={() => onSelectDoctorForAppointment(doc)}
+            className="w-full py-2.5 px-3 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.99]"
+          >
+            <Calendar className="w-3.5 h-3.5 text-white" />
+            <span>Book Consultation</span>
+          </button>
+
+          <button
+            onClick={() => onOpenDoctorDetail(doc)}
+            className="w-full py-1.5 px-3 rounded-lg text-slate-500 hover:text-[#0B2545] text-xs font-bold transition-colors flex items-center justify-center gap-1"
+          >
+            <span>View Profile</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          </button>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -225,10 +364,10 @@ export const DoctorSearch = forwardRef(({
           </span>
         </div>
 
-        {/* Doctor Cards Grid */}
+        {/* Doctor Cards Container: Mobile Automatic Carousel vs Desktop Grid */}
         {loading ? (
           <div className="py-20 text-center">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#0284C7]"></div>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#0D7B7B]"></div>
           </div>
         ) : filteredDoctors.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
@@ -239,92 +378,99 @@ export const DoctorSearch = forwardRef(({
             </p>
             <button
               onClick={handleReset}
-              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl hover:bg-[#0284C7] transition-colors"
+              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl hover:bg-[#0D7B7B] transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Show All Consultants</span>
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-            {filteredDoctors.map((doc) => (
+          <>
+            {/* 1. Mobile View: Automatic Carousel (Not in a single line) */}
+            <div className="sm:hidden space-y-3">
               <div
-                key={doc.id}
-                className="bg-white rounded-2xl shadow-xs hover:shadow-elevated border border-slate-200/90 hover:border-[#0284C7]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                className="relative overflow-hidden px-1"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onMouseEnter={() => setIsMobilePaused(true)}
+                onMouseLeave={() => setIsMobilePaused(false)}
               >
-                <div>
-                  {/* Doctor Card Top */}
-                  <div className="p-4 sm:p-5 border-b border-slate-100 flex gap-3.5 sm:gap-4 items-start">
-                    <img
-                      src={doc.image}
-                      alt={doc.name}
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600';
-                      }}
-                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl object-cover object-top border border-slate-200 shrink-0 bg-slate-50"
-                      loading="lazy"
-                    />
-                    <div className="min-w-0">
-                      <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-2 py-0.5 rounded-md mb-1 truncate max-w-full">
-                        {doc.departmentName.split('&')[0]}
-                      </span>
-                      <h3 className="font-display font-bold text-sm sm:text-base text-[#0B2545] leading-snug group-hover:text-[#0284C7] transition-colors">
-                        {doc.name}
-                      </h3>
-                      <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
-                        {doc.qualification}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Doctor Details */}
-                  <div className="p-4 sm:p-5 space-y-3 sm:space-y-3.5 text-xs">
-                    <div>
-                      <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                        Experience & Role
-                      </span>
-                      <p className="text-slate-800 font-semibold text-xs mt-0.5">
-                        {doc.designation} &middot; <strong className="text-[#0284C7] font-bold">{doc.experienceYears}+ Yrs</strong>
-                      </p>
-                    </div>
-
-                    {/* OPD Schedule Box */}
-                    <div className="bg-[#F8FAFC] rounded-xl p-2.5 sm:p-3 border border-slate-100 space-y-1">
-                      <div className="flex items-center gap-1.5 text-slate-800 text-[11px]">
-                        <Clock className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
-                        <span className="font-bold text-[#0B2545]">Clinic Days:</span>
-                        <span className="truncate text-slate-600 font-medium">{doc.opdSchedule}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
-                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span className="truncate">{doc.room}</span>
-                      </div>
-                    </div>
-                  </div>
+                {/* Current Doctor Card with Smooth Transition */}
+                <div className="transition-all duration-300 ease-out">
+                  {renderDoctorCard(filteredDoctors[mobileDoctorIndex], true)}
                 </div>
 
-                {/* Card Action */}
-                <div className="p-4 sm:p-5 pt-0 space-y-2">
-                  <button
-                    onClick={() => onSelectDoctorForAppointment(doc)}
-                    className="w-full py-2.5 px-3 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-xs active:scale-[0.99]"
-                  >
-                    <Calendar className="w-3.5 h-3.5 text-sky-300" />
-                    <span>Book Consultation</span>
-                  </button>
+                {/* Floating Chevron Left / Right Buttons */}
+                {filteredDoctors.length > 1 && (
+                  <>
+                    <button
+                      onClick={handleMobilePrev}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 shadow-md border border-slate-200 flex items-center justify-center text-[#0B2545] active:scale-90 z-10"
+                      aria-label="Previous Doctor"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
 
-                  <button
-                    onClick={() => onOpenDoctorDetail(doc)}
-                    className="w-full py-1.5 px-3 rounded-lg text-slate-500 hover:text-[#0B2545] text-xs font-bold transition-colors flex items-center justify-center gap-1"
-                  >
-                    <span>View Profile</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-                  </button>
-                </div>
+                    <button
+                      onClick={handleMobileNext}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 shadow-md border border-slate-200 flex items-center justify-center text-[#0B2545] active:scale-90 z-10"
+                      aria-label="Next Doctor"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </>
+                )}
               </div>
-            ))}
-          </div>
+
+              {/* Mobile Carousel Controls Strip */}
+              {filteredDoctors.length > 1 && (
+                <div className="flex items-center justify-between px-2 pt-1 text-xs">
+                  {/* Auto Play / Pause Toggle */}
+                  <button
+                    onClick={() => setIsMobilePaused(!isMobilePaused)}
+                    className="text-[11px] font-semibold text-slate-600 flex items-center gap-1.5 py-1 px-2.5 rounded-lg bg-white border border-slate-200 shadow-xs hover:bg-slate-50 transition-colors"
+                    title={isMobilePaused ? 'Resume auto carousel' : 'Pause auto carousel'}
+                  >
+                    {isMobilePaused ? (
+                      <>
+                        <Play className="w-3 h-3 text-emerald-600 fill-emerald-600" />
+                        <span>Auto Play</span>
+                      </>
+                    ) : (
+                      <>
+                        <Pause className="w-3 h-3 text-amber-600" />
+                        <span>Pause</span>
+                      </>
+                    )}
+                  </button>
+
+                  {/* Dot Indicators */}
+                  <div className="flex items-center gap-1.5">
+                    {filteredDoctors.slice(0, Math.min(8, filteredDoctors.length)).map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setMobileDoctorIndex(idx)}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          mobileDoctorIndex === idx ? 'w-5 bg-[#0D7B7B]' : 'w-1.5 bg-slate-300'
+                        }`}
+                        aria-label={`Go to doctor ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Doctor Counter */}
+                  <span className="text-[11px] text-slate-500 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    {mobileDoctorIndex + 1} / {filteredDoctors.length}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* 2. Desktop View: Responsive Multi-Column Grid */}
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+              {filteredDoctors.map((doc) => renderDoctorCard(doc, false))}
+            </div>
+          </>
         )}
 
       </div>

@@ -184,7 +184,7 @@ export const Navbar = ({
             <img
               src="/sgrh-logo.png"
               alt="Sir Ganga Ram Hospital - Trust of Generations"
-              className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              className="h-8 xs:h-9 sm:h-11 md:h-12 max-w-[200px] xs:max-w-[240px] sm:max-w-none w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
               loading="eager"
             />
           </a>
@@ -322,20 +322,19 @@ export const Navbar = ({
               <span>Casualty 24x7</span>
             </button>
 
-            {/* Primary Appointment Button (Warm Brand Orange matching SGRH reference) */}
+            {/* Primary Appointment Button (Desktop / Tablet only; placed inside Hamburger menu for Mobile) */}
             <button
               onClick={onOpenAppointment}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-2xl bg-[#DE5824] hover:bg-[#C64716] text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full sm:rounded-2xl bg-[#DE5824] hover:bg-[#C64716] text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
             >
-              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-              <span className="hidden xs:inline">Book Appointment</span>
-              <span className="xs:hidden">Book</span>
+              <Calendar className="w-4 h-4 text-white" />
+              <span>Book Appointment</span>
             </button>
 
-            {/* Mobile Hamburger Menu */}
+            {/* Mobile Hamburger Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-[#0B2545] rounded-lg transition-colors focus:outline-none"
+              className="xl:hidden w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#0B2545] hover:bg-slate-100 rounded-xl transition-colors focus:outline-none shrink-0"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -348,7 +347,19 @@ export const Navbar = ({
         {mobileMenuOpen && (
           <div className="xl:hidden mt-3 pt-3 border-t border-slate-200 pb-4 space-y-3 animate-fadeIn">
             
-            {/* Quick Action Buttons */}
+            {/* 1. Primary Book Appointment CTA inside Hamburger */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenAppointment();
+              }}
+              className="w-full py-3.5 px-4 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all"
+            >
+              <Calendar className="w-4 h-4 text-white" />
+              <span>Book Appointment</span>
+            </button>
+
+            {/* 2. Quick Emergency & Lab Action Buttons */}
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => {
@@ -365,24 +376,12 @@ export const Navbar = ({
                   setMobileMenuOpen(false);
                   onOpenLabPortal();
                 }}
-                className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-sky-50 text-[#0284C7] text-xs font-bold border border-sky-200 active:scale-[0.98] transition-transform"
+                className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-teal-50 text-[#0D7B7B] text-xs font-bold border border-teal-200 active:scale-[0.98] transition-transform"
               >
                 <FileText className="w-4 h-4" />
                 <span>Lab Reports</span>
               </button>
             </div>
-
-            {/* Prominent Book Consultation Button */}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAppointment();
-              }}
-              className="w-full py-3 px-4 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-colors"
-            >
-              <Calendar className="w-4 h-4 text-white" />
-              <span>Book OPD Doctor Consultation</span>
-            </button>
 
             {/* Navigation Links */}
             <nav className="flex flex-col space-y-1 text-xs sm:text-sm font-semibold text-slate-700 pt-1">

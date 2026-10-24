@@ -21,7 +21,7 @@ export const Footer = ({
   };
 
   return (
-    <footer className="bg-[#0B2236] text-white border-t border-white/10">
+    <footer className="bg-[#0C2340] text-white border-t border-white/10">
       
       {/* 1. Main Footer Grid */}
       <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
@@ -241,7 +241,7 @@ export const Footer = ({
             </ul>
 
             {/* Accreditations micro-block */}
-            <div className="pt-3 border-t border-white/10 flex items-center gap-2 text-[11px] text-teal-300">
+            <div className="pt-3 border-t border-white/10 flex items-center gap-2 text-[11px] text-sky-300">
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>NABH & NABL Accredited Center</span>
             </div>
@@ -251,7 +251,7 @@ export const Footer = ({
       </div>
 
       {/* 2. Sub-footer & Legal */}
-      <div className="border-t border-white/10 py-5 sm:py-6 bg-[#081827] text-white/60 text-xs">
+      <div className="border-t border-white/10 py-5 sm:py-6 bg-[#081729] text-white/60 text-xs">
         <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="text-[11px] sm:text-xs">
             &copy; {new Date().getFullYear()} Brahm Shakti Hospital Trust (Regd.), New Delhi. All rights reserved.

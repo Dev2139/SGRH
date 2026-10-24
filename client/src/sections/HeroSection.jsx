@@ -138,7 +138,7 @@ export const HeroSection = ({
                   onClick={() => setCurrentIndex(idx)}
                   className={`transition-all duration-300 rounded-full h-2 ${
                     currentIndex === idx
-                      ? 'w-7 sm:w-8 bg-[#0284C7]'
+                      ? 'w-7 sm:w-8 bg-[#006699]'
                       : 'w-2 sm:w-2.5 bg-white/60 hover:bg-white'
                   }`}
                   aria-label={`Jump to slide ${idx + 1}`}
@@ -162,7 +162,7 @@ export const HeroSection = ({
         <div className="mt-3 sm:mt-5 px-3 sm:px-0 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
           <button
             onClick={onOpenAppointment}
-            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow active:scale-[0.98]"
           >
             <Calendar className="w-4 h-4 shrink-0" />
             <span className="truncate">Book Appointment</span>
@@ -170,17 +170,17 @@ export const HeroSection = ({
 
           <button
             onClick={() => onFindDoctorClick && onFindDoctorClick()}
-            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2340] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
           >
-            <Search className="w-4 h-4 text-[#0284C7] shrink-0" />
+            <Search className="w-4 h-4 text-[#006699] shrink-0" />
             <span className="truncate">Find a Doctor</span>
           </button>
 
           <button
             onClick={() => onFindDoctorClick && onFindDoctorClick()}
-            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2340] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
           >
-            <Clock className="w-4 h-4 text-[#0284C7] shrink-0" />
+            <Clock className="w-4 h-4 text-[#006699] shrink-0" />
             <span className="truncate">Doctor Schedules</span>
           </button>
 

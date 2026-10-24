@@ -80,7 +80,7 @@ export const Navbar = ({
     <header className="sticky top-0 z-40 w-full bg-white transition-all duration-300 shadow-sm border-b border-slate-200/90">
       
       {/* 1. Sleek, Minimal Top Utility Bar */}
-      <div className="bg-[#0C2B4E] text-white text-xs py-1.5 px-3 sm:px-6 border-b border-white/10">
+      <div className="bg-[#0C2340] text-white text-xs py-1.5 px-3 sm:px-6 border-b border-white/10">
         <div className="max-w-page mx-auto flex items-center justify-between gap-4">
           
           {/* Left: 24-Hour Emergency Helpline */}
@@ -164,7 +164,7 @@ export const Navbar = ({
           </a>
 
           {/* Center Navigation Links: Services, Find a Doctor, Specialties, Patient Services, Clinical Services, Health & Lifestyle */}
-          <div className="hidden xl:flex items-center gap-1 text-[13.5px] font-bold text-[#0C2B4E] uppercase tracking-wide">
+          <div className="hidden xl:flex items-center gap-1 text-[13.5px] font-bold text-[#0C2340] uppercase tracking-wide">
             
             {/* 1. SERVICES Dropdown */}
             <div
@@ -173,8 +173,8 @@ export const Navbar = ({
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#0284C7] hover:bg-slate-50 transition-colors ${
-                  activeDropdown === 'services' ? 'text-[#0284C7] bg-slate-50' : ''
+                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#006699] hover:bg-slate-50 transition-colors ${
+                  activeDropdown === 'services' ? 'text-[#006699] bg-slate-50' : ''
                 }`}
               >
                 <span>Services</span>
@@ -188,14 +188,14 @@ export const Navbar = ({
                       onClick={() => onOpenEmergency && onOpenEmergency()}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-rose-50 hover:text-rose-700 transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">24x7 Emergency & Trauma</span>
+                      <span className="font-bold text-[#0C2340] block">24x7 Emergency & Trauma</span>
                       <span className="text-[11px] text-slate-500">Immediate casualty arrival & mobile ICU</span>
                     </button>
                     <button
                       onClick={() => scrollTo('doctor-search')}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Outpatient (OPD) Clinics</span>
+                      <span className="font-bold text-[#0C2340] block">Outpatient (OPD) Clinics</span>
                       <span className="text-[11px] text-slate-500">Morning & evening consultant clinics</span>
                     </button>
                     <button
@@ -203,16 +203,16 @@ export const Navbar = ({
                         scrollTo('specialties');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('nephrology');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Subsidized Dialysis Center</span>
+                      <span className="font-bold text-[#0C2340] block">Subsidized Dialysis Center</span>
                       <span className="text-[11px] text-slate-500">24x7 renal care at subsidized fee</span>
                     </button>
                     <button
                       onClick={onOpenLabPortal}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Diagnostic Radiology & Labs</span>
+                      <span className="font-bold text-[#0C2340] block">Diagnostic Radiology & Labs</span>
                       <span className="text-[11px] text-slate-500">CT Scan, MRI, Ultrasound & Blood Bank</span>
                     </button>
                   </div>
@@ -223,7 +223,7 @@ export const Navbar = ({
             {/* 2. FIND A DOCTOR */}
             <button
               onClick={() => scrollTo('doctor-search')}
-              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#006699] hover:bg-slate-50 transition-colors"
             >
               Find a Doctor
             </button>
@@ -235,8 +235,8 @@ export const Navbar = ({
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#0284C7] hover:bg-slate-50 transition-colors ${
-                  activeDropdown === 'specialties' ? 'text-[#0284C7] bg-slate-50' : ''
+                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#006699] hover:bg-slate-50 transition-colors ${
+                  activeDropdown === 'specialties' ? 'text-[#006699] bg-slate-50' : ''
                 }`}
               >
                 <span>Our Specialties</span>
@@ -251,9 +251,9 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('orthopaedics');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Orthopaedics & Joint Surgery</span>
+                      <span className="font-bold text-[#0C2340] block">Orthopaedics & Joint Surgery</span>
                       <span className="text-[11px] text-slate-500">Knee/Hip replacement, Arthroscopy & Spine</span>
                     </button>
                     <button
@@ -261,9 +261,9 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('cardiology');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Heart Surgeries & Interventions</span>
+                      <span className="font-bold text-[#0C2340] block">Heart Surgeries & Interventions</span>
                       <span className="text-[11px] text-slate-500">Coronary Bypass & Cardiac Emergency</span>
                     </button>
                     <button
@@ -271,9 +271,9 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('nephrology');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Nephrology & Kidney Care</span>
+                      <span className="font-bold text-[#0C2340] block">Nephrology & Kidney Care</span>
                       <span className="text-[11px] text-slate-500">24x7 Subsidized Dialysis & Renal Care</span>
                     </button>
                     <button
@@ -281,9 +281,9 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('neurosciences');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Neuro & Neuro Spine Surgeries</span>
+                      <span className="font-bold text-[#0C2340] block">Neuro & Neuro Spine Surgeries</span>
                       <span className="text-[11px] text-slate-500">Brain & Spine microsurgery & Stroke unit</span>
                     </button>
                     <button
@@ -291,9 +291,9 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('oncology');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Cancer Treatment & Oncology</span>
+                      <span className="font-bold text-[#0C2340] block">Cancer Treatment & Oncology</span>
                       <span className="text-[11px] text-slate-500">Surgical oncology & Day-care chemotherapy</span>
                     </button>
                     <button
@@ -301,15 +301,15 @@ export const Navbar = ({
                         scrollTo('doctor-search');
                         if (onSelectDepartmentFilter) onSelectDepartmentFilter('cosmetic');
                       }}
-                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#006699] transition-colors"
                     >
-                      <span className="font-bold text-[#0C2B4E] block">Aesthetic & Cosmetic Surgeries</span>
+                      <span className="font-bold text-[#0C2340] block">Aesthetic & Cosmetic Surgeries</span>
                       <span className="text-[11px] text-slate-500">Rhinoplasty, Liposuction & Reconstructions</span>
                     </button>
                     <div className="pt-2 mt-1 border-t border-slate-100">
                       <button
                         onClick={() => scrollTo('specialties')}
-                        className="w-full text-left px-3 py-1.5 text-xs font-bold text-[#0284C7] hover:underline flex items-center justify-between"
+                        className="w-full text-left px-3 py-1.5 text-xs font-bold text-[#006699] hover:underline flex items-center justify-between"
                       >
                         <span>View All Hospital Specialties</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -323,7 +323,7 @@ export const Navbar = ({
             {/* 4. PATIENT SERVICES */}
             <button
               onClick={() => scrollTo('patient-services')}
-              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#006699] hover:bg-slate-50 transition-colors"
             >
               Patient Services
             </button>
@@ -331,7 +331,7 @@ export const Navbar = ({
             {/* 5. CLINICAL SERVICES */}
             <button
               onClick={() => scrollTo('clinical-services')}
-              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#006699] hover:bg-slate-50 transition-colors"
             >
               Clinical Services
             </button>
@@ -339,7 +339,7 @@ export const Navbar = ({
             {/* 6. HEALTH & LIFESTYLE */}
             <button
               onClick={() => scrollTo('heritage')}
-              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#006699] hover:bg-slate-50 transition-colors"
             >
               Health & Lifestyle
             </button>
@@ -353,7 +353,7 @@ export const Navbar = ({
                 scrollTo('doctor-search');
                 if (onSearchFocus) onSearchFocus();
               }}
-              className="p-2 sm:p-2.5 text-slate-600 hover:text-[#0C2B4E] hover:bg-slate-100 rounded-xl transition-colors"
+              className="p-2 sm:p-2.5 text-slate-600 hover:text-[#0C2340] hover:bg-slate-100 rounded-xl transition-colors"
               title="Search Doctors or Services"
               aria-label="Search"
             >
@@ -370,10 +370,10 @@ export const Navbar = ({
               <span>Ambulance 24x7</span>
             </button>
 
-            {/* Primary Appointment Button (Realistic Medical Blue) */}
+            {/* Primary Appointment Button (Classic Hospital Blue) */}
             <button
               onClick={onOpenAppointment}
-              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs sm:text-sm uppercase tracking-wide transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
+              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white font-bold text-xs sm:text-sm uppercase tracking-wide transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
             >
               <Calendar className="w-4 h-4 text-white" />
               <span>Book Appointment</span>
@@ -382,7 +382,7 @@ export const Navbar = ({
             {/* Mobile Hamburger Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#0C2B4E] hover:bg-slate-100 rounded-xl transition-colors focus:outline-none shrink-0"
+              className="xl:hidden w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#0C2340] hover:bg-slate-100 rounded-xl transition-colors focus:outline-none shrink-0"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -402,7 +402,7 @@ export const Navbar = ({
                   setMobileMenuOpen(false);
                   onOpenAppointment();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs uppercase tracking-wide shadow-sm"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white font-bold text-xs uppercase tracking-wide shadow-sm"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Appointment</span>
@@ -421,7 +421,7 @@ export const Navbar = ({
             </div>
 
             {/* Mobile Nav Links */}
-            <div className="space-y-1 font-semibold text-sm text-[#0C2B4E]">
+            <div className="space-y-1 font-semibold text-sm text-[#0C2340]">
               <button
                 onClick={() => scrollTo('doctor-search')}
                 className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
@@ -481,13 +481,13 @@ export const Navbar = ({
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-500 font-medium">Hospital Board:</span>
-                <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="font-bold text-[#0C2B4E] hover:underline">
+                <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="font-bold text-[#0C2340] hover:underline">
                   {hospitalInfo.contacts.casualtyAlternate}
                 </a>
               </div>
               <div className="flex items-center justify-between pt-1 border-t border-slate-200">
                 <span className="text-slate-500 font-medium">Hospital Email:</span>
-                <a href={`mailto:${hospitalInfo.contacts.email}`} className="font-bold text-[#0284C7] hover:underline">
+                <a href={`mailto:${hospitalInfo.contacts.email}`} className="font-bold text-[#006699] hover:underline">
                   {hospitalInfo.contacts.email}
                 </a>
               </div>

@@ -15,25 +15,25 @@ const MARQUEE_ITEMS = [
     icon: HeartHandshake,
     title: 'Managed by Brahm Shakti Trust (Regd.)',
     subtitle: 'Philanthropic Healthcare Ethos',
-    color: 'text-amber-400'
+    color: 'text-sky-300'
   },
   {
     icon: Award,
     title: 'NABH & NABL Accredited Center',
     subtitle: 'National Quality Standards',
-    color: 'text-sky-400'
+    color: 'text-emerald-400'
   },
   {
     icon: Activity,
     title: '250-Bedded Tertiary Healthcare Project',
     subtitle: 'Modern ICUs, Dialysis & Laminar OTs',
-    color: 'text-teal-400'
+    color: 'text-sky-400'
   },
   {
     icon: Sparkles,
     title: 'High-Tech Care at Subsidised Fees',
     subtitle: 'Coronary Bypass & Kidney Care',
-    color: 'text-emerald-400'
+    color: 'text-teal-300'
   },
   {
     icon: Ambulance,
@@ -51,17 +51,17 @@ const MARQUEE_ITEMS = [
     icon: ShieldCheck,
     title: 'Empaneled with Major TPA & Cashless Panels',
     subtitle: 'Hassle-free Inpatient Hospitalization',
-    color: 'text-amber-300'
+    color: 'text-emerald-300'
   }
 ];
 
 export const RoyalMarquee = () => {
   return (
-    <div className="bg-[#071E36] border-y border-sky-500/20 py-3 relative overflow-hidden select-none">
+    <div className="bg-[#0C2340] border-y border-blue-400/20 py-3 relative overflow-hidden select-none">
       
       {/* Subtle Ambient Edge Fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#071E36] to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#071E36] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0C2340] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0C2340] to-transparent z-10 pointer-events-none"></div>
 
       {/* Continuously Sliding Infinite Track */}
       <div className="animate-marquee flex items-center gap-8 text-white">

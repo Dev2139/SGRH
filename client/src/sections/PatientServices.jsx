@@ -68,11 +68,11 @@ export const PatientServices = ({
         
         {/* Section Header */}
         <div className="max-w-2xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F4FA] text-[#006699] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
             <Compass className="w-3.5 h-3.5" />
             <span>PATIENT & VISITOR ESSENTIALS</span>
           </div>
-          <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+          <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0C2340] tracking-tight">
             Visiting & Hospital Guidance
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -91,7 +91,7 @@ export const PatientServices = ({
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 sm:mb-5">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center transition-transform group-hover:scale-105 shrink-0">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#E8F4FA] text-[#006699] flex items-center justify-center transition-transform group-hover:scale-105 shrink-0">
                       <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 sm:px-2.5 py-1 rounded-full">
@@ -99,7 +99,7 @@ export const PatientServices = ({
                     </span>
                   </div>
 
-                  <h3 className="font-display font-bold text-base text-[#0B2545] group-hover:text-[#0284C7] transition-colors mb-1.5 sm:mb-2">
+                  <h3 className="font-display font-bold text-base text-[#0C2340] group-hover:text-[#006699] transition-colors mb-1.5 sm:mb-2">
                     {card.title}
                   </h3>
 
@@ -111,7 +111,7 @@ export const PatientServices = ({
                 <div className="pt-4 mt-4 sm:mt-5 border-t border-slate-100">
                   <button
                     onClick={card.action}
-                    className="w-full py-2.5 px-3.5 rounded-xl bg-[#F8FAFC] group-hover:bg-[#0B2545] text-[#0B2545] group-hover:text-white text-xs font-bold transition-all flex items-center justify-between active:scale-[0.99]"
+                    className="w-full py-2.5 px-3.5 rounded-xl bg-[#F8FAFC] group-hover:bg-[#006699] text-[#0C2340] group-hover:text-white text-xs font-bold transition-all flex items-center justify-between active:scale-[0.99]"
                   >
                     <span>{card.ctaText}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -125,10 +125,10 @@ export const PatientServices = ({
         {/* Rapid Assistance Contact Bar */}
         <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-2xl bg-white border border-slate-200/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xs">
           <div className="space-y-1">
-            <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0284C7]">
+            <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#006699]">
               24-HOUR HOSPITAL BOARD & TELEPHONE DIRECTORY
             </div>
-            <div className="text-xs sm:text-sm font-semibold text-[#0B2545]">
+            <div className="text-xs sm:text-sm font-semibold text-[#0C2340]">
               Need immediate guidance on patient room location, admission status, or ambulance?
             </div>
           </div>
@@ -143,7 +143,7 @@ export const PatientServices = ({
             </a>
             <a
               href={`tel:${hospitalInfo.contacts.casualtyAlternate}`}
-              className="px-4 py-2.5 rounded-xl bg-[#0C2B4E] hover:bg-[#0284C7] text-white font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="px-4 py-2.5 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <span>Main Board: {hospitalInfo.contacts.casualtyAlternate}</span>
             </a>

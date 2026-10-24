@@ -51,14 +51,14 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
         </button>
 
         <div className="mb-6">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1769AA] uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#006699] uppercase tracking-wider mb-1">
             <FileText className="w-3.5 h-3.5" />
             <span>NABL ACCREDITED DIAGNOSTIC LABORATORIES</span>
           </div>
-          <h3 className="font-serif font-bold text-2xl text-[#123653]">
+          <h3 className="font-display font-bold text-2xl text-[#0C2340]">
             Online Diagnostic Test Reports
           </h3>
-          <p className="text-xs text-[#637386] mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Access, view, and print authorized pathology, biochemistry, microbiology, and radiology investigation reports.
           </p>
         </div>
@@ -66,9 +66,9 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
         {reportResult ? (
           <div className="space-y-4">
             <div className="p-4 rounded-xl bg-[#F0FDFA] border border-teal-200 space-y-2">
-              <div className="flex items-center justify-between text-xs font-semibold text-[#123653]">
+              <div className="flex items-center justify-between text-xs font-semibold text-[#0C2340]">
                 <span>UHID: {reportResult.uhid}</span>
-                <span className="text-teal-700 bg-white px-2 py-0.5 rounded border border-teal-200 text-[10px]">
+                <span className="text-emerald-700 bg-white px-2 py-0.5 rounded border border-emerald-200 text-[10px]">
                   NABL AUTHORIZED
                 </span>
               </div>
@@ -81,7 +81,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
                     </div>
                     <button
                       onClick={() => toast.success('Demo: Opening sample authorized PDF report viewer')}
-                      className="px-2.5 py-1 rounded bg-[#123653] hover:bg-[#1769AA] text-white text-[11px] font-medium"
+                      className="px-2.5 py-1 rounded bg-[#006699] hover:bg-[#004D73] text-white text-[11px] font-medium"
                     >
                       Download PDF
                     </button>
@@ -108,7 +108,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
                 placeholder="e.g. BSH-123456"
                 value={uhid}
                 onChange={(e) => setUhid(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+                className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#006699]"
               />
               <span className="text-[10px] text-gray-400 mt-1 block">
                 Found on your OPD slip or admission card.
@@ -133,20 +133,20 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
                 placeholder="e.g. LAB-2026-8841"
                 value={billNo}
                 onChange={(e) => setBillNo(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+                className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#006699]"
               />
             </div>
 
             <button
               type="submit"
               disabled={searching}
-              className="w-full py-3 bg-[#123653] hover:bg-[#1769AA] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+              className="w-full py-3 bg-[#006699] hover:bg-[#004D73] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
             >
               {searching ? (
                 <span>Searching Laboratory Archive...</span>
               ) : (
                 <>
-                  <Search className="w-3.5 h-3.5 text-teal-300" />
+                  <Search className="w-3.5 h-3.5 text-sky-200" />
                   <span>Fetch Diagnostic Reports</span>
                 </>
               )}
@@ -154,7 +154,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
 
             <div className="p-3 bg-gray-50 rounded-lg text-[11px] text-gray-500 space-y-1">
               <div className="flex items-center gap-1.5 font-medium text-gray-700">
-                <Phone className="w-3.5 h-3.5 text-[#1769AA]" />
+                <Phone className="w-3.5 h-3.5 text-[#006699]" />
                 <span>Lab Helpdesk Telephone:</span>
               </div>
               <div>011-27531683 &middot; 24 Hours Operational</div>

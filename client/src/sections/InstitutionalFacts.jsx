@@ -10,10 +10,10 @@ export const InstitutionalFacts = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-slate-100 gap-4">
           <div>
-            <span className="text-xs font-bold text-[#0284C7] uppercase tracking-wider block mb-1">
+            <span className="text-xs font-bold text-[#006699] uppercase tracking-wider block mb-1">
               Verified Scale & Credentials
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#0C2340] tracking-tight">
               A Multispecialty Tertiary Benchmark
             </h2>
           </div>
@@ -27,10 +27,10 @@ export const InstitutionalFacts = () => {
           {quickStats.map((stat, idx) => (
             <div key={idx} className={`${idx !== 0 ? 'sm:pl-6 pt-4 sm:pt-0' : ''} space-y-1.5`}>
               <div className="flex items-baseline gap-1">
-                <span className="font-display text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0B2545] tracking-tight">
+                <span className="font-display text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0C2340] tracking-tight">
                   {stat.number}
                 </span>
-                <span className="text-sm font-bold text-[#0284C7]">
+                <span className="text-sm font-bold text-[#006699]">
                   {stat.suffix}
                 </span>
               </div>
@@ -51,11 +51,11 @@ export const InstitutionalFacts = () => {
             <span className="font-semibold">National Accreditation Board for Hospitals & Healthcare Providers (NABH)</span>
           </div>
           <div className="flex items-center gap-2 text-slate-700">
-            <Award className="w-4 h-4 text-[#B48A3C]" />
+            <Award className="w-4 h-4 text-[#006699]" />
             <span className="font-semibold">National Accreditation Board for Testing Laboratories (NABL)</span>
           </div>
           <div className="flex items-center gap-2 text-slate-700">
-            <HeartHandshake className="w-4 h-4 text-[#0284C7]" />
+            <HeartHandshake className="w-4 h-4 text-[#006699]" />
             <span className="font-semibold">Brahm Shakti Trust (Regd.) Charitable Governance</span>
           </div>
         </div>

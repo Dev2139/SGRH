@@ -42,11 +42,11 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-[#0D7B7B] border border-teal-200/80 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
-              <Activity className="w-3.5 h-3.5 text-[#0D7B7B]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F4FA] text-[#006699] border border-blue-200/80 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+              <Activity className="w-3.5 h-3.5 text-[#006699]" />
               <span>TERTIARY CENTERS OF EXCELLENCE</span>
             </div>
-            <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+            <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0C2340] tracking-tight">
               Pioneering Clinical Disciplines
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -60,7 +60,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
               <div className="flex items-center gap-1 bg-[#F1F5F9] p-1 rounded-xl border border-slate-200 shrink-0">
                 <button
                   onClick={() => setCurrentPage((prev) => (prev === 0 ? 1 : 0))}
-                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0B2545] shadow-xs transition-colors"
+                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0C2340] shadow-xs transition-colors"
                   title="Previous Specialties"
                   aria-label="Previous Page"
                 >
@@ -71,7 +71,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                 </span>
                 <button
                   onClick={() => setCurrentPage((prev) => (prev === 0 ? 1 : 0))}
-                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0B2545] shadow-xs transition-colors"
+                  className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-[#0C2340] shadow-xs transition-colors"
                   title="Next Specialties"
                   aria-label="Next Page"
                 >
@@ -86,8 +86,8 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                 onClick={() => setActiveTab('specialties')}
                 className={`flex-1 sm:flex-initial justify-center px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   activeTab === 'specialties'
-                    ? 'bg-[#0B2545] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-[#0B2545]'
+                    ? 'bg-[#006699] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0C2340]'
                 }`}
               >
                 <Stethoscope className="w-3.5 h-3.5" />
@@ -97,8 +97,8 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                 onClick={() => setActiveTab('technology')}
                 className={`flex-1 sm:flex-initial justify-center px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   activeTab === 'technology'
-                    ? 'bg-[#0B2545] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-[#0B2545]'
+                    ? 'bg-[#006699] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0C2340]'
                 }`}
               >
                 <Cpu className="w-3.5 h-3.5" />
@@ -126,9 +126,9 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0C2340]/85 via-transparent to-transparent"></div>
                       
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0B2545] border border-slate-200 shadow-xs flex items-center gap-1">
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0C2340] border border-slate-200 shadow-xs flex items-center gap-1">
                         <span>{specialty.tagline}</span>
                       </div>
 
@@ -139,7 +139,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
 
                     {/* Card Content */}
                     <div className="p-6 space-y-3">
-                      <h3 className="font-display font-bold text-lg text-[#0B2545] group-hover:text-[#0D7B7B] transition-colors">
+                      <h3 className="font-display font-bold text-lg text-[#0C2340] group-hover:text-[#006699] transition-colors">
                         {specialty.title}
                       </h3>
 
@@ -163,7 +163,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                   <div className="p-6 pt-0">
                     <button
                       onClick={() => onSelectSpecialty(specialty.id)}
-                      className="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-[#0B2545] border border-slate-200 group-hover:border-[#0B2545] text-[#0B2545] group-hover:text-white text-xs font-bold transition-all flex items-center justify-between shadow-xs"
+                      className="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-[#006699] border border-slate-200 group-hover:border-[#006699] text-[#0C2340] group-hover:text-white text-xs font-bold transition-all flex items-center justify-between shadow-xs"
                     >
                       <span>View Consultants & OPD</span>
                       <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-transform group-hover:translate-x-0.5" />
@@ -178,14 +178,14 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
               <button
                 onClick={() => setCurrentPage(0)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentPage === 0 ? 'w-8 bg-[#0D7B7B]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                  currentPage === 0 ? 'w-8 bg-[#006699]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label="Specialties Page 1"
               />
               <button
                 onClick={() => setCurrentPage(1)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentPage === 1 ? 'w-8 bg-[#0D7B7B]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                  currentPage === 1 ? 'w-8 bg-[#006699]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label="Specialties Page 2"
               />
@@ -197,17 +197,17 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
             {advancedTechnologies.map((tech, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#0D7B7B] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between group hover:-translate-y-1"
+                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#006699] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#0284C7] bg-[#E0F2FE] px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#006699] bg-[#E8F4FA] px-2.5 py-0.5 rounded-full">
                       {tech.category}
                     </span>
                     <Activity className="w-4 h-4 text-teal-600" />
                   </div>
 
-                  <h3 className="font-display font-bold text-base text-[#0B2545] group-hover:text-[#0284C7] transition-colors mb-2">
+                  <h3 className="font-display font-bold text-base text-[#0C2340] group-hover:text-[#006699] transition-colors mb-2">
                     {tech.name}
                   </h3>
 
@@ -217,7 +217,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
                 </div>
 
                 <div className="pt-3 border-t border-slate-200/80 text-[11px] text-slate-600">
-                  <span className="font-bold text-[#0B2545] block mb-0.5">Clinical Use:</span>
+                  <span className="font-bold text-[#0C2340] block mb-0.5">Clinical Use:</span>
                   <span className="text-slate-500">{tech.application}</span>
                 </div>
               </div>
@@ -229,7 +229,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
         <div className="mt-8 sm:mt-12 text-center px-2">
           <button
             onClick={onExploreAllSpecialties}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm active:scale-[0.99]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm active:scale-[0.99]"
           >
             <span>View Full Directory of 71 Medical Departments</span>
             <ArrowRight className="w-4 h-4" />

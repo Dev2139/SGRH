@@ -122,14 +122,14 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
 
         {/* Modal Header */}
         <div className="mb-4 sm:mb-6 pr-6">
-          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-[#0284C7] uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-[#006699] uppercase tracking-wider mb-1">
             <Icon className="w-4 h-4" />
             <span>{activeContent.badge}</span>
           </div>
-          <h3 className="font-serif font-bold text-lg sm:text-2xl text-[#0B2545]">
+          <h3 className="font-display font-bold text-lg sm:text-2xl text-[#0C2340]">
             {activeContent.title}
           </h3>
-          <p className="text-xs text-[#637386] mt-1 leading-relaxed">
+          <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             {activeContent.subtitle}
           </p>
         </div>
@@ -138,8 +138,8 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
         <div className="space-y-3 sm:space-y-4 max-h-[55vh] overflow-y-auto pr-1 text-xs">
           {activeContent.sections.map((section, idx) => (
             <div key={idx} className="p-3.5 sm:p-4 rounded-xl bg-[#F8FAFC] border border-gray-200/80 space-y-2">
-              <h4 className="font-semibold text-xs sm:text-sm text-[#0B2545] flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+              <h4 className="font-semibold text-xs sm:text-sm text-[#0C2340] flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#006699]"></span>
                 <span>{section.title}</span>
               </h4>
               <ul className="space-y-1.5 text-gray-600 pl-3">
@@ -157,11 +157,11 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
         {/* Action Buttons */}
         <div className="pt-4 sm:pt-5 mt-3 sm:mt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-[11px] text-gray-500 w-full sm:w-auto text-center sm:text-left">
-            Helpline: <strong>011-25750000</strong>
+            Helpline: <strong>011-27531683</strong>
           </div>
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white text-xs font-semibold transition-colors text-center active:scale-[0.99]"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white text-xs font-semibold transition-colors text-center active:scale-[0.99]"
           >
             I Understand & Close
           </button>

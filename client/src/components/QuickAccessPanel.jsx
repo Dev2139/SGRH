@@ -16,8 +16,8 @@ export const QuickAccessPanel = ({
       icon: Search,
       action: onFindDoctorClick,
       badge: 'OPD Directory',
-      badgeColor: 'bg-sky-50 text-[#0284C7] border-sky-200',
-      iconBg: 'bg-sky-50 text-[#0284C7]'
+      badgeColor: 'bg-blue-50 text-[#006699] border-blue-200',
+      iconBg: 'bg-blue-50 text-[#006699]'
     },
     {
       id: 'appointment',
@@ -26,8 +26,8 @@ export const QuickAccessPanel = ({
       icon: Calendar,
       action: onOpenAppointment,
       badge: 'Online Booking',
-      badgeColor: 'bg-sky-50 text-[#0C2B4E] border-sky-200',
-      iconBg: 'bg-sky-50 text-[#0C2B4E]'
+      badgeColor: 'bg-sky-50 text-[#006699] border-sky-200',
+      iconBg: 'bg-sky-50 text-[#006699]'
     },
     {
       id: 'lab',
@@ -36,8 +36,8 @@ export const QuickAccessPanel = ({
       icon: FileText,
       action: onLabResultsClick,
       badge: 'Online Reports',
-      badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
-      iconBg: 'bg-teal-50 text-teal-600'
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      iconBg: 'bg-emerald-50 text-emerald-600'
     },
     {
       id: 'emergency',
@@ -58,10 +58,10 @@ export const QuickAccessPanel = ({
         
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-sky-50 border border-sky-200 px-3.5 py-1 rounded-full inline-block">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#006699] bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full inline-block">
             Brahm Shakti Hospital Portals
           </span>
-          <h2 className="font-display text-xl sm:text-3xl font-extrabold text-[#0C2B4E] tracking-tight">
+          <h2 className="font-display text-xl sm:text-3xl font-extrabold text-[#0C2340] tracking-tight">
             How can we assist you today?
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
@@ -80,7 +80,7 @@ export const QuickAccessPanel = ({
                 className={`p-5 sm:p-6 text-left rounded-2xl border transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 active:scale-[0.99] ${
                   c.isEmergency
                     ? 'bg-rose-50/30 border-rose-200 hover:border-rose-400 hover:bg-rose-50/60 shadow-xs hover:shadow-md'
-                    : 'bg-[#F8FAFC] border-slate-200/90 hover:border-[#0284C7]/60 hover:bg-white shadow-xs hover:shadow-md'
+                    : 'bg-[#F8FAFC] border-slate-200/90 hover:border-[#006699]/60 hover:bg-white shadow-xs hover:shadow-md'
                 }`}
               >
                 <div>
@@ -94,7 +94,7 @@ export const QuickAccessPanel = ({
                   </div>
 
                   <h3 className={`font-display font-bold text-base sm:text-lg mb-1.5 sm:mb-2 transition-colors ${
-                    c.isEmergency ? 'text-rose-700 group-hover:text-rose-800' : 'text-[#0C2B4E] group-hover:text-[#0284C7]'
+                    c.isEmergency ? 'text-rose-700 group-hover:text-rose-800' : 'text-[#0C2340] group-hover:text-[#006699]'
                   }`}>
                     {c.title}
                   </h3>
@@ -105,7 +105,7 @@ export const QuickAccessPanel = ({
                 </div>
 
                 <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold">
-                  <span className={c.isEmergency ? 'text-rose-700' : 'text-[#0284C7]'}>
+                  <span className={c.isEmergency ? 'text-rose-700' : 'text-[#006699]'}>
                     {c.isEmergency ? `Call ${hospitalInfo.contacts.emergency}` : 'Access Portal'}
                   </span>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />

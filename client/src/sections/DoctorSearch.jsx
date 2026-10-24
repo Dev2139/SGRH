@@ -166,8 +166,8 @@ export const DoctorSearch = forwardRef(({
     return (
       <div
         key={doc.id}
-        className={`bg-white rounded-2xl shadow-xs hover:shadow-elevated border border-slate-200/90 hover:border-[#0D7B7B]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group ${
-          isMobile ? 'w-full max-w-sm mx-auto shadow-md border-teal-100' : ''
+        className={`bg-white rounded-2xl shadow-xs hover:shadow-elevated border border-slate-200/90 hover:border-[#006699]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group ${
+          isMobile ? 'w-full max-w-sm mx-auto shadow-md border-blue-100' : ''
         }`}
       >
         <div>
@@ -184,10 +184,10 @@ export const DoctorSearch = forwardRef(({
               loading="lazy"
             />
             <div className="min-w-0">
-              <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#0D7B7B] bg-teal-50 border border-teal-200/60 px-2 py-0.5 rounded-md mb-1 truncate max-w-full">
+              <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#006699] bg-blue-50 border border-blue-200/60 px-2 py-0.5 rounded-md mb-1 truncate max-w-full">
                 {doc.departmentName.split('&')[0]}
               </span>
-              <h3 className="font-display font-bold text-sm sm:text-base text-[#0B2545] leading-snug group-hover:text-[#0D7B7B] transition-colors">
+              <h3 className="font-display font-bold text-sm sm:text-base text-[#0C2340] leading-snug group-hover:text-[#006699] transition-colors">
                 {doc.name}
               </h3>
               <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
@@ -203,15 +203,15 @@ export const DoctorSearch = forwardRef(({
                 Experience & Role
               </span>
               <p className="text-slate-800 font-semibold text-xs mt-0.5">
-                {doc.designation} &middot; <strong className="text-[#0D7B7B] font-bold">{doc.experienceYears}+ Yrs</strong>
+                {doc.designation} &middot; <strong className="text-[#006699] font-bold">{doc.experienceYears}+ Yrs</strong>
               </p>
             </div>
 
             {/* OPD Schedule Box */}
             <div className="bg-[#F8FAFC] rounded-xl p-2.5 sm:p-3 border border-slate-100 space-y-1">
               <div className="flex items-center gap-1.5 text-slate-800 text-[11px]">
-                <Clock className="w-3.5 h-3.5 text-[#0D7B7B] shrink-0" />
-                <span className="font-bold text-[#0B2545]">Clinic Days:</span>
+                <Clock className="w-3.5 h-3.5 text-[#006699] shrink-0" />
+                <span className="font-bold text-[#0C2340]">Clinic Days:</span>
                 <span className="truncate text-slate-600 font-medium">{doc.opdSchedule}</span>
               </div>
               <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
@@ -226,7 +226,7 @@ export const DoctorSearch = forwardRef(({
         <div className="p-4 sm:p-5 pt-0 space-y-2">
           <button
             onClick={() => onSelectDoctorForAppointment(doc)}
-            className="w-full py-2.5 px-3 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.99]"
+            className="w-full py-2.5 px-3 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.99]"
           >
             <Calendar className="w-3.5 h-3.5 text-white" />
             <span>Book Consultation</span>
@@ -234,7 +234,7 @@ export const DoctorSearch = forwardRef(({
 
           <button
             onClick={() => onOpenDoctorDetail(doc)}
-            className="w-full py-1.5 px-3 rounded-lg text-slate-500 hover:text-[#0B2545] text-xs font-bold transition-colors flex items-center justify-center gap-1"
+            className="w-full py-1.5 px-3 rounded-lg text-slate-500 hover:text-[#0C2340] text-xs font-bold transition-colors flex items-center justify-center gap-1"
           >
             <span>View Profile</span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
@@ -251,11 +251,11 @@ export const DoctorSearch = forwardRef(({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10 gap-4">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F4FA] text-[#006699] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
               <Stethoscope className="w-3.5 h-3.5" />
               <span>CONSULTANT DIRECTORY & OPD TIMINGS</span>
             </div>
-            <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+            <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0C2340] tracking-tight">
               Find a Senior Consultant
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -265,12 +265,12 @@ export const DoctorSearch = forwardRef(({
 
           <div className="p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between sm:justify-start gap-3 shrink-0 shadow-xs w-full sm:w-auto">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-lg bg-[#E8F4FA] text-[#006699] flex items-center justify-center shrink-0">
                 <PhoneCall className="w-4 h-4" />
               </div>
               <div className="text-xs">
                 <span className="text-slate-500 block text-[11px]">Central OPD Desk:</span>
-                <a href="tel:01127531683" className="font-bold text-[#0C2B4E] hover:text-[#0284C7] text-xs sm:text-sm">011-27531683</a>
+                <a href="tel:01127531683" className="font-bold text-[#0C2340] hover:text-[#006699] text-xs sm:text-sm">011-27531683</a>
               </div>
             </div>
             <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 sm:hidden">
@@ -293,7 +293,7 @@ export const DoctorSearch = forwardRef(({
                 placeholder="Search by doctor name, specialty, condition..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl text-xs sm:text-sm text-[#0B2545] placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#0284C7] focus:ring-1 focus:ring-[#0284C7] transition-all"
+                className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl text-xs sm:text-sm text-[#0C2340] placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#006699] focus:ring-1 focus:ring-[#006699] transition-all"
               />
               {searchTerm && (
                 <button
@@ -311,7 +311,7 @@ export const DoctorSearch = forwardRef(({
                 id="department-select"
                 value={selectedDept}
                 onChange={(e) => setSelectedDept(e.target.value)}
-                className="w-full px-3.5 py-2.5 sm:py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl text-xs sm:text-sm text-[#0B2545] focus:outline-none focus:bg-white focus:border-[#0284C7] focus:ring-1 focus:ring-[#0284C7] transition-all"
+                className="w-full px-3.5 py-2.5 sm:py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl text-xs sm:text-sm text-[#0C2340] focus:outline-none focus:bg-white focus:border-[#006699] focus:ring-1 focus:ring-[#006699] transition-all"
               >
                 <option value="all">All Departments (71 Specialties)</option>
                 {departments.map((dept) => (
@@ -344,7 +344,7 @@ export const DoctorSearch = forwardRef(({
                 onClick={() => setSelectedAilment(ailment.value)}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 transition-all ${
                   selectedAilment === ailment.value
-                    ? 'bg-[#0B2545] text-white shadow-xs'
+                    ? 'bg-[#006699] text-white shadow-xs'
                     : 'bg-[#F8FAFC] hover:bg-slate-200 text-slate-600 border border-slate-200/80'
                 }`}
               >
@@ -357,7 +357,7 @@ export const DoctorSearch = forwardRef(({
         {/* Results Count Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 text-xs text-slate-500 gap-1">
           <div>
-            Showing <strong className="text-[#0C2B4E] font-bold">{filteredDoctors.length}</strong> senior consultant{filteredDoctors.length === 1 ? '' : 's'}
+            Showing <strong className="text-[#0C2340] font-bold">{filteredDoctors.length}</strong> senior consultant{filteredDoctors.length === 1 ? '' : 's'}
           </div>
           <span className="text-[10px] sm:text-[11px] text-slate-400">
             Brahm Shakti Hospital Accredited Faculty
@@ -367,7 +367,7 @@ export const DoctorSearch = forwardRef(({
         {/* Doctor Cards Container: Mobile Automatic Carousel vs Desktop Grid */}
         {loading ? (
           <div className="py-20 text-center">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#0284C7]"></div>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#006699]"></div>
           </div>
         ) : filteredDoctors.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
@@ -378,7 +378,7 @@ export const DoctorSearch = forwardRef(({
             </p>
             <button
               onClick={handleReset}
-              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0C2B4E] text-white text-xs font-bold rounded-xl hover:bg-[#0284C7] transition-colors"
+              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#006699] text-white text-xs font-bold rounded-xl hover:bg-[#004D73] transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Show All Consultants</span>
@@ -463,7 +463,7 @@ export const DoctorSearch = forwardRef(({
                         key={idx}
                         onClick={() => setMobileDoctorIndex(idx)}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
-                          mobileDoctorIndex === idx ? 'w-5 bg-[#0D7B7B]' : 'w-1.5 bg-slate-300'
+                          mobileDoctorIndex === idx ? 'w-5 bg-[#006699]' : 'w-1.5 bg-slate-300'
                         }`}
                         aria-label={`Go to doctor ${idx + 1}`}
                       />

@@ -30,14 +30,14 @@ export const TechnologySection = () => {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#EBF3FA] text-[#1769AA] text-xs font-semibold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#E8F4FA] text-[#006699] text-xs font-semibold uppercase tracking-wider mb-2">
             <Cpu className="w-3.5 h-3.5" />
             <span>ADVANCED CLINICAL INFRASTRUCTURE</span>
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#123653] tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0C2340] tracking-tight">
             Precision Medical Technology in Practice
           </h2>
-          <p className="text-sm text-[#637386] mt-2">
+          <p className="text-sm text-slate-500 mt-2">
             State-of-the-art diagnostic imaging, robotic instrumentation, and cardiopulmonary life-support systems operated by credentialed super-specialists.
           </p>
         </div>
@@ -55,12 +55,12 @@ export const TechnologySection = () => {
                   onClick={() => setActiveTech(idx)}
                   className={`p-5 rounded-xl border transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-white border-[#1769AA] shadow-elevated'
+                      ? 'bg-white border-[#006699] shadow-elevated'
                       : 'bg-[#F8FAFC] border-gray-200/80 hover:bg-white hover:border-gray-300'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#1769AA]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#006699]">
                       {tech.category}
                     </span>
                     {isActive && (
@@ -71,8 +71,8 @@ export const TechnologySection = () => {
                     )}
                   </div>
 
-                  <h3 className={`font-serif font-bold text-base mt-1 transition-colors ${
-                    isActive ? 'text-[#123653]' : 'text-gray-800'
+                  <h3 className={`font-display font-bold text-base mt-1 transition-colors ${
+                    isActive ? 'text-[#0C2340]' : 'text-gray-800'
                   }`}>
                     {tech.name}
                   </h3>

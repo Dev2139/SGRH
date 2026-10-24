@@ -29,7 +29,7 @@ export const FloatingQuickAssist = ({
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#0B2545] shadow-elevated border border-slate-200 flex items-center justify-center transition-all hover:-translate-y-0.5 active:scale-90"
+          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#0C2340] shadow-elevated border border-slate-200 flex items-center justify-center transition-all hover:-translate-y-0.5 active:scale-90"
           title="Scroll to top of page"
           aria-label="Back to Top"
         >
@@ -38,7 +38,7 @@ export const FloatingQuickAssist = ({
       )}
 
       {/* Floating Assist Bar */}
-      <div className="bg-[#0C2B4E]/95 text-white rounded-full shadow-2xl border border-white/20 p-1 sm:p-1.5 flex items-center gap-1 sm:gap-1.5 backdrop-blur-md">
+      <div className="bg-[#0C2340]/95 text-white rounded-full shadow-2xl border border-white/20 p-1 sm:p-1.5 flex items-center gap-1 sm:gap-1.5 backdrop-blur-md">
         
         {/* 1. Emergency Dial */}
         <button
@@ -54,10 +54,10 @@ export const FloatingQuickAssist = ({
           <span className="hidden sm:inline">24x7 Casualty</span>
         </button>
 
-        {/* 2. Book Appointment (Realistic Hospital Blue) */}
+        {/* 2. Book Appointment (Classic Hospital Blue) */}
         <button
           onClick={onOpenAppointment}
-          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-semibold transition-all shadow-xs active:scale-95"
+          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#006699] hover:bg-[#004D73] text-white text-xs font-semibold transition-all shadow-xs active:scale-95"
           title="Request Doctor Consultation"
         >
           <Calendar className="w-3.5 h-3.5 text-white" />

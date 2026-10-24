@@ -48,11 +48,11 @@ export const EmergencyModal = ({ isOpen, onClose }) => {
 
             <a
               href={`tel:${hospitalInfo.contacts.ambulance}`}
-              className="p-3.5 rounded-xl bg-[#123653] hover:bg-[#1769AA] text-white font-bold flex flex-col justify-between transition-colors shadow-sm"
+              className="p-3.5 rounded-xl bg-[#006699] hover:bg-[#004D73] text-white font-bold flex flex-col justify-between transition-colors shadow-sm"
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] uppercase tracking-wider text-teal-300">AMBULANCE DISPATCH</span>
-                <Ambulance className="w-4 h-4 text-teal-300" />
+                <span className="text-[10px] uppercase tracking-wider text-sky-200">AMBULANCE DISPATCH</span>
+                <Ambulance className="w-4 h-4 text-sky-200" />
               </div>
               <span className="text-base tracking-wide">{hospitalInfo.contacts.ambulance}</span>
             </a>

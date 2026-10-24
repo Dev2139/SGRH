@@ -80,13 +80,13 @@ export const AppointmentModal = ({
             <div className="w-14 h-14 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="font-serif font-bold text-2xl text-[#123653]">
+            <h3 className="font-display font-bold text-2xl text-[#0C2340]">
               Consultation Request Received
             </h3>
             <div className="p-4 bg-[#F5F7FA] rounded-xl text-left text-xs space-y-2 border border-gray-200">
               <div className="flex justify-between">
                 <span className="text-gray-500">Booking Reference:</span>
-                <span className="font-mono font-bold text-[#1769AA] text-sm">
+                <span className="font-mono font-bold text-[#006699] text-sm">
                   {submittedData.referenceNumber}
                 </span>
               </div>
@@ -101,12 +101,12 @@ export const AppointmentModal = ({
                 </span>
               </div>
             </div>
-            <p className="text-xs text-[#637386] leading-relaxed">
+            <p className="text-xs text-slate-500 leading-relaxed">
               Our central OPD registration desk will review consultant availability and contact you via phone within 24 working hours to confirm your consultation time and room number.
             </p>
             <button
               onClick={handleClose}
-              className="mt-2 w-full py-2.5 bg-[#123653] hover:bg-[#1769AA] text-white text-xs font-semibold rounded-lg transition-colors"
+              className="mt-2 w-full py-2.5 bg-[#006699] hover:bg-[#004D73] text-white text-xs font-semibold rounded-lg transition-colors"
             >
               Done & Return to Website
             </button>
@@ -114,27 +114,27 @@ export const AppointmentModal = ({
         ) : (
           <div>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1769AA] uppercase tracking-wider mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#006699] uppercase tracking-wider mb-1">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>OUTPATIENT CONSULTATION DESK</span>
               </div>
-              <h3 className="font-serif font-bold text-2xl text-[#123653]">
+              <h3 className="font-display font-bold text-2xl text-[#0C2340]">
                 Request an Appointment
               </h3>
-              <p className="text-xs text-[#637386] mt-1">
+              <p className="text-xs text-slate-500 mt-1">
                 Schedule a consultation with our senior faculty and attending consultants.
               </p>
             </div>
 
             {initialDoctor && (
-              <div className="mb-4 p-3 rounded-lg bg-[#EBF3FA] border border-[#1769AA]/20 flex items-center gap-3">
+              <div className="mb-4 p-3 rounded-lg bg-[#E8F4FA] border border-[#006699]/20 flex items-center gap-3">
                 <img
                   src={initialDoctor.image}
                   alt={initialDoctor.name}
                   className="w-10 h-10 rounded-full object-cover border border-white"
                 />
                 <div className="min-w-0 text-xs">
-                  <span className="font-semibold text-[#123653] block truncate">{initialDoctor.name}</span>
+                  <span className="font-semibold text-[#0C2340] block truncate">{initialDoctor.name}</span>
                   <span className="text-gray-500 block truncate">{initialDoctor.departmentName}</span>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export const AppointmentModal = ({
                   rows={2}
                   placeholder="e.g. Routine consultation, second opinion, joint pain, subsidized dialysis..."
                   {...register('message')}
-                  className="w-full px-3.5 py-2 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0284C7]"
+                  className="w-full px-3.5 py-2 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#006699]"
                 ></textarea>
               </div>
 
@@ -239,7 +239,7 @@ export const AppointmentModal = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-[#0C2B4E] hover:bg-[#0284C7] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+                  className="w-full py-3 bg-[#006699] hover:bg-[#004D73] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

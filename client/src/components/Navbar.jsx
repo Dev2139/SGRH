@@ -79,32 +79,31 @@ export const Navbar = ({
   return (
     <header className="sticky top-0 z-40 w-full bg-white transition-all duration-300 shadow-sm border-b border-slate-200/90">
       
-      {/* 1. Top Utility Bar: Emergency Hotline & Brahm Shakti Institutional Links */}
-      <div className="bg-[#0C2B4E] text-white text-xs py-1.5 sm:py-2 px-3 sm:px-6 border-b border-white/10">
-        <div className="max-w-page mx-auto flex items-center justify-between gap-3 sm:gap-6">
+      {/* 1. Sleek, Minimal Top Utility Bar */}
+      <div className="bg-[#0C2B4E] text-white text-xs py-1.5 px-3 sm:px-6 border-b border-white/10">
+        <div className="max-w-page mx-auto flex items-center justify-between gap-4">
           
-          {/* Left: 24-Hour Emergency & Ambulance Hotline */}
-          <div className="flex items-center gap-2 sm:gap-6 shrink-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-rose-600/20 px-2 sm:px-3 py-0.5 rounded-full border border-rose-500/30">
+          {/* Left: 24-Hour Emergency Helpline */}
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-80"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
               </span>
-              <Ambulance className="w-3.5 h-3.5 text-rose-300 hidden xs:inline" />
-              <span className="text-[10px] sm:text-[11px] font-bold text-rose-200 uppercase tracking-wider">
-                Ambulance / Emergency 24 Hrs:
+              <span className="text-slate-300 font-medium text-[11px] sm:text-xs">
+                24x7 Emergency:
               </span>
               <a
                 href={`tel:${hospitalInfo.contacts.emergency}`}
-                className="font-extrabold text-white hover:text-rose-200 transition-colors tracking-wide underline underline-offset-2 text-[11px] sm:text-xs"
+                className="font-bold text-white hover:text-rose-200 transition-colors tracking-wide text-[11px] sm:text-xs"
               >
                 +91-{hospitalInfo.contacts.emergency}
               </a>
             </div>
 
-            <div className="hidden lg:flex items-center gap-2 text-slate-300 text-[11px]">
-              <span className="text-white/20">|</span>
-              <Phone className="w-3 h-3 text-sky-400" />
+            <span className="hidden sm:inline text-white/20">|</span>
+
+            <div className="hidden sm:flex items-center gap-1.5 text-slate-300 text-[11px] sm:text-xs">
               <span>Hospital Desk:</span>
               <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="font-semibold text-white hover:underline">
                 {hospitalInfo.contacts.casualtyAlternate}
@@ -112,84 +111,30 @@ export const Navbar = ({
             </div>
           </div>
 
-          {/* Right: Institutional Navigation from Brahm Shakti Hospital & Accessibility */}
-          <div className="flex items-center gap-2 sm:gap-5 text-[10px] sm:text-[11px]">
-            {/* Brahm Shakti Institutional Links */}
-            <nav className="hidden xl:flex items-center gap-4 text-slate-300 font-medium">
-              <button
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="hover:text-white transition-colors"
-              >
-                HOME
-              </button>
-              <span className="text-white/20">&middot;</span>
-              <button
-                onClick={() => scrollTo('heritage')}
-                className="hover:text-white transition-colors"
-              >
-                ABOUT US
-              </button>
-              <span className="text-white/20">&middot;</span>
-              <button
-                onClick={() => scrollTo('patient-services')}
-                className="hover:text-white transition-colors"
-              >
-                FAQ'S
-              </button>
-              <span className="text-white/20">&middot;</span>
-              <button
-                onClick={() => scrollTo('contact')}
-                className="hover:text-white transition-colors"
-              >
-                CAREERS
-              </button>
-              <span className="text-white/20">&middot;</span>
-              <button
-                onClick={onOpenLabPortal}
-                className="hover:text-sky-300 transition-colors flex items-center gap-1"
-              >
-                <FileText className="w-3 h-3 text-sky-400" />
-                <span>LAB REPORTS</span>
-              </button>
-              <span className="text-white/20">&middot;</span>
-              <button
-                onClick={() => scrollTo('contact')}
-                className="hover:text-white transition-colors"
-              >
-                CONTACT US
-              </button>
-            </nav>
+          {/* Right: Minimal Essentials (Location, Lab Reports, Language) */}
+          <div className="flex items-center gap-3 sm:gap-5 text-[11px] sm:text-xs">
+            <span className="hidden md:inline text-slate-300 font-normal">
+              Budh Vihar, New Delhi
+            </span>
 
-            <span className="hidden xl:inline text-white/30">|</span>
+            <span className="hidden md:inline text-white/20">&middot;</span>
 
-            {/* Accessibility Font Size Controls */}
-            <div className="flex items-center gap-0.5 sm:gap-1 bg-white/10 px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px]">
-              <span className="text-white/60 text-[9px] sm:text-[10px] hidden sm:inline">Text:</span>
-              <button
-                onClick={() => onChangeFontSize && onChangeFontSize('normal')}
-                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'normal' ? 'bg-white text-[#0C2B4E]' : 'text-white/80 hover:text-white'}`}
-                title="Default text size"
-              >
-                A
-              </button>
-              <button
-                onClick={() => onChangeFontSize && onChangeFontSize('large')}
-                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'large' ? 'bg-white text-[#0C2B4E]' : 'text-white/80 hover:text-white'}`}
-                title="Larger text size for seniors"
-              >
-                A+
-              </button>
-            </div>
+            <button
+              onClick={onOpenLabPortal}
+              className="text-slate-200 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <FileText className="w-3.5 h-3.5 text-sky-400" />
+              <span>Lab Reports</span>
+            </button>
 
-            {/* Language toggle */}
+            <span className="text-white/20">|</span>
+
             <button
               onClick={toggleLanguage}
-              className="font-semibold text-sky-300 hover:text-white transition-colors border border-white/20 px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px]"
-              title="Toggle Hindi/English Language"
+              className="text-slate-300 hover:text-white transition-colors font-medium text-[11px]"
+              title="Toggle Hindi / English"
             >
-              <span>हिन्दी / ENG</span>
+              हिन्दी / ENG
             </button>
           </div>
 

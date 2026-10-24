@@ -102,36 +102,6 @@ export const HeroSection = ({
 
       <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
         
-        {/* Top Emergency Flash Strip: Exactly the Brahm Shakti Hospital Ambulance Service Callout */}
-        <div className="mb-6 sm:mb-8 bg-gradient-to-r from-rose-50 via-white to-amber-50/40 border border-rose-200/80 rounded-2xl p-2.5 sm:p-3.5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm animate-pulse">
-              <Ambulance className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-rose-800 uppercase tracking-wider">
-                  Ambulance / Emergency Service &middot; 24 Hrs. Services
-                </span>
-                <span className="inline-block w-2 h-2 rounded-full bg-rose-600 animate-ping"></span>
-              </div>
-              <p className="text-xs text-slate-600 hidden sm:block">
-                Immediate casualty reception, cardiac life support, and rapid mobile ICU ambulance dispatch.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
-            <a
-              href={`tel:${hospitalInfo.contacts.emergency}`}
-              className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs sm:text-sm tracking-wide transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 shrink-0"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>Dial: +91-{hospitalInfo.contacts.emergency}</span>
-            </a>
-          </div>
-        </div>
-
         {/* Main Hero Split Grid: Left Story & Quick Search | Right: Brahm Shakti 3-Card Stack */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           

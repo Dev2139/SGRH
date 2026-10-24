@@ -200,20 +200,20 @@ export const Navbar = ({
       <nav className={`max-w-page mx-auto px-3 sm:px-4 lg:px-6 transition-all duration-200 ${isScrolled ? 'py-2.5 sm:py-3' : 'py-3 sm:py-4'}`}>
         <div className="flex items-center justify-between gap-3 sm:gap-6">
           
-          {/* Brahm Shakti Hospital Brand Identity */}
+          {/* Brahm Shakti Hospital Rectangular Logo (Acts as both emblem and name) */}
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-2 group focus:outline-none shrink-0"
+            className="flex items-center group focus:outline-none shrink-0"
             aria-label="Brahm Shakti Hospital Home"
           >
             <img
-              src="/brahm-shakti-logo.svg"
-              alt="Brahm Shakti Hospital - Caring for you for Life"
-              className="h-10 xs:h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              src="https://res.cloudinary.com/urzka7oz/image/upload/v1792869678/bsh_img_01_02.gif"
+              alt="Brahm Shakti Hospital"
+              className="h-9 xs:h-11 sm:h-13 md:h-15 w-auto max-w-[200px] xs:max-w-[240px] sm:max-w-[320px] md:max-w-[360px] object-contain transition-transform duration-200 group-hover:scale-[1.01]"
               loading="eager"
             />
           </a>

@@ -29,10 +29,10 @@ export const Footer = ({
           
           {/* Column 1: Institutional Wordmark & Heritage Summary (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-block p-2 bg-white/10 rounded-xl shadow-xs border border-white/10">
+            <div className="inline-block p-1.5 sm:p-2 bg-white rounded-xl shadow-xs border border-white/20">
               <img
-                src="/brahm-shakti-logo-white.svg"
-                alt="Brahm Shakti Hospital - Caring for you for Life"
+                src="https://res.cloudinary.com/urzka7oz/image/upload/v1792869678/bsh_img_01_02.gif"
+                alt="Brahm Shakti Hospital"
                 className="h-10 sm:h-12 w-auto object-contain"
               />
             </div>

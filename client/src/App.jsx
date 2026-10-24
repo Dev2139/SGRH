@@ -97,13 +97,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0B2545] font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0C2B4E] font-sans antialiased">
       {/* Toast notifications container */}
       <Toaster
         position="bottom-right"
         toastOptions={{
           style: {
-            background: '#0B2545',
+            background: '#0C2B4E',
             color: '#FFFFFF',
             fontSize: '12px',
             borderRadius: '10px',

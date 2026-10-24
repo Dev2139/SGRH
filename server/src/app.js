@@ -29,8 +29,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'healthy',
-    institution: 'Sir Ganga Ram Hospital, New Delhi',
-    service: 'SGRH Digital Redesign API Service',
+    institution: 'Brahm Shakti Hospital, Budh Vihar, New Delhi',
+    service: 'Brahm Shakti Hospital Digital Redesign API Service',
     database: isMongoConnected ? 'MongoDB Connected' : 'In-Memory Demonstration Store',
     timestamp: new Date().toISOString()
   });

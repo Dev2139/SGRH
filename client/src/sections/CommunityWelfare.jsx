@@ -5,7 +5,7 @@ export const CommunityWelfare = ({ onVolunteerOrInquire }) => {
   const initiatives = [
     {
       title: "20% Free Inpatient Beds for EWS",
-      detail: "In adherence to its founding trust charter, Sir Ganga Ram Hospital reserves 20% of its total inpatient bed capacity strictly for economically weaker sections with fully subsidized medical, surgical, and nursing care."
+      detail: "In adherence to its founding trust charter, Brahm Shakti Hospital provides high-tech tertiary surgical and medical care with subsidized inpatient facilities for weaker sections of society."
     },
     {
       title: "Daily Subsidized Charity OPDs",
@@ -65,17 +65,17 @@ export const CommunityWelfare = ({ onVolunteerOrInquire }) => {
         <div className="mt-10 p-6 rounded-xl bg-gradient-to-r from-[#123653] to-[#1A4D75] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="font-serif font-bold text-base text-white">
-              Sir Ganga Ram Trust Society Medical Welfare Board
+              Brahm Shakti Trust Medical Welfare Board
             </div>
             <p className="text-xs text-white/80 mt-1">
-              For assistance regarding EWS bed admissions or charitable medical subsidy documentation, please visit our Social Work Department (Block A, Ground Floor).
+              For assistance regarding subsidized care admissions, please contact our hospital desk.
             </p>
           </div>
           <a
-            href="tel:01142251111"
+            href="tel:01127531683"
             className="px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold shrink-0 transition-colors border border-white/20"
           >
-            Social Work Desk: 011-42251111
+            Hospital Desk: 011-27531683
           </a>
         </div>
 

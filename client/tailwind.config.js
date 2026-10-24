@@ -8,22 +8,25 @@ export default {
     extend: {
       colors: {
         hospital: {
-          navy: '#0B2545',
-          'navy-dark': '#06172B',
-          'navy-light': '#133E68',
+          navy: '#0C2B4E',
+          'navy-dark': '#071E36',
+          'navy-light': '#153E6B',
           blue: '#0284C7',
           'blue-dark': '#0369A1',
           'blue-light': '#F0F9FF',
           'blue-hover': '#0270A8',
           teal: '#0D9488',
           'teal-light': '#F0FDFA',
+          'teal-dark': '#0F766E',
           slate: '#475569',
           'slate-dark': '#1E293B',
           'slate-light': '#64748B',
           bg: '#F8FAFC',
           card: '#FFFFFF',
           border: '#E2E8F0',
-          bronze: '#B48A3C',
+          bronze: '#C28B2B',
+          emergency: '#DC2626',
+          'emergency-dark': '#B91C1C',
         }
       },
       fontFamily: {

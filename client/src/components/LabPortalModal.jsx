@@ -24,7 +24,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
       setReportResult({
         found: true,
         patientName: "Patient Record Verified",
-        uhid: uhid || "SGRH-2026-9812",
+        uhid: uhid || "BSH-2026-9812",
         tests: [
           { name: "Complete Blood Count (CBC) with Automated Differential", status: "Verified & Authorized", date: "Recent" },
           { name: "Comprehensive Metabolic Panel (Renal & Liver Function)", status: "Verified & Authorized", date: "Recent" }
@@ -105,7 +105,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. SGRH-123456"
+                placeholder="e.g. BSH-123456"
                 value={uhid}
                 onChange={(e) => setUhid(e.target.value)}
                 className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
@@ -157,7 +157,7 @@ export const LabPortalModal = ({ isOpen, onClose }) => {
                 <Phone className="w-3.5 h-3.5 text-[#1769AA]" />
                 <span>Lab Helpdesk Telephone:</span>
               </div>
-              <div>011-42251111 (Ext. 2104 / 2105) &middot; 24 Hours Operational</div>
+              <div>011-27531683 &middot; 24 Hours Operational</div>
             </div>
           </form>
         )}

@@ -1,314 +1,317 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Search,
   Calendar,
   ShieldCheck,
   Award,
   ArrowRight,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play,
-  Stethoscope,
-  Heart,
-  Landmark,
   PhoneCall,
-  Activity
+  Activity,
+  Ambulance,
+  Heart,
+  Stethoscope,
+  Clock,
+  Sparkles,
+  CheckCircle2,
+  ChevronRight,
+  FileText
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
-
-const HERO_SLIDES = [
-  {
-    id: 0,
-    badgeText: 'SIR GANGA RAM HOSPITAL · NEW DELHI · ESTD. 1954',
-    badgeIcon: Award,
-    badgeColor: 'text-[#0D7B7B] bg-teal-50 border-teal-200',
-    titleMain: 'Compassionate Care.',
-    titleAccent: 'World-Class Clinical Preeminence.',
-    description: 'A premier 900-bed multispecialty tertiary referral hospital combining 70+ years of institutional trust with advanced clinical outcomes and compassionate patient care.',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
-    primaryCtaText: 'Find a Doctor & OPD Slot',
-    primaryCtaAction: 'search',
-    secondaryCtaText: 'Book Appointment',
-    secondaryCtaAction: 'appointment',
-    tag: 'Institutional Excellence'
-  },
-  {
-    id: 1,
-    badgeText: 'PIONEERING ROBOTIC SURGERY & ORGAN TRANSPLANTS',
-    badgeIcon: Activity,
-    badgeColor: 'text-[#0D7B7B] bg-teal-50 border-teal-200',
-    titleMain: 'Next-Gen Robotics.',
-    titleAccent: '4,500+ Successful Transplants.',
-    description: "India's foremost organ transplant center with 4th-Gen da Vinci Xi surgical robotics, delivering sub-millimeter precision, minimal blood loss, and faster recovery.",
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200',
-    primaryCtaText: 'Explore Clinical Specialties',
-    primaryCtaAction: 'specialties',
-    secondaryCtaText: 'Consult Specialist',
-    secondaryCtaAction: 'appointment',
-    tag: 'Advanced Technology'
-  },
-  {
-    id: 2,
-    badgeText: 'FOUNDED BY SIR GANGA RAM · NOT-FOR-PROFIT GOVERNANCE',
-    badgeIcon: Landmark,
-    badgeColor: 'text-[#DE5824] bg-orange-50 border-orange-200',
-    titleMain: 'An Imperial Heritage.',
-    titleAccent: '20% Free Beds for EWS Patients.',
-    description: 'Inaugurated in 1954 by Prime Minister Jawaharlal Nehru, upholding our founding humanitarian charter where every surplus rupee is reinvested directly into patient welfare.',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
-    primaryCtaText: 'Our Institutional Heritage',
-    primaryCtaAction: 'heritage',
-    secondaryCtaText: 'Book Consultation',
-    secondaryCtaAction: 'appointment',
-    tag: 'Charitable Trust'
-  },
-  {
-    id: 3,
-    badgeText: '24X7 LEVEL-1 EMERGENCY CASUALTY & AMBULANCE FLEET',
-    badgeIcon: PhoneCall,
-    badgeColor: 'text-rose-700 bg-rose-50 border-rose-200',
-    titleMain: 'Immediate Critical Care.',
-    titleAccent: 'Round-The-Clock Trauma Response.',
-    description: 'Round-the-clock emergency casualty triage, dedicated cardiac catheterization labs, ECMO life support, advanced surgical trauma suites, and GPS-tracked ambulance fleet.',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200',
-    primaryCtaText: 'Emergency Protocols',
-    primaryCtaAction: 'emergency',
-    secondaryCtaText: 'Call Hotline: 011-42254000',
-    secondaryCtaAction: 'call_emergency',
-    tag: 'Trauma & Critical Care'
-  }
-];
 
 export const HeroSection = ({
   onFindDoctorClick,
   onOpenAppointment,
   onOpenEmergency
 }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const touchStartXRef = useRef(null);
+  const [activeTabCard, setActiveTabCard] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Auto-play timer - smoothly advances every 5 seconds (5000ms)
-  useEffect(() => {
-    if (isPaused) return;
-
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  };
-
-  const handleTouchStart = (e) => {
-    touchStartXRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    if (touchStartXRef.current === null) return;
-    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
-    if (diff > 40) {
-      handleNext();
-    } else if (diff < -40) {
-      handlePrev();
+  // 3 signature feature cards from Brahm Shakti Hospital
+  const BSH_FEATURE_CARDS = [
+    {
+      id: 0,
+      badge: "Trust Ethos",
+      title: "Caring for you for Life",
+      subtitle: "A total healthcare ethos run through the corridors of Brahm Shakti.",
+      description: "250-bedded modern tertiary center managed by Brahm Shakti Trust (Regd.), delivering high-tech surgical and critical care at highly subsidised fees.",
+      icon: Heart,
+      accentColor: "from-sky-500/10 to-transparent border-sky-200",
+      iconColor: "text-[#0284C7] bg-sky-50",
+      ctaText: "Explore Trust Healthcare",
+      action: "heritage"
+    },
+    {
+      id: 1,
+      badge: "Second Opinion",
+      title: "Get a Quote / Second Opinion",
+      subtitle: "Transparent surgery packages, subsidized rates & cashless TPA insurance.",
+      description: "Consult our senior medical faculty for diagnostic review, surgical estimates, or second opinions before major interventions.",
+      icon: FileText,
+      accentColor: "from-amber-500/10 to-transparent border-amber-200",
+      iconColor: "text-amber-700 bg-amber-50",
+      ctaText: "Request Second Opinion",
+      action: "quote"
+    },
+    {
+      id: 2,
+      badge: "Consultants",
+      title: "Find a Doctor & Timings",
+      subtitle: "Consult our experienced senior specialists across 25+ disciplines.",
+      description: "Direct access to OPD schedules for Orthopaedics, Cardiology, Nephrology, General Surgery, Gynaecology, Neuro, and Medicine.",
+      icon: Stethoscope,
+      accentColor: "from-teal-500/10 to-transparent border-teal-200",
+      iconColor: "text-teal-700 bg-teal-50",
+      ctaText: "View Doctor Schedules",
+      action: "doctor"
     }
-    touchStartXRef.current = null;
-  };
+  ];
 
-  const active = HERO_SLIDES[currentSlide];
-  const BadgeIcon = active.badgeIcon;
+  // Auto-cycle through the 3 cards gently every 7 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTabCard((prev) => (prev + 1) % BSH_FEATURE_CARDS.length);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, [BSH_FEATURE_CARDS.length]);
 
-  const handlePrimaryClick = () => {
-    if (active.primaryCtaAction === 'search' && onFindDoctorClick) {
-      onFindDoctorClick();
-    } else if (active.primaryCtaAction === 'specialties') {
-      const el = document.getElementById('specialties');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else if (active.primaryCtaAction === 'heritage') {
+  const handleCardClick = (card) => {
+    setActiveTabCard(card.id);
+    if (card.action === 'quote' || card.action === 'appointment') {
+      onOpenAppointment && onOpenAppointment();
+    } else if (card.action === 'doctor') {
+      onFindDoctorClick && onFindDoctorClick();
+    } else if (card.action === 'heritage') {
       const el = document.getElementById('heritage');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else if (active.primaryCtaAction === 'emergency') {
-      onOpenEmergency && onOpenEmergency();
-    } else if (onFindDoctorClick) {
-      onFindDoctorClick();
     }
   };
 
-  const handleSecondaryClick = () => {
-    if (active.secondaryCtaAction === 'call_emergency') {
-      window.location.href = `tel:${hospitalInfo.contacts.emergency}`;
-    } else if (onOpenAppointment) {
-      onOpenAppointment();
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (onFindDoctorClick) {
+      onFindDoctorClick(searchQuery);
     }
   };
 
   return (
-    <section
-      className="relative bg-gradient-to-b from-sky-50/40 via-white to-[#F8FAFC] pt-6 sm:pt-16 pb-12 sm:pb-24 border-b border-slate-200/80 overflow-hidden"
-    >
-      {/* Subtle Royal Background Watermark Crest */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-gradient-to-br from-amber-100/20 via-sky-100/20 to-transparent blur-3xl pointer-events-none -z-0"></div>
+    <section className="relative bg-gradient-to-b from-slate-50 via-white to-[#F8FAFC] pt-5 sm:pt-10 pb-12 sm:pb-20 border-b border-slate-200/90 overflow-hidden">
+      
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-sky-100/30 blur-3xl pointer-events-none -z-0"></div>
+      <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full bg-amber-50/40 blur-3xl pointer-events-none -z-0"></div>
 
       <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        {/* Top Emergency Flash Strip: Exactly the Brahm Shakti Hospital Ambulance Service Callout */}
+        <div className="mb-6 sm:mb-8 bg-gradient-to-r from-rose-50 via-white to-amber-50/40 border border-rose-200/80 rounded-2xl p-2.5 sm:p-3.5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm animate-pulse">
+              <Ambulance className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-rose-800 uppercase tracking-wider">
+                  Ambulance / Emergency Service &middot; 24 Hrs. Services
+                </span>
+                <span className="inline-block w-2 h-2 rounded-full bg-rose-600 animate-ping"></span>
+              </div>
+              <p className="text-xs text-slate-600 hidden sm:block">
+                Immediate casualty reception, cardiac life support, and rapid mobile ICU ambulance dispatch.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+            <a
+              href={`tel:${hospitalInfo.contacts.emergency}`}
+              className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs sm:text-sm tracking-wide transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 shrink-0"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>Dial: +91-{hospitalInfo.contacts.emergency}</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Main Hero Split Grid: Left Story & Quick Search | Right: Brahm Shakti 3-Card Stack */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Dynamic Royal Slide Content */}
+          {/* Left Column (7 cols): Brahm Shakti Story, Tagline & Direct Actions */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             
-            {/* Royal Badge with Shimmer and Pulse */}
-            <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border shadow-xs transition-all duration-500 max-w-full ${active.badgeColor}`}>
-              <BadgeIcon className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">{active.badgeText}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-current animate-ping opacity-75 shrink-0 hidden xs:inline-block"></span>
+            {/* Trust Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0C2B4E] bg-sky-50 border border-sky-200 shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
+              <span className="truncate">Brahm Shakti Hospital &middot; Budh Vihar, New Delhi</span>
+              <span className="hidden xs:inline-block text-slate-300">&middot;</span>
+              <span className="hidden xs:inline-block text-[#C28B2B]">Brahm Shakti Trust</span>
             </div>
 
-            {/* Dynamic Headline with Brand Logo Teal Accent */}
-            <div className="min-h-auto sm:min-h-[160px] flex flex-col justify-center">
-              <h1 className="font-display text-2xl xs:text-3xl sm:text-4xl lg:text-[50px] font-extrabold text-[#0B2545] leading-[1.18] sm:leading-[1.12] tracking-tight transition-all duration-500">
-                {active.titleMain}{' '}
-                <span className="text-[#0D7B7B] block sm:inline font-bold">
-                  {active.titleAccent}
+            {/* Main Headline: Exactly Brahm Shakti's "Caring for you for Life" */}
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0C2B4E] leading-[1.12] tracking-tight">
+                Caring for you <br className="hidden sm:inline" />
+                <span className="text-[#0284C7] underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-8">
+                  for Life
                 </span>
               </h1>
 
-              <p className="text-xs xs:text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl font-normal mt-2.5 sm:mt-4 transition-all duration-500">
-                {active.description}
+              {/* Memorable Ethos Subtitle */}
+              <p className="text-base sm:text-lg font-semibold text-[#0C2B4E]/80 italic pt-1">
+                "A total healthcare ethos run through the corridors of Brahm Shakti"
+              </p>
+
+              {/* Verified Trust Hospital Narrative */}
+              <p className="text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl font-normal pt-1">
+                <strong className="text-[#0C2B4E]">BRAHM SHAKTI HOSPITAL</strong> is a 250-bedded tertiary healthcare project managed by <strong className="text-[#0C2B4E]">Brahm Shakti Trust (Regd.)</strong>. Providing high-tech facilities like Coronary Bypass Surgery, Kidney Care &amp; Dialysis, Ortho Spine, Neurosurgery, and Cancer Care at highly subsidised fees.
               </p>
             </div>
 
-            {/* Clear Primary & Secondary CTAs - Brand Navy & Brand Orange */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+            {/* Quick Live Doctor Search Bar right inside Hero */}
+            <form
+              onSubmit={handleSearchSubmit}
+              className="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm max-w-xl flex items-center gap-2 transition-all focus-within:border-[#0284C7] focus-within:ring-2 focus-within:ring-sky-100"
+            >
+              <div className="pl-2.5 text-slate-400">
+                <Search className="w-5 h-5 text-[#0284C7]" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search specialist (e.g. Orthopedics, Medicine, Kidney, Surgery)..."
+                className="w-full bg-transparent text-xs sm:text-sm text-[#0C2B4E] placeholder:text-slate-400 focus:outline-none py-1.5"
+              />
               <button
-                onClick={handlePrimaryClick}
-                className="w-full sm:w-auto px-5 sm:px-7 py-3 sm:py-4 rounded-xl bg-[#0B2545] hover:bg-[#0D7B7B] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2.5 shadow-sm hover:shadow-md group active:scale-[0.99]"
+                type="submit"
+                className="px-4 sm:px-6 py-2.5 rounded-xl bg-[#0C2B4E] hover:bg-[#0284C7] text-white font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
               >
-                <Search className="w-4 h-4 text-teal-300 group-hover:scale-110 transition-transform" />
-                <span>{active.primaryCtaText}</span>
-                <ArrowRight className="w-4 h-4 text-white/70 group-hover:translate-x-1 transition-transform" />
+                Find Doctor
+              </button>
+            </form>
+
+            {/* Primary Action Buttons: Book Consultation & Quote */}
+            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 pt-1">
+              <button
+                onClick={onOpenAppointment}
+                className="px-6 py-3.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 group active:scale-[0.99]"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book Appointment / Consultation</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
-                onClick={handleSecondaryClick}
-                className="w-full sm:w-auto px-5 sm:px-7 py-3 sm:py-4 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-[0.99]"
+                onClick={() => onFindDoctorClick && onFindDoctorClick()}
+                className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-300 font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
               >
-                <Calendar className="w-4 h-4 text-white" />
-                <span>{active.secondaryCtaText}</span>
+                <Clock className="w-4 h-4 text-slate-500" />
+                <span>OPD Doctor Schedules</span>
               </button>
             </div>
 
-            {/* Clean Carousel Navigation & Institutional Hallmarks (Replaces 4-box indicator grid) */}
-            <div className="pt-4 sm:pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-              {/* Sleek Slide Indicator Dots */}
-              <div className="flex items-center gap-2">
-                {HERO_SLIDES.map((slide, idx) => (
-                  <button
-                    key={slide.id}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`transition-all duration-300 rounded-full h-2 ${
-                      currentSlide === idx
-                        ? 'w-8 bg-[#0D7B7B]'
-                        : 'w-2 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-                <span className="text-xs text-slate-400 ml-2 font-medium">
-                  0{currentSlide + 1} / 0{HERO_SLIDES.length}
-                </span>
+            {/* Core Hospital Hallmarks Bar */}
+            <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-slate-600 font-semibold">
+              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>250-Bedded Project</span>
               </div>
-
-              {/* Institutional Quality Hallmarks */}
-              <div className="flex items-center gap-3 sm:gap-4 text-slate-500 text-xs font-semibold">
-                <span className="flex items-center gap-1.5 text-[#0D7B7B]">
-                  <ShieldCheck className="w-4 h-4 text-[#0D7B7B]" />
-                  NABH & NABL Accredited
-                </span>
-                <span className="text-slate-300">&middot;</span>
-                <span>900+ Beds</span>
-                <span className="text-slate-300">&middot;</span>
-                <span>71 Specialties</span>
+              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Subsidised Fee Ethos</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Brahm Shakti Trust (Regd.)</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Budh Vihar, New Delhi</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Visual Showcase Frame with Auto-Slider Controls */}
-          <div className="lg:col-span-5 relative mt-2 lg:mt-0">
+          {/* Right Column (5 cols): Brahm Shakti Hospital's 3 Signature Feature Cards (Interactive, Modern, Unique) */}
+          <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
             
-            {/* Outer Showcase Frame */}
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-slate-200/80 bg-white p-1 sm:p-1.5 shadow-xl">
-              
-              <div
-                className="relative rounded-xl sm:rounded-2xl overflow-hidden h-[260px] xs:h-[300px] sm:h-[400px] lg:h-[450px] bg-slate-900 select-none"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-              >
-                {/* Images Layer with Crossfade */}
-                {HERO_SLIDES.map((slide, idx) => (
-                  <img
-                    key={slide.id}
-                    src={slide.image}
-                    alt={slide.titleMain}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                      currentSlide === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-                    }`}
-                    loading={idx === 0 ? 'eager' : 'lazy'}
-                  />
-                ))}
-
-                {/* Ambient Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-[#0B2545]/20 to-transparent"></div>
-
-                {/* Interactive Chevron Navigation Arrows on Image */}
-                <div className="absolute inset-y-0 inset-x-2 sm:inset-x-3 flex items-center justify-between pointer-events-none">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-[#0B2545] backdrop-blur-md shadow-md border border-white/60 flex items-center justify-center pointer-events-auto transition-transform hover:scale-110 active:scale-95"
-                    aria-label="Previous Slide"
-                  >
-                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </button>
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-[#0B2545] backdrop-blur-md shadow-md border border-white/60 flex items-center justify-center pointer-events-auto transition-transform hover:scale-110 active:scale-95"
-                    aria-label="Next Slide"
-                  >
-                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </button>
-                </div>
-
-                {/* Elegant Bottom Caption Tag */}
-                <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-5 text-white">
-                  <div className="font-display font-bold text-sm sm:text-base text-white flex items-center gap-1.5 sm:gap-2">
-                    <span>Sir Ganga Ram Hospital</span>
-                    <span className="text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded-full bg-white/20 text-white backdrop-blur-xs">
-                      New Delhi
-                    </span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-white/80 mt-0.5">
-                    Old Rajinder Nagar &middot; Central Delhi &middot; Estd. 1954
-                  </div>
-                </div>
-
+            <div className="flex items-center justify-between px-1">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]"></span>
+                <span className="text-xs font-bold text-[#0C2B4E] uppercase tracking-wider">
+                  Patient Services &amp; Highlights
+                </span>
               </div>
+              <span className="text-[11px] text-slate-500 font-medium">
+                Brahm Shakti Portals
+              </span>
+            </div>
 
+            {/* Stack of the 3 signature Brahm Shakti Cards */}
+            <div className="space-y-3">
+              {BSH_FEATURE_CARDS.map((card, idx) => {
+                const CardIcon = card.icon;
+                const isActive = activeTabCard === card.id;
+
+                return (
+                  <div
+                    key={card.id}
+                    onClick={() => handleCardClick(card)}
+                    className={`cursor-pointer rounded-2xl p-4 sm:p-5 border transition-all duration-300 relative overflow-hidden group ${
+                      isActive
+                        ? 'bg-white shadow-elevated border-[#0284C7] ring-1 ring-[#0284C7]/20 scale-[1.01]'
+                        : 'bg-white/80 hover:bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-sm'
+                    }`}
+                  >
+                    {/* Active Indicator Bar on Left */}
+                    {isActive && (
+                      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#0284C7]"></div>
+                    )}
+
+                    <div className="flex items-start gap-3.5">
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${card.iconColor}`}>
+                        <CardIcon className="w-5 h-5" />
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h3 className="font-display font-bold text-sm sm:text-base text-[#0C2B4E] group-hover:text-[#0284C7] transition-colors truncate">
+                            {card.title}
+                          </h3>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
+                            {card.badge}
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
+                          {card.subtitle}
+                        </p>
+
+                        <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0284C7]">
+                          <span className="group-hover:underline">{card.ctaText}</span>
+                          <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Quick Panel List & Insurance Info Pill */}
+            <div className="bg-gradient-to-r from-slate-100 to-sky-50 rounded-xl p-3 border border-slate-200 flex items-center justify-between text-xs text-slate-700">
+              <span className="font-semibold flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
+                Cashless Insurance &amp; Panel Empanelment
+              </span>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('patient-services');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="font-bold text-[#0284C7] hover:underline shrink-0"
+              >
+                View Panels &rarr;
+              </button>
             </div>
 
           </div>

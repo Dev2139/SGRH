@@ -68,7 +68,7 @@ export const ContactSection = () => {
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              Situated in the heart of Central-West Delhi in Old Rajinder Nagar, convenient to Karol Bagh and Rajendra Place Metro Stations.
+              Situated in Budh Vihar, North-West Delhi (near Rohini Sector 20 / 22), easily accessible via Outer Ring Road and Rohini West Metro.
             </p>
 
             {/* Address Card */}
@@ -78,15 +78,15 @@ export const ContactSection = () => {
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#0B2545]">
-                    Sir Ganga Ram Hospital
+                  <h4 className="font-bold text-sm text-[#0C2B4E]">
+                    Brahm Shakti Hospital
                   </h4>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Sir Ganga Ram Hospital Marg, Old Rajinder Nagar,<br />
-                    New Delhi, Delhi – 110060, India
+                    U1/78, Budh Vihar, New Delhi,<br />
+                    Delhi – 110086, India
                   </p>
                   <a
-                    href="https://maps.google.com/?q=Sir+Ganga+Ram+Hospital+New+Delhi"
+                    href="https://maps.google.com/?q=Brahm+Shakti+Hospital+Budh+Vihar+New+Delhi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0284C7] hover:underline mt-2"
@@ -157,7 +157,7 @@ export const ContactSection = () => {
                 <div className="mt-3 text-[11px] text-amber-800 bg-amber-50 p-3 rounded-xl border border-amber-200/60 flex items-center gap-2">
                   <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>
-                    For medical emergencies, do not wait for a callback — call <strong>011-42254000</strong> directly.
+                    For medical emergencies, do not wait for a callback — call <strong>+91-7840089703</strong> directly.
                   </span>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export const ContactSection = () => {
                     Enquiry Registered Successfully
                   </h4>
                   <p className="text-xs text-slate-600 max-w-md mx-auto">
-                    Your reference number is <strong className="text-[#0284C7] font-mono text-sm">{submissionSuccess.referenceNumber}</strong>. A patient care representative from Sir Ganga Ram Hospital will contact you.
+                    Your reference number is <strong className="text-[#0284C7] font-mono text-sm">{submissionSuccess.referenceNumber}</strong>. A patient care representative from Brahm Shakti Hospital will contact you.
                   </p>
                   <button
                     onClick={() => setSubmissionSuccess(null)}
@@ -303,7 +303,7 @@ export const ContactSection = () => {
                   </div>
 
                   <p className="text-[10px] text-slate-400 mt-2">
-                    Data submitted is handled strictly under SGRH patient confidentiality policies.
+                    Data submitted is handled strictly under Brahm Shakti Hospital patient confidentiality policies.
                   </p>
                 </form>
               )}

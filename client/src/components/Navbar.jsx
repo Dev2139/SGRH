@@ -8,11 +8,15 @@ import {
   ChevronDown,
   Globe,
   FileText,
-  Building,
-  HeartHandshake,
-  ArrowRight,
   PhoneCall,
-  ShieldCheck
+  Activity,
+  Ambulance,
+  Heart,
+  Stethoscope,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  Building
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { hospitalInfo } from '../data/hospitalData';
@@ -67,87 +71,113 @@ export const Navbar = ({
   };
 
   const toggleLanguage = () => {
-    toast.success('सर गंगा राम अस्पताल — हिंदी भाषा विकल्प सक्रिय (Hindi / English Multilingual Support Active)', {
+    toast.success('ब्रह्म शक्ति अस्पताल — हिंदी भाषा विकल्प सक्रिय (Brahm Shakti Hospital Multilingual Active)', {
       duration: 3500
     });
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white transition-all duration-300 shadow-sm border-b border-slate-200/80">
+    <header className="sticky top-0 z-40 w-full bg-white transition-all duration-300 shadow-sm border-b border-slate-200/90">
       
-      {/* 1. Single Sleek Institutional Top Bar (Unified, Clean, Uncluttered) */}
-      <div className="bg-[#0B2545] text-white text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-white/10">
-        <div className="max-w-page mx-auto flex items-center justify-between gap-2 sm:gap-4">
+      {/* 1. Top Utility Bar: Emergency Hotline & Brahm Shakti Institutional Links */}
+      <div className="bg-[#0C2B4E] text-white text-xs py-1.5 sm:py-2 px-3 sm:px-6 border-b border-white/10">
+        <div className="max-w-page mx-auto flex items-center justify-between gap-3 sm:gap-6">
           
-          {/* Left: Emergency & Helplines */}
+          {/* Left: 24-Hour Emergency & Ambulance Hotline */}
           <div className="flex items-center gap-2 sm:gap-6 shrink-0">
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-rose-600/20 px-2 sm:px-3 py-0.5 rounded-full border border-rose-500/30">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-80"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
               </span>
-              <span className="text-[10px] sm:text-[11px] font-bold text-rose-300 tracking-wide uppercase">
-                <span className="hidden xs:inline">24x7 </span>Emergency:
+              <Ambulance className="w-3.5 h-3.5 text-rose-300 hidden xs:inline" />
+              <span className="text-[10px] sm:text-[11px] font-bold text-rose-200 uppercase tracking-wider">
+                Ambulance / Emergency 24 Hrs:
               </span>
               <a
                 href={`tel:${hospitalInfo.contacts.emergency}`}
-                className="font-bold text-white hover:text-rose-200 transition-colors tracking-wide underline underline-offset-2 text-[11px] sm:text-xs"
+                className="font-extrabold text-white hover:text-rose-200 transition-colors tracking-wide underline underline-offset-2 text-[11px] sm:text-xs"
               >
-                {hospitalInfo.contacts.emergency}
+                +91-{hospitalInfo.contacts.emergency}
               </a>
             </div>
 
-            <div className="hidden md:flex items-center gap-2 text-white/80 text-[11px]">
-              <span className="text-white/30">|</span>
-              <span>Ambulance:</span>
-              <a href={`tel:${hospitalInfo.contacts.ambulance}`} className="font-semibold text-white hover:underline">
-                {hospitalInfo.contacts.ambulance}
-              </a>
-            </div>
-
-            <div className="hidden lg:flex items-center gap-2 text-white/80 text-[11px]">
-              <span className="text-white/30">|</span>
-              <span>OPD Helpline:</span>
-              <a href="tel:01142251111" className="font-semibold text-white hover:underline">
-                011-42251111
+            <div className="hidden lg:flex items-center gap-2 text-slate-300 text-[11px]">
+              <span className="text-white/20">|</span>
+              <Phone className="w-3 h-3 text-sky-400" />
+              <span>Hospital Desk:</span>
+              <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="font-semibold text-white hover:underline">
+                {hospitalInfo.contacts.casualtyAlternate}
               </a>
             </div>
           </div>
 
-          {/* Right: Essential Portals & Controls */}
-          <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-[11px]">
-            <button
-              onClick={onOpenLabPortal}
-              className="hover:text-sky-300 transition-colors flex items-center gap-1 text-white/90 font-medium"
-            >
-              <FileText className="w-3.5 h-3.5 text-sky-400" />
-              <span className="hidden sm:inline">Lab Reports</span>
-            </button>
+          {/* Right: Institutional Navigation from Brahm Shakti Hospital & Accessibility */}
+          <div className="flex items-center gap-2 sm:gap-5 text-[10px] sm:text-[11px]">
+            {/* Brahm Shakti Institutional Links */}
+            <nav className="hidden xl:flex items-center gap-4 text-slate-300 font-medium">
+              <button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-white transition-colors"
+              >
+                HOME
+              </button>
+              <span className="text-white/20">&middot;</span>
+              <button
+                onClick={() => scrollTo('heritage')}
+                className="hover:text-white transition-colors"
+              >
+                ABOUT US
+              </button>
+              <span className="text-white/20">&middot;</span>
+              <button
+                onClick={() => scrollTo('patient-services')}
+                className="hover:text-white transition-colors"
+              >
+                FAQ'S
+              </button>
+              <span className="text-white/20">&middot;</span>
+              <button
+                onClick={() => scrollTo('contact')}
+                className="hover:text-white transition-colors"
+              >
+                CAREERS
+              </button>
+              <span className="text-white/20">&middot;</span>
+              <button
+                onClick={onOpenLabPortal}
+                className="hover:text-sky-300 transition-colors flex items-center gap-1"
+              >
+                <FileText className="w-3 h-3 text-sky-400" />
+                <span>LAB REPORTS</span>
+              </button>
+              <span className="text-white/20">&middot;</span>
+              <button
+                onClick={() => scrollTo('contact')}
+                className="hover:text-white transition-colors"
+              >
+                CONTACT US
+              </button>
+            </nav>
 
-            <button
-              onClick={onOpenInternational}
-              className="hover:text-sky-300 transition-colors hidden md:flex items-center gap-1.5 text-white/90 font-medium"
-            >
-              <Globe className="w-3.5 h-3.5 text-sky-400" />
-              <span>International Desk</span>
-            </button>
-
-            <span className="hidden sm:inline text-white/30">|</span>
+            <span className="hidden xl:inline text-white/30">|</span>
 
             {/* Accessibility Font Size Controls */}
             <div className="flex items-center gap-0.5 sm:gap-1 bg-white/10 px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px]">
               <span className="text-white/60 text-[9px] sm:text-[10px] hidden sm:inline">Text:</span>
               <button
                 onClick={() => onChangeFontSize && onChangeFontSize('normal')}
-                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'normal' ? 'bg-white text-[#0B2545]' : 'text-white/80 hover:text-white'}`}
+                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'normal' ? 'bg-white text-[#0C2B4E]' : 'text-white/80 hover:text-white'}`}
                 title="Default text size"
               >
                 A
               </button>
               <button
                 onClick={() => onChangeFontSize && onChangeFontSize('large')}
-                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'large' ? 'bg-white text-[#0B2545]' : 'text-white/80 hover:text-white'}`}
-                title="Larger text size for comfortable reading"
+                className={`px-1.5 py-0.2 rounded font-bold transition-colors ${fontSize === 'large' ? 'bg-white text-[#0C2B4E]' : 'text-white/80 hover:text-white'}`}
+                title="Larger text size for seniors"
               >
                 A+
               </button>
@@ -159,65 +189,128 @@ export const Navbar = ({
               className="font-semibold text-sky-300 hover:text-white transition-colors border border-white/20 px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px]"
               title="Toggle Hindi/English Language"
             >
-              <span className="hidden xs:inline">हिन्दी / ENG</span>
-              <span className="xs:hidden">हिन्दी</span>
+              <span>हिन्दी / ENG</span>
             </button>
           </div>
 
         </div>
       </div>
 
-      {/* 2. Main Navigation Bar (Spacious, Elegant, Light) */}
+      {/* 2. Main Navigation Bar (Clean, Distinct, Structured just like Brahm Shakti Hospital) */}
       <nav className={`max-w-page mx-auto px-3 sm:px-4 lg:px-6 transition-all duration-200 ${isScrolled ? 'py-2.5 sm:py-3' : 'py-3 sm:py-4'}`}>
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
+        <div className="flex items-center justify-between gap-3 sm:gap-6">
           
-          {/* Official Rectangular SGRH Logo (Whole lockup in one clean element) */}
+          {/* Brahm Shakti Hospital Brand Identity */}
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center group focus:outline-none shrink-0"
-            aria-label="Sir Ganga Ram Hospital Home"
+            className="flex items-center gap-2 group focus:outline-none shrink-0"
+            aria-label="Brahm Shakti Hospital Home"
           >
             <img
-              src="/sgrh-logo.png"
-              alt="Sir Ganga Ram Hospital - Trust of Generations"
-              className="h-8 xs:h-9 sm:h-11 md:h-12 max-w-[200px] xs:max-w-[240px] sm:max-w-none w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              src="/brahm-shakti-logo.svg"
+              alt="Brahm Shakti Hospital - Caring for you for Life"
+              className="h-10 xs:h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
               loading="eager"
             />
           </a>
 
-          {/* Clean Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-1.5 text-[14px] font-semibold text-[#0B2545]">
+          {/* Center Navigation Links: Services, Find a Doctor, Specialties, Patient Services, Clinical Services, Health & Lifestyle */}
+          <div className="hidden xl:flex items-center gap-1 text-[13.5px] font-bold text-[#0C2B4E] uppercase tracking-wide">
             
-            {/* Find a Doctor */}
+            {/* 1. SERVICES Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('services')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#0284C7] hover:bg-slate-50 transition-colors ${
+                  activeDropdown === 'services' ? 'text-[#0284C7] bg-slate-50' : ''
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+              </button>
+
+              {activeDropdown === 'services' && (
+                <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-fadeIn">
+                  <div className="bg-white rounded-2xl shadow-elevated border border-slate-200 p-2.5 text-xs space-y-1 normal-case">
+                    <button
+                      onClick={() => onOpenEmergency && onOpenEmergency()}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-rose-50 hover:text-rose-700 transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">24x7 Emergency & Trauma</span>
+                      <span className="text-[11px] text-slate-500">Immediate casualty arrival & mobile ICU</span>
+                    </button>
+                    <button
+                      onClick={() => scrollTo('doctor-search')}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">Outpatient (OPD) Clinics</span>
+                      <span className="text-[11px] text-slate-500">Morning & evening consultant clinics</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        scrollTo('specialties');
+                        if (onSelectDepartmentFilter) onSelectDepartmentFilter('nephrology');
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">Subsidized Dialysis Center</span>
+                      <span className="text-[11px] text-slate-500">24x7 renal care at subsidized fee</span>
+                    </button>
+                    <button
+                      onClick={onOpenLabPortal}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">Diagnostic Radiology & Labs</span>
+                      <span className="text-[11px] text-slate-500">CT Scan, MRI, Ultrasound & Blood Bank</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 2. FIND A DOCTOR */}
             <button
               onClick={() => scrollTo('doctor-search')}
-              className="px-3.5 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
             >
               Find a Doctor
             </button>
 
-            {/* Specialties Dropdown */}
+            {/* 3. OUR SPECIALTIES Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => handleMouseEnter('specialties')}
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-3.5 py-2 rounded-lg flex items-center gap-1 hover:text-[#0284C7] hover:bg-slate-50 transition-colors ${
+                className={`px-3 py-2 rounded-lg flex items-center gap-1 hover:text-[#0284C7] hover:bg-slate-50 transition-colors ${
                   activeDropdown === 'specialties' ? 'text-[#0284C7] bg-slate-50' : ''
                 }`}
               >
-                <span>Specialties</span>
-                <ChevronDown className="w-4 h-4 opacity-60" />
+                <span>Our Specialties</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </button>
 
               {activeDropdown === 'specialties' && (
-                <div className="absolute left-0 top-full pt-2 w-72 z-50">
-                  <div className="bg-white rounded-2xl shadow-elevated border border-slate-200 p-2.5 text-sm space-y-1">
+                <div className="absolute left-0 top-full pt-2 w-80 z-50 animate-fadeIn">
+                  <div className="bg-white rounded-2xl shadow-elevated border border-slate-200 p-2.5 text-xs space-y-1 normal-case">
+                    <button
+                      onClick={() => {
+                        scrollTo('doctor-search');
+                        if (onSelectDepartmentFilter) onSelectDepartmentFilter('orthopaedics');
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">Orthopaedics & Joint Surgery</span>
+                      <span className="text-[11px] text-slate-500">Knee/Hip replacement, Arthroscopy & Spine</span>
+                    </button>
                     <button
                       onClick={() => {
                         scrollTo('doctor-search');
@@ -225,8 +318,8 @@ export const Navbar = ({
                       }}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
                     >
-                      <span className="font-bold text-[#0B2545] block">Cardiology & Cardiac Surgery</span>
-                      <span className="text-xs text-slate-500">TAVI, Cath Lab & Heart Surgery</span>
+                      <span className="font-bold text-[#0C2B4E] block">Heart Surgeries & Interventions</span>
+                      <span className="text-[11px] text-slate-500">Coronary Bypass & Cardiac Emergency</span>
                     </button>
                     <button
                       onClick={() => {
@@ -235,18 +328,18 @@ export const Navbar = ({
                       }}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
                     >
-                      <span className="font-bold text-[#0B2545] block">Nephrology & Renal Transplant</span>
-                      <span className="text-xs text-slate-500">4,500+ successful kidney transplants</span>
+                      <span className="font-bold text-[#0C2B4E] block">Nephrology & Kidney Care</span>
+                      <span className="text-[11px] text-slate-500">24x7 Subsidized Dialysis & Renal Care</span>
                     </button>
                     <button
                       onClick={() => {
                         scrollTo('doctor-search');
-                        if (onSelectDepartmentFilter) onSelectDepartmentFilter('gastroenterology');
+                        if (onSelectDepartmentFilter) onSelectDepartmentFilter('neurosciences');
                       }}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
                     >
-                      <span className="font-bold text-[#0B2545] block">Gastroenterology & Liver</span>
-                      <span className="text-xs text-slate-500">Endoscopy & Liver transplant</span>
+                      <span className="font-bold text-[#0C2B4E] block">Neuro & Neuro Spine Surgeries</span>
+                      <span className="text-[11px] text-slate-500">Brain & Spine microsurgery & Stroke unit</span>
                     </button>
                     <button
                       onClick={() => {
@@ -255,15 +348,25 @@ export const Navbar = ({
                       }}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
                     >
-                      <span className="font-bold text-[#0B2545] block">Medical & Surgical Oncology</span>
-                      <span className="text-xs text-slate-500">TrueBeam Linac & precision chemotherapy</span>
+                      <span className="font-bold text-[#0C2B4E] block">Cancer Treatment & Oncology</span>
+                      <span className="text-[11px] text-slate-500">Surgical oncology & Day-care chemotherapy</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        scrollTo('doctor-search');
+                        if (onSelectDepartmentFilter) onSelectDepartmentFilter('cosmetic');
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="font-bold text-[#0C2B4E] block">Aesthetic & Cosmetic Surgeries</span>
+                      <span className="text-[11px] text-slate-500">Rhinoplasty, Liposuction & Reconstructions</span>
                     </button>
                     <div className="pt-2 mt-1 border-t border-slate-100">
                       <button
                         onClick={() => scrollTo('specialties')}
                         className="w-full text-left px-3 py-1.5 text-xs font-bold text-[#0284C7] hover:underline flex items-center justify-between"
                       >
-                        <span>View All 71 Medical Departments</span>
+                        <span>View All Hospital Specialties</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -272,32 +375,32 @@ export const Navbar = ({
               )}
             </div>
 
-            {/* Patient Services */}
+            {/* 4. PATIENT SERVICES */}
             <button
               onClick={() => scrollTo('patient-services')}
-              className="px-3.5 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
             >
-              Patient Guide
+              Patient Services
             </button>
 
-            {/* Heritage */}
+            {/* 5. CLINICAL SERVICES */}
+            <button
+              onClick={() => scrollTo('clinical-services')}
+              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+            >
+              Clinical Services
+            </button>
+
+            {/* 6. HEALTH & LIFESTYLE */}
             <button
               onClick={() => scrollTo('heritage')}
-              className="px-3.5 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
+              className="px-3 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
             >
-              Heritage & Trust
-            </button>
-
-            {/* Contact */}
-            <button
-              onClick={() => scrollTo('contact')}
-              className="px-3.5 py-2 rounded-lg hover:text-[#0284C7] hover:bg-slate-50 transition-colors"
-            >
-              Contact
+              Health & Lifestyle
             </button>
           </div>
 
-          {/* Action CTAs & Search */}
+          {/* Right Action CTAs: Search, 24x7 Ambulance, Book Appointment */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Search Trigger */}
             <button
@@ -305,27 +408,27 @@ export const Navbar = ({
                 scrollTo('doctor-search');
                 if (onSearchFocus) onSearchFocus();
               }}
-              className="p-2 sm:p-2.5 text-slate-500 hover:text-[#0B2545] hover:bg-slate-100 rounded-xl transition-colors"
-              title="Search Doctors or Departments"
+              className="p-2 sm:p-2.5 text-slate-600 hover:text-[#0C2B4E] hover:bg-slate-100 rounded-xl transition-colors"
+              title="Search Doctors or Services"
               aria-label="Search"
             >
               <Search className="w-4 h-4" />
             </button>
 
-            {/* Emergency Casualty Button */}
+            {/* Emergency Hotline Button */}
             <button
               onClick={onOpenEmergency}
-              className="hidden md:inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs transition-colors"
-              title="24x7 Emergency Casualty"
+              className="hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs transition-colors"
+              title="24x7 Emergency Ambulance"
             >
               <PhoneCall className="w-3.5 h-3.5 text-rose-600" />
-              <span>Casualty 24x7</span>
+              <span>Ambulance 24x7</span>
             </button>
 
-            {/* Primary Appointment Button (Desktop / Tablet only; placed inside Hamburger menu for Mobile) */}
+            {/* Primary Appointment Button (Realistic Medical Blue) */}
             <button
               onClick={onOpenAppointment}
-              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full sm:rounded-2xl bg-[#DE5824] hover:bg-[#C64716] text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs sm:text-sm uppercase tracking-wide transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
             >
               <Calendar className="w-4 h-4 text-white" />
               <span>Book Appointment</span>
@@ -334,7 +437,7 @@ export const Navbar = ({
             {/* Mobile Hamburger Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#0B2545] hover:bg-slate-100 rounded-xl transition-colors focus:outline-none shrink-0"
+              className="xl:hidden w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#0C2B4E] hover:bg-slate-100 rounded-xl transition-colors focus:outline-none shrink-0"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -347,101 +450,109 @@ export const Navbar = ({
         {mobileMenuOpen && (
           <div className="xl:hidden mt-3 pt-3 border-t border-slate-200 pb-4 space-y-3 animate-fadeIn">
             
-            {/* 1. Primary Book Appointment CTA inside Hamburger */}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAppointment();
-              }}
-              className="w-full py-3.5 px-4 rounded-xl bg-[#DE5824] hover:bg-[#C64716] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all"
-            >
-              <Calendar className="w-4 h-4 text-white" />
-              <span>Book Appointment</span>
-            </button>
-
-            {/* 2. Quick Emergency & Lab Action Buttons */}
+            {/* Primary Book Appointment CTA inside Mobile Menu */}
             <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenAppointment();
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs uppercase tracking-wide shadow-sm"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Appointment</span>
+              </button>
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenEmergency();
                 }}
-                className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-rose-600 text-white text-xs font-bold shadow-xs active:scale-[0.98] transition-transform"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase tracking-wide shadow-sm"
               >
-                <PhoneCall className="w-4 h-4" />
-                <span>Call Emergency</span>
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenLabPortal();
-                }}
-                className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-teal-50 text-[#0D7B7B] text-xs font-bold border border-teal-200 active:scale-[0.98] transition-transform"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Lab Reports</span>
+                <Ambulance className="w-4 h-4" />
+                <span>Emergency 24x7</span>
               </button>
             </div>
 
-            {/* Navigation Links */}
-            <nav className="flex flex-col space-y-1 text-xs sm:text-sm font-semibold text-slate-700 pt-1">
+            {/* Mobile Nav Links */}
+            <div className="space-y-1 font-semibold text-sm text-[#0C2B4E]">
               <button
                 onClick={() => scrollTo('doctor-search')}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
               >
-                <span>Find a Doctor & OPD Timings</span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span>Find a Doctor & OPD</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
               </button>
+
               <button
                 onClick={() => scrollTo('specialties')}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
               >
-                <span>Medical Specialties (71 Departments)</span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span>Our Specialties</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
               </button>
+
               <button
                 onClick={() => scrollTo('patient-services')}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
               >
-                <span>Patient & Visitor Guide</span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span>Patient Services & TPA Panels</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
               </button>
+
+              <button
+                onClick={() => scrollTo('clinical-services')}
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
+              >
+                <span>Clinical Services (CT, MRI, Dialysis)</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
+              </button>
+
               <button
                 onClick={() => scrollTo('heritage')}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
               >
-                <span>Heritage & Charitable Trust (20% Free Beds)</span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span>About Brahm Shakti Trust</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
               </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenInternational();
-                }}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
-              >
-                <span>International Patient Desk & Medical Visa</span>
-                <Globe className="w-4 h-4 text-slate-400" />
-              </button>
+
               <button
                 onClick={() => scrollTo('contact')}
-                className="text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors"
+                className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-100 flex items-center justify-between"
               >
-                <span>Hospital Location & Contact</span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span>Contact Hospital & Location</span>
+                <ChevronDown className="w-4 h-4 -rotate-90 text-slate-400" />
               </button>
-            </nav>
+            </div>
 
-            {/* Mobile Footer Helpstrip */}
-            <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between px-2">
-              <span>OPD Desk: <strong className="text-slate-800">011-42251111</strong></span>
-              <span>Central: <strong className="text-slate-800">011-25750000</strong></span>
+            {/* Mobile Helplines Card */}
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500 font-medium">Ambulance Hotline:</span>
+                <a href={`tel:${hospitalInfo.contacts.emergency}`} className="font-bold text-rose-600 hover:underline">
+                  +91-{hospitalInfo.contacts.emergency}
+                </a>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500 font-medium">Hospital Board:</span>
+                <a href={`tel:${hospitalInfo.contacts.casualtyAlternate}`} className="font-bold text-[#0C2B4E] hover:underline">
+                  {hospitalInfo.contacts.casualtyAlternate}
+                </a>
+              </div>
+              <div className="flex items-center justify-between pt-1 border-t border-slate-200">
+                <span className="text-slate-500 font-medium">Hospital Email:</span>
+                <a href={`mailto:${hospitalInfo.contacts.email}`} className="font-bold text-[#0284C7] hover:underline">
+                  {hospitalInfo.contacts.email}
+                </a>
+              </div>
             </div>
 
           </div>
         )}
 
       </nav>
+
     </header>
   );
 };

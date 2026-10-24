@@ -323,8 +323,8 @@ export const newsArticlesData = [
     id: "news-01",
     category: "Clinical Milestone",
     date: "October 14, 2026",
-    title: "SGRH Surgical Team Accomplishes Rare Dual Organ Transplant",
-    excerpt: "A multidisciplinary clinical team successfully completed a simultaneous liver-kidney transplantation on a critically ill patient, marking another milestone in tertiary surgical excellence.",
+    title: "Brahm Shakti Hospital Surgical Team Accomplishes Complex Joint Reconstruction",
+    excerpt: "A multidisciplinary surgical team successfully performed complex bilateral joint reconstruction on a high-risk patient, underscoring our tertiary surgical excellence.",
     readTime: "4 min read",
     author: "Hospital Clinical Board",
     image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"
@@ -333,10 +333,10 @@ export const newsArticlesData = [
     id: "news-02",
     category: "Academic & Research",
     date: "September 28, 2026",
-    title: "Annual Research Conclave: Groundbreaking Insights in Antimicrobial Stewardship",
-    excerpt: "Sir Ganga Ram Hospital's Research and DNB Academic Committee published findings from a 3-year multi-cohort study on infection control and evidence-based antibiotic protocols.",
+    title: "Annual Clinical Review: Infection Control & Subsidized Care Protocols",
+    excerpt: "Brahm Shakti Hospital's Clinical Committee published findings from a 3-year study on infection control, laminar airflow safety, and evidence-based protocols.",
     readTime: "6 min read",
-    author: "Department of Medical Research",
+    author: "Department of Medical Administration",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -344,7 +344,7 @@ export const newsArticlesData = [
     category: "Community Welfare",
     date: "August 20, 2026",
     title: "Free Multispecialty Health Outreach Camp Screenings Exceed 2,400 Beneficiaries",
-    excerpt: "In line with Sir Ganga Ram's philanthropic heritage, the hospital organized specialized rural health screening camps providing free diagnostic investigations, medicines, and specialist consultations.",
+    excerpt: "In line with Brahm Shakti Trust's philanthropic heritage, the hospital organized specialized rural health screening camps providing free diagnostic investigations, medicines, and specialist consultations.",
     readTime: "3 min read",
     author: "Community Outreach Cell",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"

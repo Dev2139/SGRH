@@ -78,10 +78,10 @@ export const submitEnquiry = async (formData) => {
   } catch (err) {
     // If backend is unreachable, gracefully log in local session
     console.warn('[API Client] Local submission simulation due to network:', err.message);
-    const mockRef = `SGRH-${Date.now().toString().slice(-6)}-${Math.floor(100 + Math.random() * 900)}`;
+    const mockRef = `BSH-${Date.now().toString().slice(-6)}-${Math.floor(100 + Math.random() * 900)}`;
     return {
       success: true,
-      message: 'Consultation request logged with SGRH Patient Desk.',
+      message: 'Consultation request logged with Brahm Shakti Hospital Patient Desk.',
       referenceNumber: mockRef,
       data: {
         referenceNumber: mockRef,

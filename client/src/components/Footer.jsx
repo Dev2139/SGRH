@@ -29,34 +29,34 @@ export const Footer = ({
           
           {/* Column 1: Institutional Wordmark & Heritage Summary (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-block p-2 bg-white rounded-xl shadow-xs">
+            <div className="inline-block p-2 bg-white/10 rounded-xl shadow-xs border border-white/10">
               <img
-                src="/sgrh-logo.png"
-                alt="Sir Ganga Ram Hospital - Trust of Generations"
-                className="h-10 sm:h-11 w-auto object-contain"
+                src="/brahm-shakti-logo-white.svg"
+                alt="Brahm Shakti Hospital - Caring for you for Life"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </div>
 
             <p className="text-xs text-white/70 leading-relaxed max-w-sm">
-              A 900-bed premier multispecialty tertiary referral hospital and postgraduate medical research institution in New Delhi, governed by the Sir Ganga Ram Trust Society on a not-for-profit charitable model.
+              A 250-bedded tertiary healthcare project in Budh Vihar, New Delhi, managed by Brahm Shakti Trust (Regd.) delivering high-tech surgical and medical care at highly subsidised fee.
             </p>
 
             <div className="pt-2 text-xs space-y-2 text-white/80">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#DE5824] mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <span className="text-xs leading-relaxed">
-                  Sir Ganga Ram Hospital Marg, Old Rajinder Nagar, New Delhi – 110060, India
+                  U1/78, Budh Vihar, New Delhi – 110086, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#DE5824] shrink-0" />
+                <Phone className="w-4 h-4 text-rose-400 shrink-0" />
                 <span className="text-xs">
-                  Central: <strong>011-25750000</strong> &middot; Casualty: <strong>011-42254000</strong>
+                  Emergency: <strong>+91-7840089703</strong> &middot; Board: <strong>011-27531683</strong>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#DE5824] shrink-0" />
-                <span className="text-xs">gangaram@sgrh.com</span>
+                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                <span className="text-xs">enquiry@brahmshaktihospital.com</span>
               </div>
             </div>
           </div>
@@ -198,8 +198,8 @@ export const Footer = ({
                   onClick={() => onScrollToSection('heritage')}
                   className="hover:text-white transition-colors flex items-center gap-1 text-left"
                 >
-                  <ChevronRight className="w-3 h-3 text-teal-400" />
-                  <span>Sir Ganga Ram Heritage & Story</span>
+                  <ChevronRight className="w-3 h-3 text-sky-400" />
+                  <span>Brahm Shakti Trust & Ethos</span>
                 </button>
               </li>
               <li>
@@ -254,9 +254,9 @@ export const Footer = ({
       <div className="border-t border-white/10 py-5 sm:py-6 bg-[#081827] text-white/60 text-xs">
         <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="text-[11px] sm:text-xs">
-            &copy; {new Date().getFullYear()} Sir Ganga Ram Hospital, New Delhi. All rights reserved.
+            &copy; {new Date().getFullYear()} Brahm Shakti Hospital Trust (Regd.), New Delhi. All rights reserved.
             <span className="block sm:inline sm:ml-2 text-white/40">
-              Proposal Concept Redesign by Creative Healthcare Experience Team.
+              U1/78, Budh Vihar, New Delhi &middot; Caring for you for Life.
             </span>
           </div>
 

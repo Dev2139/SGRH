@@ -10,7 +10,7 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
       icon: Building2,
       badge: "INPATIENT SERVICES GUIDE",
       title: "Planned Admissions & Hospitalization Procedure",
-      subtitle: "Everything you need to know before coming to Sir Ganga Ram Hospital for an inpatient procedure.",
+      subtitle: "Everything you need to know before coming to Brahm Shakti Hospital for an inpatient procedure.",
       sections: [
         {
           title: "Checklist of Documents Needed at Admission",
@@ -24,9 +24,9 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
         {
           title: "Admission Desk Location & Hours",
           items: [
-            "Central Admission Counter: Ground Floor, Main Block A (Open 24x7)",
+            "Central Admission Counter: Ground Floor, Main Hospital Block (Open 24x7)",
             "Planned surgical admissions are recommended to report by 8:00 AM on the day of surgery.",
-            "Emergency admissions are processed directly via Emergency Casualty Gate 2."
+            "Emergency admissions are processed directly via Emergency Casualty Desk."
           ]
         },
         {
@@ -35,7 +35,7 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
             "Deluxe Single Private Suites (with attendant sleeping arrangements)",
             "Standard Single Air-Conditioned Rooms",
             "Twin-Sharing Semi-Private Rooms",
-            "Multi-bed General Wards (Subsidized & EWS Wards)"
+            "Multi-bed General Wards (Subsidized Trust Wards)"
           ]
         }
       ]
@@ -44,7 +44,7 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
       icon: CreditCard,
       badge: "FINANCIAL SERVICES & TPA",
       title: "Cashless Health Insurance (TPA) & Billing Desk",
-      subtitle: "Sir Ganga Ram Hospital is empaneled with major health insurance companies, government schemes, and corporate entities.",
+      subtitle: "Brahm Shakti Hospital is empaneled with major health insurance companies, government schemes, and corporate entities.",
       sections: [
         {
           title: "Empaneled Third-Party Administrators (TPAs) & Insurers",
@@ -66,7 +66,7 @@ export const InfoGuidanceModal = ({ type, isOpen, onClose, onBookAppointment }) 
         {
           title: "Direct TPA Helpdesk Contact",
           items: [
-            "TPA Cashless Desk Phone: 011-42251111 (Extension: 1401 / 1402)",
+            "TPA Cashless Desk Phone: 011-27531683",
             "Operating Hours: 8:00 AM – 9:00 PM (Monday to Saturday)"
           ]
         }

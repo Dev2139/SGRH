@@ -208,16 +208,18 @@ export const AppointmentModal = ({
                 </label>
                 <select
                   {...register('department')}
-                  className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+                  className="w-full px-3.5 py-2.5 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0284C7]"
                 >
-                  <option value="Cardiology & Cardiac Surgery">Cardiology & Cardiac Surgery</option>
-                  <option value="Nephrology & Renal Transplant">Nephrology & Renal Transplant</option>
-                  <option value="Gastroenterology & Liver Transplant">Gastroenterology & Liver Transplant</option>
-                  <option value="Neurology & Neurosurgery">Neurology & Neurosurgery</option>
-                  <option value="Medical & Surgical Oncology">Medical & Surgical Oncology</option>
-                  <option value="Orthopaedics & Joint Replacement">Orthopaedics & Joint Replacement</option>
-                  <option value="Pulmonology & Critical Care Medicine">Pulmonology & Critical Care</option>
-                  <option value="Pediatrics & Neonatology">Pediatrics & Neonatology</option>
+                  <option value="Orthopaedics & Spine Surgery">Orthopaedics & Spine Surgery</option>
+                  <option value="Heart Surgeries & Interventions">Heart Surgeries & Interventions</option>
+                  <option value="Nephrology & Kidney Care">Nephrology & Kidney Care (Subsidized Dialysis)</option>
+                  <option value="Aesthetic & Cosmetic Surgeries">Aesthetic & Cosmetic Surgeries</option>
+                  <option value="Cancer Treatment & Oncology">Cancer Treatment & Oncology</option>
+                  <option value="Neuro & Neuro Spine Surgeries">Neuro & Neuro Spine Surgeries</option>
+                  <option value="General & Laparoscopic Surgery">General & Laparoscopic Surgery</option>
+                  <option value="Gynaecology & Obstetrics">Gynaecology & Obstetrics</option>
+                  <option value="General Medicine">General Medicine</option>
+                  <option value="Eye & Dental Care">Eye & Dental Care</option>
                 </select>
               </div>
 
@@ -227,9 +229,9 @@ export const AppointmentModal = ({
                 </label>
                 <textarea
                   rows={2}
-                  placeholder="e.g. Routine cardiology follow-up, second opinion on reports..."
+                  placeholder="e.g. Routine consultation, second opinion, joint pain, subsidized dialysis..."
                   {...register('message')}
-                  className="w-full px-3.5 py-2 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+                  className="w-full px-3.5 py-2 bg-[#F8FAFC] border border-gray-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0284C7]"
                 ></textarea>
               </div>
 
@@ -237,7 +239,7 @@ export const AppointmentModal = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-[#123653] hover:bg-[#1769AA] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+                  className="w-full py-3 bg-[#0C2B4E] hover:bg-[#0284C7] text-white text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

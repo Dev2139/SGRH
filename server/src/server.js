@@ -12,7 +12,7 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     console.log(`=================================================`);
-    console.log(`  Sir Ganga Ram Hospital - API Server Active    `);
+    console.log(`  Brahm Shakti Hospital - API Server Active    `);
     console.log(`  Local URL: http://localhost:${PORT}          `);
     console.log(`  Health:    http://localhost:${PORT}/api/health`);
     console.log(`=================================================`);

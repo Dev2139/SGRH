@@ -8,7 +8,7 @@ export const TechnologySection = () => {
   const techImages = [
     {
       src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=900",
-      alt: "da Vinci Xi Robotic Surgical System at Sir Ganga Ram Hospital"
+      alt: "Advanced Surgical Suites at Brahm Shakti Hospital"
     },
     {
       src: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=900",

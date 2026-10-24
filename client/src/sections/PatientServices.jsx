@@ -134,17 +134,17 @@ export const PatientServices = ({
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 text-xs w-full md:w-auto">
             <a
-              href="tel:01142254000"
+              href={`tel:${hospitalInfo.contacts.emergency}`}
               className="px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <PhoneCall className="w-3.5 h-3.5" />
-              <span>Casualty: 011-42254000</span>
+              <span>Emergency 24x7: {hospitalInfo.contacts.emergency}</span>
             </a>
             <a
-              href="tel:01125750000"
-              className="px-4 py-2.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+              href={`tel:${hospitalInfo.contacts.casualtyAlternate}`}
+              className="px-4 py-2.5 rounded-xl bg-[#0C2B4E] hover:bg-[#0284C7] text-white font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <span>Main Board: 011-25750000</span>
+              <span>Main Board: {hospitalInfo.contacts.casualtyAlternate}</span>
             </a>
           </div>
         </div>

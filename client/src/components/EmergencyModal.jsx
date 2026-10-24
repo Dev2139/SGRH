@@ -66,7 +66,7 @@ export const EmergencyModal = ({ isOpen, onClose }) => {
             </h4>
             <div className="space-y-1.5 text-gray-600 pl-5">
               <p>
-                &bull; <strong>Entry Gate:</strong> Emergency Casualty entrance is located at <strong>Gate No. 2</strong>, Sir Ganga Ram Hospital Marg (direct ramp access).
+                &bull; <strong>Emergency Casualty Gate:</strong> Dedicated casualty reception at Brahm Shakti Hospital, <strong>U1/78, Budh Vihar, New Delhi</strong> (direct ambulance ramp access).
               </p>
               <p>
                 &bull; <strong>Cardiac Emergency (Code Red):</strong> Immediate ECG & 24x7 Primary Angioplasty team ready within 20 minutes of arrival.

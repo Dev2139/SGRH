@@ -38,7 +38,7 @@ export const FloatingQuickAssist = ({
       )}
 
       {/* Floating Assist Bar */}
-      <div className="bg-[#0B2545]/95 text-white rounded-full shadow-2xl border border-white/20 p-1 sm:p-1.5 flex items-center gap-1 sm:gap-1.5 backdrop-blur-md">
+      <div className="bg-[#0C2B4E]/95 text-white rounded-full shadow-2xl border border-white/20 p-1 sm:p-1.5 flex items-center gap-1 sm:gap-1.5 backdrop-blur-md">
         
         {/* 1. Emergency Dial */}
         <button
@@ -54,10 +54,10 @@ export const FloatingQuickAssist = ({
           <span className="hidden sm:inline">24x7 Casualty</span>
         </button>
 
-        {/* 2. Book Appointment (Brand Orange) */}
+        {/* 2. Book Appointment (Realistic Hospital Blue) */}
         <button
           onClick={onOpenAppointment}
-          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#DE5824] hover:bg-[#C64716] text-white text-xs font-semibold transition-all shadow-xs active:scale-95"
+          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-semibold transition-all shadow-xs active:scale-95"
           title="Request Doctor Consultation"
         >
           <Calendar className="w-3.5 h-3.5 text-white" />
@@ -70,7 +70,7 @@ export const FloatingQuickAssist = ({
           className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all active:scale-95"
           title="View Lab & Diagnostic Test Reports"
         >
-          <FileText className="w-3.5 h-3.5 text-teal-300" />
+          <FileText className="w-3.5 h-3.5 text-sky-300" />
           <span className="hidden sm:inline">Lab Reports</span>
         </button>
 

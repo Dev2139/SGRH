@@ -22,7 +22,7 @@ export const InternationalPatients = ({ onOpenInternationalModal }) => {
             </h2>
 
             <p className="text-base text-[#384252] leading-relaxed">
-              Every year, patients from over 45 countries travel to Sir Ganga Ram Hospital for complex organ transplantation, cardiac procedures, and neurosurgery. Our dedicated International Patient Desk coordinates every detail from medical visa documentation to discharge.
+              Patients travel to Brahm Shakti Hospital for advanced joint surgeries, subsidized dialysis, heart procedures, and neuro spine care. Our dedicated Patient Desk coordinates every detail from medical opinions to discharge.
             </p>
 
             {/* 4-Step Pathway */}
@@ -69,7 +69,7 @@ export const InternationalPatients = ({ onOpenInternationalModal }) => {
             <div className="relative rounded-2xl overflow-hidden shadow-elevated border border-gray-200 bg-white">
               <img
                 src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=900"
-                alt="International Patient Lounge and Medical Coordination at SGRH"
+                alt="Patient Coordination and Lounge at Brahm Shakti Hospital"
                 className="w-full h-[400px] sm:h-[460px] object-cover"
                 loading="lazy"
               />

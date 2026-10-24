@@ -17,7 +17,7 @@ export const LeadershipSection = () => {
             Board of Management & Medical Direction
           </h2>
           <p className="text-sm text-[#637386] mt-2">
-            Sir Ganga Ram Hospital is governed by an eminent Board of Management comprised of veteran clinicians dedicated to the highest standards of medical ethics, clinical safety, and academic stewardship.
+            Brahm Shakti Hospital is governed under the guidance of Brahm Shakti Trust (Regd.) and an experienced medical board dedicated to the highest standards of medical ethics, patient safety, and subsidized healthcare.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export const LeadershipSection = () => {
               </div>
 
               <div className="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
-                <span>Sir Ganga Ram Trust Society</span>
+                <span>Brahm Shakti Trust (Regd.)</span>
                 <span className="font-semibold text-[#123653]">Board Member</span>
               </div>
             </div>

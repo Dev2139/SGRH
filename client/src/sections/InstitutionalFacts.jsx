@@ -56,7 +56,7 @@ export const InstitutionalFacts = () => {
           </div>
           <div className="flex items-center gap-2 text-slate-700">
             <HeartHandshake className="w-4 h-4 text-[#0284C7]" />
-            <span className="font-semibold">Sir Ganga Ram Trust Society Charitable Governance</span>
+            <span className="font-semibold">Brahm Shakti Trust (Regd.) Charitable Governance</span>
           </div>
         </div>
 

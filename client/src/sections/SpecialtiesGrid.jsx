@@ -50,7 +50,7 @@ export const SpecialtiesGrid = ({ onSelectSpecialty, onExploreAllSpecialties }) 
               Pioneering Clinical Disciplines
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Sir Ganga Ram Hospital houses 71 clinical departments, led by nationally renowned clinicians and equipped with cutting-edge surgical robotics.
+              Brahm Shakti Hospital houses 25+ clinical departments and high-tech surgical facilities, led by dedicated senior clinicians at highly subsidised fees.
             </p>
           </div>
 

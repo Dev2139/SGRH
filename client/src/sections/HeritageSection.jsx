@@ -1,9 +1,9 @@
 import React from 'react';
-import { Landmark, Award, BookOpen, HeartHandshake, ArrowRight } from 'lucide-react';
+import { Landmark, Award, BookOpen, HeartHandshake, ArrowRight, ShieldCheck, Heart } from 'lucide-react';
 
 export const HeritageSection = ({ onOpenAppointment }) => {
   return (
-    <section id="heritage" className="py-10 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16">
+    <section id="heritage" className="py-10 sm:py-20 bg-white border-b border-slate-200/90 scroll-mt-16">
       <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
@@ -13,23 +13,23 @@ export const HeritageSection = ({ onOpenAppointment }) => {
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-slate-200/90 bg-white">
               <img
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=900"
-                alt="Sir Ganga Ram Hospital Historic Campus and Medical Heritage"
+                alt="Brahm Shakti Hospital Campus and Medical Heritage"
                 className="w-full h-[260px] xs:h-[300px] sm:h-[450px] object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C2B4E]/85 via-transparent to-transparent"></div>
 
               {/* Clean Bottom Overlay Card */}
               <div className="absolute bottom-3 inset-x-3 sm:bottom-5 sm:inset-x-5 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-3.5 sm:p-5 border border-white/80 shadow-md">
                 <div className="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#0284C7] mb-1">
                   <Landmark className="w-3.5 h-3.5" />
-                  <span>FOUNDATION CHRONICLE &middot; 1954</span>
+                  <span>MANAGED BY BRAHM SHAKTI TRUST (REGD.)</span>
                 </div>
-                <div className="font-display font-bold text-sm sm:text-base text-[#0B2545]">
-                  Inaugurated by Prime Minister Jawaharlal Nehru
+                <div className="font-display font-bold text-sm sm:text-base text-[#0C2B4E]">
+                  250-Bedded Tertiary Healthcare Project
                 </div>
                 <p className="text-[11px] sm:text-xs text-slate-500 mt-1">
-                  Re-established in New Delhi following Sir Ganga Ram's original humanitarian trust founded in 1921.
+                  Built to the level of a tertiary center providing high-tech facilities like Coronary Bypass, Kidney Care, and Spine Surgeries at highly subsidised fee.
                 </p>
               </div>
             </div>
@@ -40,36 +40,36 @@ export const HeritageSection = ({ onOpenAppointment }) => {
             
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
               <Award className="w-3.5 h-3.5 text-amber-600" />
-              <span>THE INSTITUTIONAL LEGACY & CHARITABLE TRUST</span>
+              <span>THE TRUST ETHOS &amp; HEALTHCARE PHILOSOPHY</span>
             </div>
 
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-snug sm:leading-tight">
-              A Philanthropic Vision Guiding Ethical Healthcare
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0C2B4E] tracking-tight leading-snug sm:leading-tight">
+              A Total Healthcare Ethos Run Through Our Corridors
             </h2>
 
             <p className="text-xs sm:text-sm lg:text-base text-slate-600 leading-relaxed font-normal">
-              Sir Ganga Ram (1851–1927)—legendary civil engineer, philanthropist, and nation builder—established a charter guided by one enduring principle: <strong>world-class medical care must remain accessible to every segment of society</strong>.
+              <strong className="text-[#0C2B4E]">Brahm Shakti Hospital</strong> was founded under the aegis of <strong className="text-[#0C2B4E]">Brahm Shakti Trust (Regd.)</strong> with an unwavering conviction: <strong>advanced tertiary surgical and medical care must be delivered with compassion at highly affordable, subsidised rates</strong> for every family.
             </p>
 
-            {/* 2 Core Tenets (Philanthropy, Academics) */}
+            {/* 2 Core Tenets (Subsidized High-Tech Care, 24x7 Critical Response) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
               <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 space-y-1.5 sm:space-y-2">
-                <div className="flex items-center gap-2 text-sm font-bold text-[#0B2545]">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#0C2B4E]">
                   <HeartHandshake className="w-4 h-4 text-[#0284C7]" />
-                  <span>20% Free Beds for EWS</span>
+                  <span>Subsidised Fee Mission</span>
                 </div>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Inpatient beds reserved for economically weaker sections with fully subsidized consultations, medicines, and complex surgeries.
+                  High-tech tertiary facilities like Coronary Bypass Surgery, Kidney Transplant &amp; Dialysis, and Joint Replacements provided at highly subsidised rates.
                 </p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 space-y-1.5 sm:space-y-2">
-                <div className="flex items-center gap-2 text-sm font-bold text-[#0B2545]">
-                  <BookOpen className="w-4 h-4 text-[#0284C7]" />
-                  <span>Postgraduate DNB Teaching</span>
+                <div className="flex items-center gap-2 text-sm font-bold text-[#0C2B4E]">
+                  <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
+                  <span>Cashless TPA &amp; Panels</span>
                 </div>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  A premier national academic institution training future clinical leaders across super-specialty medical disciplines.
+                  Empaneled with major health insurance companies, corporate networks, and government panels for smooth cashless admissions.
                 </p>
               </div>
             </div>
@@ -77,12 +77,12 @@ export const HeritageSection = ({ onOpenAppointment }) => {
             {/* Not-for-Profit Governance Note */}
             <div className="p-4 rounded-xl bg-sky-50/60 border border-sky-200/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs">
               <div>
-                <span className="font-bold text-[#0B2545] block">Not-for-Profit Governance</span>
-                <span className="text-slate-600">Surplus hospital earnings are reinvested directly into patient care and clinical technology.</span>
+                <span className="font-bold text-[#0C2B4E] block">Brahm Shakti Trust Commitment</span>
+                <span className="text-slate-600">Surplus resources are continuously reinvested to upgrade diagnostic technology and expand subsidized patient care.</span>
               </div>
               <button
                 onClick={onOpenAppointment}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#0B2545] hover:bg-[#0284C7] text-white font-bold shrink-0 transition-colors text-center active:scale-[0.99]"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#0C2B4E] hover:bg-[#0284C7] text-white font-bold shrink-0 transition-colors text-center active:scale-[0.99]"
               >
                 Book Appointment
               </button>

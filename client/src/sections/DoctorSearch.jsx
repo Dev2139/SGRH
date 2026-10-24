@@ -270,7 +270,7 @@ export const DoctorSearch = forwardRef(({
               </div>
               <div className="text-xs">
                 <span className="text-slate-500 block text-[11px]">Central OPD Desk:</span>
-                <a href="tel:01142251111" className="font-bold text-[#0B2545] hover:text-[#0284C7] text-xs sm:text-sm">011-42251111</a>
+                <a href="tel:01127531683" className="font-bold text-[#0C2B4E] hover:text-[#0284C7] text-xs sm:text-sm">011-27531683</a>
               </div>
             </div>
             <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 sm:hidden">
@@ -357,28 +357,28 @@ export const DoctorSearch = forwardRef(({
         {/* Results Count Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 text-xs text-slate-500 gap-1">
           <div>
-            Showing <strong className="text-[#0B2545] font-bold">{filteredDoctors.length}</strong> senior consultant{filteredDoctors.length === 1 ? '' : 's'}
+            Showing <strong className="text-[#0C2B4E] font-bold">{filteredDoctors.length}</strong> senior consultant{filteredDoctors.length === 1 ? '' : 's'}
           </div>
           <span className="text-[10px] sm:text-[11px] text-slate-400">
-            Sir Ganga Ram Hospital Accredited Faculty
+            Brahm Shakti Hospital Accredited Faculty
           </span>
         </div>
 
         {/* Doctor Cards Container: Mobile Automatic Carousel vs Desktop Grid */}
         {loading ? (
           <div className="py-20 text-center">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#0D7B7B]"></div>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-slate-200 border-t-[#0284C7]"></div>
           </div>
         ) : filteredDoctors.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
             <User className="w-10 h-10 text-slate-300 mx-auto" />
             <h3 className="font-display font-bold text-slate-800 text-lg">No consultants found</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto">
-              Please try clearing your search keyword or call our central OPD desk at <strong>011-42251111</strong>.
+              Please try clearing your search keyword or call our hospital desk at <strong>011-27531683</strong>.
             </p>
             <button
               onClick={handleReset}
-              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl hover:bg-[#0D7B7B] transition-colors"
+              className="mt-3 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0C2B4E] text-white text-xs font-bold rounded-xl hover:bg-[#0284C7] transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Show All Consultants</span>

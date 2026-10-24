@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Compass
 } from 'lucide-react';
+import { hospitalInfo } from '../data/hospitalData';
 
 export const PatientServices = ({
   onAppointmentClick,

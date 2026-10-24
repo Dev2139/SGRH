@@ -82,11 +82,11 @@ export const ContactSection = () => {
                     Brahm Shakti Hospital
                   </h4>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    U1/78, Budh Vihar, New Delhi,<br />
-                    Delhi – 110086, India
+                    Pocket C, Budh Vihar Phase I, Pooth Kurd,<br />
+                    New Delhi, Delhi, 110085
                   </p>
                   <a
-                    href="https://maps.google.com/?q=Brahm+Shakti+Hospital+Budh+Vihar+New+Delhi"
+                    href="https://maps.google.com/?q=Brahm+Shakti+Hospital+Pocket+C+Budh+Vihar+Phase+I+Pooth+Kurd+New+Delhi+Delhi+110085"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0284C7] hover:underline mt-2"

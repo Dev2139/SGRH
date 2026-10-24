@@ -45,7 +45,7 @@ export const Footer = ({
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <span className="text-xs leading-relaxed">
-                  U1/78, Budh Vihar, New Delhi – 110086, India
+                  Pocket C, Budh Vihar Phase I, Pooth Kurd, New Delhi, Delhi, 110085
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -256,7 +256,7 @@ export const Footer = ({
           <div className="text-[11px] sm:text-xs">
             &copy; {new Date().getFullYear()} Brahm Shakti Hospital Trust (Regd.), New Delhi. All rights reserved.
             <span className="block sm:inline sm:ml-2 text-white/40">
-              U1/78, Budh Vihar, New Delhi &middot; Caring for you for Life.
+              Pocket C, Budh Vihar Phase I, Pooth Kurd, New Delhi, Delhi, 110085 &middot; Caring for you for Life.
             </span>
           </div>
 

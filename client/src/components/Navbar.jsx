@@ -114,7 +114,7 @@ export const Navbar = ({
           {/* Right: Minimal Essentials (Location, Lab Reports, Language) */}
           <div className="flex items-center gap-3 sm:gap-5 text-[11px] sm:text-xs">
             <span className="hidden md:inline text-slate-300 font-normal">
-              Budh Vihar, New Delhi
+              Pocket C, Budh Vihar Phase I, Pooth Kurd, New Delhi – 110085
             </span>
 
             <span className="hidden md:inline text-white/20">&middot;</span>

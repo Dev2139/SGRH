@@ -1,7 +1,7 @@
 export const hospitalInfo = {
   name: "Brahm Shakti Hospital",
-  location: "Budh Vihar, New Delhi, Delhi – 110086",
-  address: "U1/78, Budh Vihar, New Delhi, Delhi 110086, India",
+  location: "Pocket C, Budh Vihar Phase I, Pooth Kurd, New Delhi, Delhi, 110085",
+  address: "Pocket C, Budh Vihar Phase I, Pooth Kurd, New Delhi, Delhi, 110085",
   established: "Managed by Brahm Shakti Trust (Regd.)",
   founder: "Brahm Shakti Trust (Regd.)",
   charitableStatus: "250-Bedded Tertiary Healthcare Project by Brahm Shakti Trust (Regd.)",

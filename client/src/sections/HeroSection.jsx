@@ -1,291 +1,196 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  Search,
-  Calendar,
-  ShieldCheck,
-  Award,
-  ArrowRight,
-  PhoneCall,
-  Activity,
-  Ambulance,
-  Heart,
-  Stethoscope,
-  Clock,
-  Sparkles,
-  CheckCircle2,
+  ChevronLeft,
   ChevronRight,
-  FileText
+  Pause,
+  Play,
+  Calendar,
+  Search,
+  PhoneCall,
+  Clock,
+  ShieldCheck,
+  Award
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
+
+const HERO_BANNERS = [
+  {
+    id: 1,
+    image: 'https://res.cloudinary.com/urzka7oz/image/upload/v1792870901/1bb0a89e-42fa-4402-831c-49d18bb2127e.png',
+    alt: 'Brahm Shakti Hospital - Caring for you for Life'
+  },
+  {
+    id: 2,
+    image: 'https://res.cloudinary.com/urzka7oz/image/upload/v1792870901/480ba29b-228e-49c7-b439-65ab3d8ac86d.png',
+    alt: 'Brahm Shakti Hospital - Advanced Tertiary Medical Care'
+  },
+  {
+    id: 3,
+    image: 'https://res.cloudinary.com/urzka7oz/image/upload/v1792870902/ad226d6c-336b-4fe5-b97e-4a6678d88049.png',
+    alt: 'Brahm Shakti Hospital - 250-Bedded Tertiary Healthcare Facility'
+  },
+  {
+    id: 4,
+    image: 'https://res.cloudinary.com/urzka7oz/image/upload/v1792870902/fa23529d-caea-4686-b2a9-2250866cb894.png',
+    alt: 'Brahm Shakti Hospital - 24x7 Emergency and Critical Care'
+  }
+];
 
 export const HeroSection = ({
   onFindDoctorClick,
   onOpenAppointment,
   onOpenEmergency
 }) => {
-  const [activeTabCard, setActiveTabCard] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartXRef = useRef(null);
 
-  // 3 signature feature cards from Brahm Shakti Hospital
-  const BSH_FEATURE_CARDS = [
-    {
-      id: 0,
-      badge: "Trust Ethos",
-      title: "Caring for you for Life",
-      subtitle: "A total healthcare ethos run through the corridors of Brahm Shakti.",
-      description: "250-bedded modern tertiary center managed by Brahm Shakti Trust (Regd.), delivering high-tech surgical and critical care at highly subsidised fees.",
-      icon: Heart,
-      accentColor: "from-sky-500/10 to-transparent border-sky-200",
-      iconColor: "text-[#0284C7] bg-sky-50",
-      ctaText: "Explore Trust Healthcare",
-      action: "heritage"
-    },
-    {
-      id: 1,
-      badge: "Second Opinion",
-      title: "Get a Quote / Second Opinion",
-      subtitle: "Transparent surgery packages, subsidized rates & cashless TPA insurance.",
-      description: "Consult our senior medical faculty for diagnostic review, surgical estimates, or second opinions before major interventions.",
-      icon: FileText,
-      accentColor: "from-amber-500/10 to-transparent border-amber-200",
-      iconColor: "text-amber-700 bg-amber-50",
-      ctaText: "Request Second Opinion",
-      action: "quote"
-    },
-    {
-      id: 2,
-      badge: "Consultants",
-      title: "Find a Doctor & Timings",
-      subtitle: "Consult our experienced senior specialists across 25+ disciplines.",
-      description: "Direct access to OPD schedules for Orthopaedics, Cardiology, Nephrology, General Surgery, Gynaecology, Neuro, and Medicine.",
-      icon: Stethoscope,
-      accentColor: "from-teal-500/10 to-transparent border-teal-200",
-      iconColor: "text-teal-700 bg-teal-50",
-      ctaText: "View Doctor Schedules",
-      action: "doctor"
-    }
-  ];
-
-  // Auto-cycle through the 3 cards gently every 7 seconds
+  // Auto-scrolling timer - advances smoothly every 4 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTabCard((prev) => (prev + 1) % BSH_FEATURE_CARDS.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [BSH_FEATURE_CARDS.length]);
+    if (isPaused) return;
 
-  const handleCardClick = (card) => {
-    setActiveTabCard(card.id);
-    if (card.action === 'quote' || card.action === 'appointment') {
-      onOpenAppointment && onOpenAppointment();
-    } else if (card.action === 'doctor') {
-      onFindDoctorClick && onFindDoctorClick();
-    } else if (card.action === 'heritage') {
-      const el = document.getElementById('heritage');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_BANNERS.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + HERO_BANNERS.length) % HERO_BANNERS.length);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (onFindDoctorClick) {
-      onFindDoctorClick(searchQuery);
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % HERO_BANNERS.length);
+  };
+
+  // Touch Swipe support for mobile
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    if (diff > 40) {
+      handleNext();
+    } else if (diff < -40) {
+      handlePrev();
     }
+    touchStartXRef.current = null;
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-slate-50 via-white to-[#F8FAFC] pt-5 sm:pt-10 pb-12 sm:pb-20 border-b border-slate-200/90 overflow-hidden">
-      
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-sky-100/30 blur-3xl pointer-events-none -z-0"></div>
-      <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full bg-amber-50/40 blur-3xl pointer-events-none -z-0"></div>
-
-      <div className="max-w-page mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
+    <section className="relative bg-[#F8FAFC] pb-6 sm:pb-10 pt-2 sm:pt-4 overflow-hidden">
+      <div className="max-w-page mx-auto px-0 sm:px-4 lg:px-6">
         
-        {/* Main Hero Split Grid: Left Story & Quick Search | Right: Brahm Shakti 3-Card Stack */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column (7 cols): Brahm Shakti Story, Tagline & Direct Actions */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-            
-            {/* Trust Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0C2B4E] bg-sky-50 border border-sky-200 shadow-2xs">
-              <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
-              <span className="truncate">Brahm Shakti Hospital &middot; Budh Vihar, New Delhi</span>
-              <span className="hidden xs:inline-block text-slate-300">&middot;</span>
-              <span className="hidden xs:inline-block text-[#C28B2B]">Brahm Shakti Trust</span>
-            </div>
-
-            {/* Main Headline: Exactly Brahm Shakti's "Caring for you for Life" */}
-            <div className="space-y-2 sm:space-y-3">
-              <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0C2B4E] leading-[1.12] tracking-tight">
-                Caring for you <br className="hidden sm:inline" />
-                <span className="text-[#0284C7] underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-8">
-                  for Life
-                </span>
-              </h1>
-
-              {/* Memorable Ethos Subtitle */}
-              <p className="text-base sm:text-lg font-semibold text-[#0C2B4E]/80 italic pt-1">
-                "A total healthcare ethos run through the corridors of Brahm Shakti"
-              </p>
-
-              {/* Verified Trust Hospital Narrative */}
-              <p className="text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl font-normal pt-1">
-                <strong className="text-[#0C2B4E]">BRAHM SHAKTI HOSPITAL</strong> is a 250-bedded tertiary healthcare project managed by <strong className="text-[#0C2B4E]">Brahm Shakti Trust (Regd.)</strong>. Providing high-tech facilities like Coronary Bypass Surgery, Kidney Care &amp; Dialysis, Ortho Spine, Neurosurgery, and Cancer Care at highly subsidised fees.
-              </p>
-            </div>
-
-            {/* Quick Live Doctor Search Bar right inside Hero */}
-            <form
-              onSubmit={handleSearchSubmit}
-              className="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm max-w-xl flex items-center gap-2 transition-all focus-within:border-[#0284C7] focus-within:ring-2 focus-within:ring-sky-100"
-            >
-              <div className="pl-2.5 text-slate-400">
-                <Search className="w-5 h-5 text-[#0284C7]" />
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search specialist (e.g. Orthopedics, Medicine, Kidney, Surgery)..."
-                className="w-full bg-transparent text-xs sm:text-sm text-[#0C2B4E] placeholder:text-slate-400 focus:outline-none py-1.5"
-              />
-              <button
-                type="submit"
-                className="px-4 sm:px-6 py-2.5 rounded-xl bg-[#0C2B4E] hover:bg-[#0284C7] text-white font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
+        {/* Main Auto-Scrolling Banner Container */}
+        <div
+          className="relative w-full overflow-hidden rounded-none sm:rounded-2xl shadow-elevated border-y sm:border border-slate-200/90 bg-slate-900 group select-none"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Banner Slides Carousel Track */}
+          <div className="relative w-full aspect-[1983/793] max-h-[580px] min-h-[160px] xs:min-h-[200px]">
+            {HERO_BANNERS.map((banner, idx) => (
+              <div
+                key={banner.id}
+                className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
+                  currentIndex === idx ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                }`}
               >
-                Find Doctor
-              </button>
-            </form>
-
-            {/* Primary Action Buttons: Book Consultation & Quote */}
-            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 pt-1">
-              <button
-                onClick={onOpenAppointment}
-                className="px-6 py-3.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 group active:scale-[0.99]"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Book Appointment / Consultation</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button
-                onClick={() => onFindDoctorClick && onFindDoctorClick()}
-                className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-300 font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-              >
-                <Clock className="w-4 h-4 text-slate-500" />
-                <span>OPD Doctor Schedules</span>
-              </button>
-            </div>
-
-            {/* Core Hospital Hallmarks Bar */}
-            <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-slate-600 font-semibold">
-              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>250-Bedded Project</span>
+                <img
+                  src={banner.image}
+                  alt={banner.alt}
+                  className="w-full h-full object-cover sm:object-fill"
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                />
               </div>
-              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Subsidised Fee Ethos</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Brahm Shakti Trust (Regd.)</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[#0C2B4E]">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Budh Vihar, New Delhi</span>
-              </div>
-            </div>
-
+            ))}
           </div>
 
-          {/* Right Column (5 cols): Brahm Shakti Hospital's 3 Signature Feature Cards (Interactive, Modern, Unique) */}
-          <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
-            
-            <div className="flex items-center justify-between px-1">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]"></span>
-                <span className="text-xs font-bold text-[#0C2B4E] uppercase tracking-wider">
-                  Patient Services &amp; Highlights
-                </span>
-              </div>
-              <span className="text-[11px] text-slate-500 font-medium">
-                Brahm Shakti Portals
-              </span>
-            </div>
+          {/* Left Arrow Button */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/70 text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-            {/* Stack of the 3 signature Brahm Shakti Cards */}
-            <div className="space-y-3">
-              {BSH_FEATURE_CARDS.map((card, idx) => {
-                const CardIcon = card.icon;
-                const isActive = activeTabCard === card.id;
+          {/* Right Arrow Button */}
+          <button
+            onClick={handleNext}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/70 text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95"
+            aria-label="Next Slide"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-                return (
-                  <div
-                    key={card.id}
-                    onClick={() => handleCardClick(card)}
-                    className={`cursor-pointer rounded-2xl p-4 sm:p-5 border transition-all duration-300 relative overflow-hidden group ${
-                      isActive
-                        ? 'bg-white shadow-elevated border-[#0284C7] ring-1 ring-[#0284C7]/20 scale-[1.01]'
-                        : 'bg-white/80 hover:bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-sm'
-                    }`}
-                  >
-                    {/* Active Indicator Bar on Left */}
-                    {isActive && (
-                      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#0284C7]"></div>
-                    )}
+          {/* Bottom Indicators & Controls Bar */}
+          <div className="absolute bottom-2 sm:bottom-4 inset-x-0 z-20 flex items-center justify-center gap-2">
+            <div className="bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/20">
+              {HERO_BANNERS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`transition-all duration-300 rounded-full h-2 ${
+                    currentIndex === idx
+                      ? 'w-7 sm:w-8 bg-[#0284C7]'
+                      : 'w-2 sm:w-2.5 bg-white/60 hover:bg-white'
+                  }`}
+                  aria-label={`Jump to slide ${idx + 1}`}
+                />
+              ))}
 
-                    <div className="flex items-start gap-3.5">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${card.iconColor}`}>
-                        <CardIcon className="w-5 h-5" />
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className="font-display font-bold text-sm sm:text-base text-[#0C2B4E] group-hover:text-[#0284C7] transition-colors truncate">
-                            {card.title}
-                          </h3>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
-                            {card.badge}
-                          </span>
-                        </div>
-
-                        <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                          {card.subtitle}
-                        </p>
-
-                        <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0284C7]">
-                          <span className="group-hover:underline">{card.ctaText}</span>
-                          <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Quick Panel List & Insurance Info Pill */}
-            <div className="bg-gradient-to-r from-slate-100 to-sky-50 rounded-xl p-3 border border-slate-200 flex items-center justify-between text-xs text-slate-700">
-              <span className="font-semibold flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
-                Cashless Insurance &amp; Panel Empanelment
-              </span>
+              {/* Play/Pause subtle indicator */}
               <button
-                onClick={() => {
-                  const el = document.getElementById('patient-services');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="font-bold text-[#0284C7] hover:underline shrink-0"
+                onClick={() => setIsPaused(!isPaused)}
+                className="ml-1 text-white/80 hover:text-white transition-colors"
+                title={isPaused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
+                aria-label={isPaused ? 'Play' : 'Pause'}
               >
-                View Panels &rarr;
+                {isPaused ? <Play className="w-3 h-3 text-emerald-400" /> : <Pause className="w-3 h-3 text-white/70" />}
               </button>
             </div>
-
           </div>
+        </div>
 
+        {/* Quick Action Navigation Bar directly beneath the Carousel */}
+        <div className="mt-3 sm:mt-5 px-3 sm:px-0 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+          <button
+            onClick={onOpenAppointment}
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow active:scale-[0.98]"
+          >
+            <Calendar className="w-4 h-4 shrink-0" />
+            <span className="truncate">Book Appointment</span>
+          </button>
+
+          <button
+            onClick={() => onFindDoctorClick && onFindDoctorClick()}
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
+          >
+            <Search className="w-4 h-4 text-[#0284C7] shrink-0" />
+            <span className="truncate">Find a Doctor</span>
+          </button>
+
+          <button
+            onClick={() => onFindDoctorClick && onFindDoctorClick()}
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 text-[#0C2B4E] border border-slate-200/90 font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs hover:shadow-xs active:scale-[0.98]"
+          >
+            <Clock className="w-4 h-4 text-[#0284C7] shrink-0" />
+            <span className="truncate">Doctor Schedules</span>
+          </button>
+
+          <button
+            onClick={onOpenEmergency}
+            className="flex items-center justify-center gap-2 py-3 px-3 sm:px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow active:scale-[0.98]"
+          >
+            <PhoneCall className="w-4 h-4 shrink-0" />
+            <span className="truncate">Emergency 24x7</span>
+          </button>
         </div>
 
       </div>
